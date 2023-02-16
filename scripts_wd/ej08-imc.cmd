@@ -1,7 +1,7 @@
 echo off
 REM *******************************************************
-REM NOMBRE: ej07-compara.cmd
-REM OBJETIVO: Comparar dos numeros
+REM NOMBRE: ej08-imc.cmd
+REM OBJETIVO: Calcular en indice de masa corporal
 REM AUTOR: Alejandro Hdez <alejandrohd1@live.com>
 REM
 REM ENTRADAS: 2
