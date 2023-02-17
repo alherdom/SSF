@@ -3,7 +3,7 @@
 #
 # NOMBRE: ej11-calculadora.sh
 # OBJETIVO: Uso de un menu para realizar operaciones
-# AUTOR: Alejandro Hdez <alejandrohd1@live.com>
+# AUTOR: Javier García <javigh1903@movistar.es> Alejandro Hdez <alejandrohd1@live.com>
 #
 # ARGUMENTOS: total=2, 1-primer operando, 2-segundo operando
 # SALIDAS: Resultado de la operación escogida desde un menú
