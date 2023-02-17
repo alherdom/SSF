@@ -12,7 +12,7 @@ REM FECHA: 17/02/2023
 REM VERSION: 1.0
 REM
 REM ********************************************************
-
+title Creando Usuario
 echo Bienvenido %1
 echo Tu datos son: %1 %2
 echo Vamor a crear tu usuario %3

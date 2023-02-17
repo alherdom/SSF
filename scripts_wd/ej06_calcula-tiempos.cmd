@@ -12,7 +12,7 @@ REM FECHA: 17/02/2023
 REM VERSION: 1.0
 REM
 REM ********************************************************
-title calcula_tiempos
+title Calculando Tiempos
 set/A dias = %1 / 86400
 set/A rest_dias = %1 - (%dias% * 86400)
 set/A horas = %rest_dias% / 3600

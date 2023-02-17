@@ -12,6 +12,7 @@ REM FECHA: 17/02/2023
 REM VERSION: 1.0
 REM
 REM ********************************************************
+title Pintando Rectangulos
 set base=%1%
 set altura=%2%
 

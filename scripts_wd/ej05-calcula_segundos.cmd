@@ -12,7 +12,7 @@ REM FECHA: 17/02/2023
 REM VERSION: 1.0
 REM
 REM ********************************************************
-title calcula_segundos
+title Calculando Segundos
 set/A dias_seg = %1 * 86400 
 set/A horas_seg =%2 * 3600
 set/A min_seg = %3 * 60

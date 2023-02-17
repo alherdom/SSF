@@ -1,6 +1,5 @@
 @echo off
 setlocal EnableDelayedExpansion
-(setlocal && cls && echo.)
 REM *******************************************************
 REM NOMBRE: ej14-pares.cmd
 REM OBJETIVO: Mediante bucles imprimir pares
@@ -14,31 +13,30 @@ REM FECHA: 17/02/2023
 REM VERSION: 1.0
 REM
 REM ********************************************************
-set num1=%1%
-set num2=%2%
+set num1=%1
+set num2=%2
 
 if "%num1%" == "" (
 	set /p "num1= Introduzca el primer numero: "
-					)
+)
 
 if "%num2%" == "" (
-	set /p "num2= Introduzca el primer numero: "
-					)
+	set /p "num2= Introduzca el segundo numero: "
+)
 
 if %num1% gtr %num2% (
-	for /L %%i in (%num1%,-1,%num2%) do (
-	set /a par=%%i %%2
-	if "!par!"=="0" (echo %%i es par y su cuadrado es %%i * %%i)
-	)
-	) else (
-	if %num1% lss %num2% (
-	for /L %%i in (%num1%,1,%num2%) do (
-	set /a par=%%i %%2
-	if "!par!"=="0" (echo %%i es par y su cuadrado es %%i * %%i)
-	)
-	) else (
-	echo %num1% y %num2% son iguales )	
-     	  )
-
-
-(pause && endlocal)
+	(for /l %%i in (%num1%,-1,%num2%) do ( 
+		set /a par=%%i %%2
+		if !par! equ 0 (
+			set /a sqr=%%i * %%i
+			echo "%%i es par y su cuadrado es !sqr!"
+		)
+)))
+if %num1% lss %num2% (
+	(for /l %%i in (%num1%,1,%num2%) do ( 
+		set /a par=%%i %%2
+		if !par! equ 0 (
+			set /a sqr=%%i * %%i
+			echo "%%i es par y su cuadrado es !sqr!"
+		)
+)))
