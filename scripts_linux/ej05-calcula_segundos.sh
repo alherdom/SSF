@@ -12,18 +12,19 @@
 # VERSIONES: 1.0 (codigo inicial)
 # FECHA: 15/02/2023
 ##############################################################################
-
-dias=$1
-horas=$2
-minutos=$3
-segundos=$4
-if [ $# -lt 4 ]
-    then
-        echo "Error: No se han introducido los argumentos mínimos para realizar la conversión, introduzca DIAS HORAS MIN SEG"
+if [ $# -ne 4 ]
+then
+    echo "Error: cantidad incorrecta de parámetros"
+    read -p "Indicar días, horas, minutos, segundos: " dias horas minutos segundos
 else
+	dias=$1
+	horas=$2
+	minutos=$3
+	segundos=$4
+fi
 	dtos=$(($dias * 86400))
 	htos=$(($horas * 3600))
 	mtos=$(($minutos * 60))
 	total=$(($dtos +  $htos + $mtos + $segundos))
 	echo "Los $dias $horas $minutos más $segundos hacen un total de $total segundos"
-fi
+
