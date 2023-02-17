@@ -11,7 +11,7 @@ REM COMENTARIOS:
 REM VERSION: 1.0 (2023-01-27)
 REM
 REM ********************************************************
-title Colculando
+title Calculando
 set num1=%1%
 set num2=%2%
 
