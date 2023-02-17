@@ -12,8 +12,8 @@ REM VERSION: 1.0 (2023-01-27)
 REM
 REM ********************************************************
 title Calculando
-set num1=%1%
-set num2=%2%
+set num1=%1
+set num2=%2
 
 if "%num1%" == "" (
 	set /p "num1= Introduce el primer numero: "
