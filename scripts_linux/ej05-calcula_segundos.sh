@@ -27,4 +27,3 @@ fi
 	mtos=$(($minutos * 60))
 	total=$(($dtos +  $htos + $mtos + $segundos))
 	echo "Los $dias $horas $minutos más $segundos hacen un total de $total segundos"
-
