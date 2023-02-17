@@ -33,6 +33,7 @@ done
 echo "Array construido (${#datos[@]} elementos): ${datos[@]}"
 # Calculo de MIN, MAX y MEDIA:
 sum=0
+max=$datos[0]
 min=$datos[0]
 for dato in ${datos[@]}
 do
@@ -40,7 +41,7 @@ do
   if [[ $dato < $min  ]]
   then
       min=$dato
-  else
+  elif [[ $dato > $max  ]]
       max=$dato
   fi
 done
