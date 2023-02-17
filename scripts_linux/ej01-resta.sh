@@ -3,23 +3,23 @@
 #
 # NOMBRE: ej01-resta.sh
 # OBJETIVO: Restar dos números.
-# AUTOR: Alejandro Hdez <alejandrohd1@live.com>
+# AUTOR: Javier García <javigh1903@movistar.es> Alejandro Hdez <alejandrohd1@live.com>
 #
-# ARGUMENTOS: total=2, num1=12, num2=8
+# ARGUMENTOS: total=2, 1: minuendo, 2: sustraendo
 # SALIDAS: Obtenemos la resta de los argumentos
 #
 # FECHA:24/01/2023 
 # VERSIONES: 1.0 (codigo inicial)
 #
 ############################################################################
-
-num1=$1
-num2=$2
-# control de argumentos
-if [ $# -lt 1 ]
-    then
-        echo "Error: No se ha introducido ningun argumento"
+if [ $# -eq 0 ] 
+then
+	echo "Error: Faltan los argumentos para la operación"
+	read -p "Introduzca el minuendo: " minuendo
+	read -p "Introduzca el sustraendo: " sustraendo
 else
-resta=$(echo "$1 - $2" | bc)
-echo "El resultado de la operación $1 - $2 = $resta"
+	minuendo=$1
+	sustraendo=$2
 fi
+resultado=$(bc<<<$minuendo-$sustraendo)
+echo "El resultado de la operación es: "$minuendo" - "$sustraendo" = "$resultado" "
