@@ -8,9 +8,9 @@
 # ARGUMENTOS: total=4, 1=dias, 2=horas, 3=minutos, 4=segundos
 # SALIDAS: Devolverá el total de segundos del tiempo indicado 
 #
-#
+# FECHA: 17/02/2023
 # VERSIONES: 1.0 (codigo inicial)
-# FECHA: 15/02/2023
+# 
 ##############################################################################
 if [ $# -ne 4 ]
 then
