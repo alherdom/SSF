@@ -3,7 +3,7 @@
 #
 # NOMBRE: ej06-calcula_tiempos.sh
 # OBJETIVO: Calcular todos los DIAS HORAS MINUTOS y SEGUNDOS de determinados segundos
-# AUTOR: Alejandro Hdez <alejandrohd1@live.com>
+# AUTOR: Javier García <javigh1903@movistar.es> Alejandro Hdez <alejandrohd1@live.com>
 #
 # ARGUMENTOS: total=1
 # SALIDAS: Devolverá el total de tiempo indicado en Dias Horas Mins Segs
@@ -17,6 +17,7 @@ then
     echo "Error: cantidad incorrecta de parámetros"
     echo "Indicar los segundos"
 else
+    seg=$1
 	dias=$(($seg / 86400))
 	rest_dias=$(($seg - $dias * 86400))
 	horas=$(($rest_dias / 3600))
