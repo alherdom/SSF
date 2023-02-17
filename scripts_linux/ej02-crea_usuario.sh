@@ -21,7 +21,7 @@ usuario=$3
 if [ $# -ne 3 ]
     then
         echo "Error: No se ha introducido ningun argumento"
-	    echo "Indique nombre, apellido, usuario"
+		echo "Indique nombre, apellido, usuario"
 
 else
 	echo "Bienvenido, $nombre"
