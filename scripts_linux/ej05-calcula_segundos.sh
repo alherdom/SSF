@@ -3,7 +3,7 @@
 #
 # NOMBRE: ej05-calcula_segundos.sh
 # OBJETIVO: Calcular todos los segundos de DIAS HORAS MINUTOS determinados
-# AUTOR: Alejandro Hdez <alejandrohd1@live.com>
+# AUTOR: Javier García <javigh1903@movistar.es> Alejandro Hdez <alejandrohd1@live.com>
 #
 # ARGUMENTOS: total=4, 1=dias, 2=horas, 3=minutos, 4=segundos
 # SALIDAS: Devolverá el total de segundos del tiempo indicado 
