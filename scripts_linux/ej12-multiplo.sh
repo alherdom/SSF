@@ -12,17 +12,20 @@
 # VERSIONES: 1.0 (codigo inicial)
 #
 ############################################################################
+if [ $# -eq 0 ]
+then
+echo "No se han indicado números para comparar"
+exit
+fi
+read -p "Introduzca el número del que desea buscar sus múltiplos: " multiplo
 
-
-read -p "Teclee el multiplo sobre el que comprobar los argumentos: " multiplo
-
-for i in "$@"
+for i in $@
 do
-	if [[ $(($i % $multiplo)) == 0 ]]	
-	then
-	    echo "$i SÍ es multiplo de $multiplo"
-	else
-	    echo "$i NO es multiplo de $multiplo"
-	fi
+  if [[ $(($i % $multiplo)) == 0 ]]	
+  then
+      echo "$i SÍ es multiplo de $multiplo"
+  else
+      echo "$i NO es multiplo de $multiplo"
+  fi
 done
 
