@@ -3,7 +3,7 @@
 #
 # NOMBRE: ej03-gradosC2F.sh
 # OBJETIVO: Convertir grados celcius a fahrenheit
-# AUTOR: Alejandro Hdez <alejandrohd1@live.com>
+# AUTOR: Javier García <javigh1903@movistar.es> Alejandro Hdez <alejandrohd1@live.com>
 #
 # ARGUMENTOS: total=1
 # SALIDAS: Se convierte grados Celsius a grados Fahrenheit
