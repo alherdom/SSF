@@ -2,13 +2,14 @@ echo off
 REM *******************************************************
 REM NOMBRE: ej11-calculadora.cmd
 REM OBJETIVO: Selecionar los calculos que se desean realizar
-REM AUTOR: Alejandro Hdez <alejandrohd1@live.com>
+REM AUTOR: Alejandro Hdez <alejandrohd1@live.com> Javier García <javigh1903@movistar.es>
 REM
 REM ENTRADAS: 2
 REM SALIDAS: 7
 REM
 REM COMENTARIOS:
-REM VERSION: 1.0 (2023-01-27)
+REM FECHA: 17/02/2023
+REM VERSION: 1.0
 REM
 REM ********************************************************
 title Calculando

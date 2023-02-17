@@ -4,13 +4,14 @@ setlocal EnableDelayedExpansion
 REM *******************************************************
 REM NOMBRE: ej14-pares.cmd
 REM OBJETIVO: Mediante bucles imprimir pares
-REM AUTOR: Alejandro Hdez <alejandrohd1@live.com>
+REM AUTOR: Alejandro Hdez <alejandrohd1@live.com> Javier García <javigh1903@movistar.es>
 REM
 REM ENTRADAS: 2
 REM SALIDAS: 
 REM
 REM COMENTARIOS:
-REM VERSION: 1.0 (2023-01-27)
+REM FECHA: 17/02/2023
+REM VERSION: 1.0
 REM
 REM ********************************************************
 set num1=%1%

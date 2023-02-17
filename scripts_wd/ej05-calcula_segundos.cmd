@@ -2,13 +2,14 @@ echo off
 REM *******************************************************
 REM NOMBRE: ej05-calcula_segundos.cmd
 REM OBJETIVO: Cantidad de segundos en DIAS HORAS y MINUTOS
-REM AUTOR: Alejandro Hdez <alejandrohd1@live.com>
+REM AUTOR: Alejandro Hdez <alejandrohd1@live.com> Javier García <javigh1903@movistar.es>
 REM
 REM ENTRADAS: 4
 REM SALIDAS: 1
 REM
 REM COMENTARIOS:
-REM VERSION: 1.0 (2023-01-27)
+REM FECHA: 17/02/2023
+REM VERSION: 1.0
 REM
 REM ********************************************************
 title calcula_segundos

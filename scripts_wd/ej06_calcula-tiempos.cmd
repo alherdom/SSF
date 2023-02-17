@@ -2,13 +2,14 @@ echo off
 REM *******************************************************
 REM NOMBRE: ej06-calcula_tiempos.cmd
 REM OBJETIVO: Cantidad de DIAS HORAS y MINUTOS en determinados segundos
-REM AUTOR: Alejandro Hdez <alejandrohd1@live.com>
+REM AUTOR: Alejandro Hdez <alejandrohd1@live.com> Javier García <javigh1903@movistar.es>
 REM
 REM ENTRADAS: 1
 REM SALIDAS: 4
 REM
 REM COMENTARIOS:
-REM VERSION: 1.0 (2023-01-27)
+REM FECHA: 17/02/2023
+REM VERSION: 1.0
 REM
 REM ********************************************************
 title calcula_tiempos
