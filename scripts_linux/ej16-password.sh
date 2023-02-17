@@ -8,7 +8,7 @@
 # ARGUMENTOS: 
 # SALIDAS: Devolverá si la contraseña es correcta o incorrecta hasta acertar
 #
-# FECHA:24/01/2023 
+# FECHA: 17/02/2023 
 # VERSIONES: 1.0 (codigo inicial)
 #
 ############################################################################
