@@ -9,7 +9,7 @@
 # SALIDAS: información sobe la ruta (si existe, tipo, permisos, etc.)
 #
 # FECHA: 17/01/2023 
-# VERSIOBES: 1.0 (codigo inicial)
+# VERSIONES: 1.0 (codigo inicial)
 #
 ##############################################################################
 ruta=$1
