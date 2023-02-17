@@ -12,15 +12,13 @@
 # VERSIONES: 1.0 (codigo inicial)
 #
 ##############################################################################
-celsius=$1
 if [ $# -lt 1 ]
     then
         echo "Error: No se ha introducido ningun argumento"
-	read -p "Introduce el valor de los grados Celsius: " celsius
-	fahrenheit=$(echo "$celsius *1.8 + 32" | bc)
-	echo "Los grados Celsius $celciusconvertidos a grados Fahrenheit son $fahrenheit"
+		read -p "Introduce el valor de los grados Celsius: " celsius
 else
-# Vamos a hacer los calculos solo con enteros
+	celsius=$1
+fi
 fahrenheit=$(echo "$celsius *1.8 + 32" | bc)
 echo "Los grados Celsius$celcius convertidos a grados Fahrenheit son $fahrenheit"
-fi
+
