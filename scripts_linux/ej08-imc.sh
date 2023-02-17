@@ -15,31 +15,28 @@
 peso=$1
 altura=$2
 
-#imc=$(bc <<< "scale=2; ( $peso * 10000 ) / ( $altura * $altura )")
-imc=$(( ($peso * 10000)  /  ($altura * $altura)))
-
+imc100=$(bc <<< "scale=0; ( $peso * 1000000 ) / ( $altura * $altura )")
+imc=$(bc <<< "scale=2; ( $peso * 10000 ) / ( $altura * $altura )")
+         
 echo "Su indice de masa corporal es: $imc"
-
-if [ $imc -lt 16  ]
-   then
-	echo "Delgadez severa."
-elif [ $imc -ge 16 ] && [ $imc -lt 17 ]
-   then
-	echo "Delgadez moderada."
-elif [ $imc -ge 17 ] && [ $imc -lt 19 ]
+ 
+if [ $imc100 -lt 1600  ]
     then
-         echo "Delgadez leve."
-elif [ $imc -ge 19 ] && [ $imc -lt 25 ]
+         echo "Delgadez severa."
+elif [ $imc100 -ge 1600 ] && [ $imc100 -le 1699 ]
     then
-         echo "Normal."
-elif [ $imc -ge 25 ] && [ $imc -lt 30 ]
-    then
-         echo "Preobesidad."
-elif [ $imc -ge 30 ]
-    then
-         echo "Obesidad."
+         echo "Delgadez moderada."
+elif [ $imc100 -ge 1700 ] && [ $imc100 -le 1849 ]
+     then
+        echo "Delgadez leve."
+elif [ $imc100 -ge 1850 ] && [ $imc100 -le 2499 ]
+     then
+        echo "Normal."
+elif [ $imc100 -ge 2500 ] && [ $imc100 -le 2999 ]
+     then
+          echo "Preobesidad."
+elif [ $imc100 -ge 3000 ]
+     then
+          echo "Obesidad."
 fi
-
-
-
 
