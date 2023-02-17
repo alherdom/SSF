@@ -3,23 +3,23 @@
 #
 # NOMBRE: ej04-dia_semana.sh
 # OBJETIVO: Mostrar el día de semana de una fecha determinada
-# AUTOR: Alejandro Hdez <alejandrohd1@live.com>
+# AUTOR: Javier García <javigh1903@movistar.es> Alejandro Hdez <alejandrohd1@live.com>
 #
 # ARGUMENTOS: total=3, 1=dia, 2=mes, 3=año
 # SALIDAS: Devuelve el dia de la semana en función de la fecha
 #
-#
+# FECHA: 17/02/2023
 # VERSIONES: 1.0 (codigo inicial)
-# FECHA: 10/02/2023
+#
 ##############################################################################
-
-anio=$3
-mes=$2
-dia=$1
-if [ $# -lt 3 ]
-    then
-        echo "Error: No se ha introducido los argumentos necesarios, introduzca día DD mes MM y año AA"
+if [ $# -ne 3 ]
+then
+    echo "Error: cantidad de parámetros incorrecta"
+    echo "Indicar día, mes, año"
 else
-dia_sem=$(date -d $anio-$mes-$dia +"%A")
-echo "El dia de la semana de la fecha indicada ($anio/$mes/$dia) fue $dia_sem"
+    dia=$1
+    mes=$2
+    anyo=$3
+    nombre=$(date -d $anyo-$mes-$dia +"%A")
+    echo "El $dia/$mes/$anyo fue $nombre"
 fi
