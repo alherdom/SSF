@@ -32,10 +32,10 @@ do
   then
       while [[ $cambio_total -ge $billete  ]]
       do
-        cantidad=1
+        cantidad+=1
       	cambio_total=$((cambio_total-billete))
-      	echo "$cantidad billete(s) de $billete euro(s)"
       done
+  echo "$cantidad billete(s) de $billete euro(s)"
   fi
 done
 
