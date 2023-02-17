@@ -12,17 +12,13 @@
 # VERSIONES: 1.0 (codigo inicial)
 #
 ##############################################################################
-
 nombre=$1
 apellidos=$2
 usuario=$3
-# control de argumentos
-
 if [ $# -ne 3 ]
     then
         echo "Error: No se ha introducido ningun argumento"
 		echo "Indique nombre, apellido, usuario"
-
 else
 	echo "Bienvenido, $nombre"
 	echo "Tus datos son: $nombre $apellidos "
