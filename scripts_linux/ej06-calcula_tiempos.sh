@@ -12,11 +12,10 @@
 # VERSIONES: 1.0 (codigo inicial)
 # FECHA: 15/02/2023
 ##############################################################################
-
-seg=$1
-if [ $# -lt 1 ]
-    then
-        echo "Error: No se han introducido los segundos para realizar la conversión."
+if [ $# -ne 1 ]
+then
+    echo "Error: cantidad incorrecta de parámetros"
+    echo "Indicar los segundos"
 else
 	dias=$(($seg / 86400))
 	rest_dias=$(($seg - $dias * 86400))
