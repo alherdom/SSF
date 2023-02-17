@@ -5,45 +5,66 @@
 # OBJETIVO: Uso de un menu para realizar operaciones
 # AUTOR: Alejandro Hdez <alejandrohd1@live.com>
 #
-# ARGUMENTOS: total=2, num1 y num2
-# SALIDAS: El calculo selecionado
+# ARGUMENTOS: total=2, 1-primer operando, 2-segundo operando
+# SALIDAS: Resultado de la operación escogida desde un menú
 #
-# FECHA:24/01/2023 
+# FECHA: 17/02/2023 
 # VERSIONES: 1.0 (codigo inicial)
 #
 ############################################################################
-
-num1=$1
-num2=$2
-
-if [ $# -lt 2 ]
-	then
-        echo "Error: No se ha introducido los argumentos, introduzca num1 y num2"
-        read -p "Introduce num1: " num1
-	read -p "Introduce num2: " num2
+if [ $# -eq 0 ]
+then
+read -p "Introduzca el primer operando: " operando1
+read -p "Introduzca el segundo operando: " operando2
+elif [ $# -eq 1 ]
+then
+operando1=$1
+read -p "Introduzca el segundo operando: " operando2
+else
+operando1=$1
+operando2=$2
 fi
-PS3="Selecciona alguna de la opciones:"
 
-opciones=("Suma" "Resta" "División" "Multiplicación" "Módulo" "Potencia" "Salir")
+echo ""
+echo "+++++++++++++++++++"
+echo "+                 +"
+echo "+   Calculadora   +"
+echo "+                 +"
+echo "+++++++++++++++++++" 
+echo ""
 
-select opcion in "${opciones[@]}"
-do
- case $opcion in
-	Suma) echo "El resultado  $num1 + $num2 es $((num1 + num2))"
-	;;        
-	Resta) echo "El resultado  $num1 - $num2 es $((num1 - num2))"
-        ;;
-	División) echo "El resultado  $num1 / $num2 es $((num1 / num2))"
-        ;;
-	Multiplicación)  echo "El resultado  $num1 * $num2 es $((num1 * num2))"
+echo "1: suma"
+echo "2: resta"
+echo "3: multiplicación"
+echo "4: división"
+echo "5: exponenciación"
+echo "6: resto_división"
+
+read -p "Indica la opción: " opcion
+
+case $opcion in 
+	1|suma) echo $((operando1 + operando2))
+	;; 
+	2|resta) echo $((operando1 - operando2))
 	;;
-	Módulo) echo "El resultado $num1 % $num2 es $((num1 % num2))"
+	3|multiplicación) echo $((operando1 * operando2))
 	;;
-	Potencia) echo "El resultado $num1 ** $num2 es $((num1 ** num2))"
+	4|división) if [ $operando2 -eq 0 ]
+                then
+                echo "División por 0, error"
+                else
+                echo $((operando1 / operando2))
+                fi
+	;; 
+	5|exponenciación) echo $((operando1 ** operando2))
 	;;
-	Salir) break
+	6|resto_división) if [ $operando2 -eq 0 ]
+                      then
+                      echo "División por 0, error"
+                      else
+                      echo $((operando1 % operando2))
+                      fi
 	;;
-	*) echo "Error, selecione una opcion correcta"
+	*) echo "$opcion no es un valor válido"
+	;;
 esac
-done
-
