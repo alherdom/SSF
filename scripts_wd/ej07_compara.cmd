@@ -12,23 +12,9 @@ REM VERSION: 1.0 (2023-01-27)
 REM
 REM ********************************************************
 title Comparando
-set num1=%1%
-set num2=%2%
+if "%1"=="" ( set /p num1="Introduzca el primer numero:" ) else ( set num1=%1 )
+if "%2"=="" ( set /p num2="Introduzca el segundo numero: " ) else ( set num2=%2 )
 
-if "%num1%" == "" (
-	set /p "num1= Introduzca el primer numero: "
-					)
-
-if not defined num2 (
-	set /p "num2= Introduzca el segundo numero: "
-					)
-
-if %num1% gtr %num2% (
-	echo %num1% es mayor que %num2%
-	) else (
-	if %num1% lss %num2% (
-	echo %num2% es mayor que %num1%
-	) else (
-	echo %num1% y %num2% son iguales )	
-     	  )
-	
+if %num1% GTR %num2% ( echo %num1% es mayor que %num2% )
+if %num1% LSS %num2% ( echo %num1% es menor que %num2% )
+if %num1% EQU %num2% ( echo %num1% es igual que %num2% )
