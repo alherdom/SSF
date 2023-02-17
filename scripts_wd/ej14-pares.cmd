@@ -1,10 +1,12 @@
-echo off
+@echo off
+setlocal EnableDelayedExpansion
+(setlocal && cls && echo.)
 REM *******************************************************
-REM NOMBRE: ej12-multiplo.cmd
-REM OBJETIVO: Mediante un bucle verficar si los argumentos son multiplos
+REM NOMBRE: ej14-pares.cmd
+REM OBJETIVO: Mediante bucles imprimir pares
 REM AUTOR: Alejandro Hdez <alejandrohd1@live.com>
 REM
-REM ENTRADAS: 1
+REM ENTRADAS: 2
 REM SALIDAS: 
 REM
 REM COMENTARIOS:
@@ -18,16 +20,24 @@ if "%num1%" == "" (
 	set /p "num1= Introduzca el primer numero: "
 					)
 
-if not defined num2 (
-	set /p "num2= Introduzca el segundo numero: "
+if "%num2%" == "" (
+	set /p "num2= Introduzca el primer numero: "
 					)
-					
-for /L %%i in (%num1%,1,%num2%) do (
-set /a par=%%i %%2
-if "!par!"=="0" (echo %%i es par y su cuadrado es)
-)
 
-set/A pot=1
-for /l %%_ in (1,1,%num2%) do (set /A pot*=%num1%)
-echo %num1% elevado a %num2% es igual a %pot%
+if %num1% gtr %num2% (
+	for /L %%i in (%num1%,-1,%num2%) do (
+	set /a par=%%i %%2
+	if "!par!"=="0" (echo %%i es par y su cuadrado es %%i * %%i)
+	)
+	) else (
+	if %num1% lss %num2% (
+	for /L %%i in (%num1%,1,%num2%) do (
+	set /a par=%%i %%2
+	if "!par!"=="0" (echo %%i es par y su cuadrado es %%i * %%i)
+	)
+	) else (
+	echo %num1% y %num2% son iguales )	
+     	  )
 
+
+(pause && endlocal)
