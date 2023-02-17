@@ -12,7 +12,7 @@
 # VERSIONES: 1.0 (codigo inicial)
 #
 ##############################################################################
-if [ $# -lt 1 ]
+if [ $# -ne 1 ]
     then
         echo "Error: No se ha introducido ningun argumento"
 		read -p "Introduce el valor de los grados Celsius: " celsius
