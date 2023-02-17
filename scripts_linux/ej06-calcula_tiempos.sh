@@ -8,9 +8,9 @@
 # ARGUMENTOS: total=1
 # SALIDAS: Devolverá el total de tiempo indicado en Dias Horas Mins Segs
 #
-#
+# FECHA: 17/02/2023
 # VERSIONES: 1.0 (codigo inicial)
-# FECHA: 15/02/2023
+# 
 ##############################################################################
 if [ $# -ne 1 ]
 then
