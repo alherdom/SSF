@@ -3,40 +3,39 @@
 #
 # NOMBRE: ej19-calcula_cambio.sh
 # OBJETIVO: Uso de array para calcular el cambio en un proceso de venta
-# AUTOR: Alejandro Hdez <alejandrohd1@live.com>
+# AUTOR: Javier García <javigh1903@movistar.es> Alejandro Hdez <alejandrohd1@live.com>
 #
 # ARGUMENTOS: 
-# SALIDAS: Salida del cambio correspondiente
+# SALIDAS: Cuantos billetes de cada tipo hay que devolver
 # 
-# FECHA:24/01/2023 
+# FECHA: 17/02/2023 
 # VERSIONES: 1.0 (codigo inicial)
 #
 ############################################################################
-billetes=(500 200 100 50 20 10 5 2 1)
+if [ $# -eq 0 ]
+then
+    echo "Se debe indicar el precio del artículo."
+    exit
+fi
 precio=$1
+billetes=(500 200 100 50 20 10 5 2 1)
 
-if [ $# -lt 1 ]
-   then
-       echo "No se ha introducido el precio del artículo"
-       exit 1
+read -p "Introduzca la cantidad pagada: " pagado
+if [ $pagado -lt $precio ]
+then
+    echo "Cantidad insuficiente."
+    exit
 fi
 
-read -p "Indique el dinero pagado: " pago
-echo "Se ha comprado un artículo de $precio euros y ha pagado $pago euros"
-cambio_total=$((pago - precio))
-echo "El cambio son $cambio_total euros, debe entregar:"
-
+resto=$(( pagado - precio ))
+echo "Se ha comprado un producto de $precio€ con $pagado€."
+echo "El cambio son $resto€, debe entregar:"
 for billete in ${billetes[@]}
 do
-  if [[ $billete -le $cambio_total ]]
-  then
-    cantidad=0  
-    while [[ $cambio_total -ge $billete  ]]
-    do
-      cantidad=$((cantidad + 1))
-      cambio_total=$((cambio_total-billete))
-    done
-  echo "$cantidad billete(s) de $billete euro(s)"
-  fi
+    cantidad=$(( resto / billete ))
+    resto=$(( resto % billete ))
+    if [ $cantidad -ne 0 ]
+    then
+        echo "$cantidad billete(s) de $billete€"
+    fi
 done
-
