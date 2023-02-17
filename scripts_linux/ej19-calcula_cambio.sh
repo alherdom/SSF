@@ -30,11 +30,12 @@ for billete in ${billetes[@]}
 do
   if [[ $billete -le $cambio_total ]]
   then
-      while [[ $cambio_total -ge $billete  ]]
-      do
-        cantidad+=1
-      	cambio_total=$((cambio_total-billete))
-      done
+    cantidad=0  
+    while [[ $cambio_total -ge $billete  ]]
+    do
+      cantidad=$((cantidad + 1))
+      cambio_total=$((cambio_total-billete))
+    done
   echo "$cantidad billete(s) de $billete euro(s)"
   fi
 done
