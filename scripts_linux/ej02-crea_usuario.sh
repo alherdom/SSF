@@ -3,7 +3,7 @@
 #
 # NOMBRE: ej02-crea_usuario.sh
 # OBJETIVO: Imprimir por pantalla un mensaje
-# AUTOR: Alejandro Hdez <alejandrohd1@live.com>
+# AUTOR: Javier García <javigh1903@movistar.es> Alejandro Hdez <alejandrohd1@live.com>
 #
 # ARGUMENTOS: total=3, 1=nombre, 2=apellido, 3=usuario
 # SALIDAS: Se imprime en pantalla el mensaje 
@@ -17,9 +17,12 @@ nombre=$1
 apellidos=$2
 usuario=$3
 # control de argumentos
-if [ $# -lt 1 ]
+
+if [ $# -ne 3 ]
     then
         echo "Error: No se ha introducido ningun argumento"
+	    echo "Indique nombre, apellido, usuario"
+
 else
 	echo "Bienvenido, $nombre"
 	echo "Tus datos son: $nombre $apellidos "
