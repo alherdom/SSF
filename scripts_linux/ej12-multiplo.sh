@@ -3,7 +3,7 @@
 #
 # NOMBRE: ej12-multiplo.sh
 # OBJETIVO: Bucle para recorrer argumentos y comprobar si es multiplo de un numero
-# AUTOR: Alejandro Hdez <alejandrohd1@live.com>
+# AUTOR: Javier García <javigh1903@movistar.es> Alejandro Hdez <alejandrohd1@live.com>
 #
 # ARGUMENTOS: 
 # SALIDAS: Se verfica cada argumento si es multiplo
