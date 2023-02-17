@@ -2,45 +2,47 @@
 ############################################################################
 #
 # NOMBRE: ej14-pares.sh
-# OBJETIVO: Usar bucle para recorrer un intervalo y realizar calcs y comprobaciones
-# AUTOR: Alejandro Hdez <alejandrohd1@live.com>
+# OBJETIVO: Bucle para recorrer un intervalo y realizar calcs y comprobaciones
+# AUTOR: Javier García <javigh1903@movistar.es> Alejandro Hdez <alejandrohd1@live.com>
 #
 # ARGUMENTOS: 
 # SALIDAS: Devolverá todos los pares dentro del intervalo y su cuadrado
 #
-# FECHA:24/01/2023 
+# FECHA: 17/02/2023 
 # VERSIONES: 1.0 (codigo inicial)
 #
 ############################################################################
-num1=$1
-num2=$2
 
-if [ $# -lt 2 ]
-         then
-         echo "Error: No se ha introducido los argumentos, introduzca num1 y num2"
-         read -p "Introduce num1: " num1
-         read -p "Introduce num2: " num2
-fi
-# Bucle until descendente:
-if [ $num1 -gt $num2 ]
+if [ $# -eq 0 ]
 then
-    i=$(($num1 - 1))
-    until [ $i -lt $num2 ]
-    do
-	if [[ $(($i % 2)) == 0 ]]
-        then
-            cuadrado=$(($i**2))
-            echo "El cuadrado del numero par $i es $cuadrado"
-        fi
-	let i-=1
-    done
+read -p "Introduzca la primera cota: " cota1
+read -p "Introduzca la segunda cota: " cota2
+elif [ $# -eq 1 ]
+then
+cota1=$1
+read -p "Introduzca la segunda cota: " cota2
+else
+cota1=$1
+cota2=$2
 fi
-# Bucle for ascendente usando código estilo C:
-for ((i=$num1;i<=$num2;i++))
+
+if [ $cota1 -gt $cota2 ]
+then
+step=-1
+elif [ $cota1 -lt $cota2 ] 
+then
+step=1
+else
+echo "El intervalo está vacío"
+exit
+fi
+
+echo "Mostrando los cuadrados de los números pares entre $cota1 y $cota2:"
+for i in `seq $cota1 $step $cota2`
 do
-	if [[ $(($i % 2)) == 0 ]]
-	then
-	    cuadrado=$(($i**2))
-	    echo "El cuadrado del numero par $i es $cuadrado"
-	fi
+resto=$(( $i % 2 ))
+if [ $resto -eq 0 ]
+then
+echo "  El cuadrado de $i es $(($i ** 2))"
+fi
 done
