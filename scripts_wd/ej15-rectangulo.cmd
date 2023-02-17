@@ -1,7 +1,7 @@
 echo off
 REM *******************************************************
-REM NOMBRE: ej12-multiplo.cmd
-REM OBJETIVO: Mediante un bucle verficar si los argumentos son multiplos
+REM NOMBRE: ej15-rectangulo.cmd
+REM OBJETIVO: Mediante bucles pintar un rectangulo
 REM AUTOR: Alejandro Hdez <alejandrohd1@live.com>
 REM
 REM ENTRADAS: 1
@@ -11,20 +11,23 @@ REM COMENTARIOS:
 REM VERSION: 1.0 (2023-01-27)
 REM
 REM ********************************************************
-set num1=%1%
-set num2=%2%
+set base=%1%
+set altura=%2%
 
-if "%num1%" == "" (
-	set /p "num1= Introduzca el primer numero: "
-					)
+if "%base%"=="" (
+	set base=7
+)
 
-if not defined num2 (
-	set /p "num2= Introduzca el segundo numero: "
-					)
-					
-for /L %%i in (%num1%,1,%num2%) do (
-	echo #
-	for /L %%i in (%num1%,1,%num2%) do (
+if "%altura%"=="" (
+    set altura=4
+)
+				)
+set/A area= %base% * %altura%
+echo Vamos a pintar un rectangulo de base: %base%, altura: %altura%, area: %area%
+										
+for /L %%j in (1,1,%altura%) do (
+	for /L %%i in (2,1,%base%) do (
+		set/p="#" <NUL
+									)
 		echo #
-		)
 		)
