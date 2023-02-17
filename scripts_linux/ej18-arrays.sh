@@ -2,49 +2,49 @@
 ############################################################################
 #
 # NOMBRE: ej18-arrays.sh
-# OBJETIVO: Generar array a partir de argumentos
-# AUTOR: Alejandro Hdez <alejandrohd1@live.com>
+# OBJETIVO: Generar un array ordenado de numeros enteros
+# AUTOR: Javier García <javigh1903@movistar.es> Alejandro Hdez <alejandrohd1@live.com>
 #
-# ARGUMENTOS: 
-# SALIDAS: Salida de array datos con las características marcadas
-# y MIN, MAX y MEDIA de los datos del nuevo array.
-# FECHA:24/01/2023 
+# ARGUMENTOS: Tantos números enteros como se quiera 
+# SALIDAS: Salida de array "datos" con las características marcadas
+#          y MIN, MAX y MEDIA de los datos del nuevo array
+# 
 # VERSIONES: 1.0 (codigo inicial)
-#
+# FECHA: 17/02/2023 
 ############################################################################
-argumentos=("$@")
+
+echo "Se han recibido $# argumentos: $@"
 declare -a datos
-echo "Se han recibido $# argumentos: ${argumentos[@]}"
-# Constructor del array datos:
-for argumento in ${argumentos[@]}
+for int in $@
 do
-  if [[ $(($argumento % 2)) == 0 ]] && [[ argumento -ge 0 ]]
-  then
-      datos=("$argumento" "${datos[@]}")
-      echo "$argumento se inserta por el PRINCIPIO porque es PAR"
-  elif [[ $(($argumento % 2)) == 1 ]] && [[ argumento -ge 0 ]]
-  then
-      datos+=("$argumento")
-      echo "$argumento se inserta por el FINAL porque es IMPAR"
-  else
-      echo "Se ignora el valor $argumento por ser negativo"
-  fi
+discriminante=$(( $int % 2 ))
+if [ $int -lt 0 ]
+then
+echo "$int se ignora por ser negativo"
+elif [ $discriminante -eq 0 ]
+then
+datos=("$int" "${datos[@]}")
+echo "$int se inserta por el principio porque es par"
+else
+datos+=( "$int" )
+echo "$int se inserta por el final porque es impar"
+fi
 done
-echo "Array construido (${#datos[@]} elementos): ${datos[@]}"
-# Calculo de MIN, MAX y MEDIA:
+
 sum=0
-max=$datos[0]
+max=-1
 min=$datos[0]
-for dato in ${datos[@]}
+for int in ${datos[@]}
 do
-  sum=$(($sum+$dato))
-  if [[ $dato < $min  ]]
-  then
-      min=$dato
-  elif [[ $dato > $max  ]]
-      max=$dato
-  fi
+if [ $int -gt $sum ]
+then
+max=$int
+elif [ $int -lt $min ]
+then
+min=$int
+fi
+sum=$(( $sum + $int ))
 done
-# Echo por pantalla de los resultados finales:
-media=$(bc <<< "scale=2; $sum / ${#datos[@]}")
-echo "MIN:$min, MAX:$max, MEDIA:$media"
+media=`echo "scale=2; $sum / ${#datos[@]}" | bc -l`
+echo "Array construido (${#datos[@]}): ${datos[@]}"
+echo "MIN: $min, MAX: $max, MEDIA: $media"
