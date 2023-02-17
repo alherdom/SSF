@@ -3,65 +3,93 @@
 #
 # NOMBRE: ej20-calculadora_func.sh
 # OBJETIVO: Uso de un menu y funciones para realizar operaciones
-# AUTOR: Alejandro Hdez <alejandrohd1@live.com>
+# AUTOR: Javier García <javigh1903@movistar.es> Alejandro Hdez <alejandrohd1@live.com>
 #
-# ARGUMENTOS: total=2, num1 y num2
-# SALIDAS: El calculo selecionado
+# ARGUMENTOS: total=2, 1-operando1, 2-operando2
+# SALIDAS: Un menú de calculadora y los resultados solicitados
 #
-# FECHA:24/01/2023 
+# FECHA: 17/02/2023 
 # VERSIONES: 1.0 (codigo inicial)
 #
 ############################################################################
 
-num1=$1
-num2=$2
-
-if [ $# -lt 2 ]
-	then
-        echo "Error: No se ha introducido los argumentos, introduzca num1 y num2"
-        read -p "Introduce num1: " num1
-	read -p "Introduce num2: " num2
+if [ $# -eq 0 ]
+then
+read -p "Introduzca el primer operando: " operando1
+read -p "Introduzca el segundo operando: " operando2
+elif [ $# -eq 1 ]
+then
+operando1=$1
+read -p "Introduzca el segundo operando: " operando2
+else
+operando1=$1
+operando2=$2
 fi
 
-function suma {
-echo -n $num1 mas $num2 =  ; echo "$num1 + $num2" | bc
-}
-function resta { 
-echo -n $num1 menos $num2 =  ; echo "$num1 - $num2" | bc
-}
-function divi { 
-echo -n $num1 entre $num2 =  ; echo "$num1 / $num2" | bc
-}
-function multi { 
-echo -n $num1 por $num2 =  ; echo "$num1 * $num2" | bc
-}
-function mod { 
-echo -n $num1 modulo $num2 =  ; echo "$num1 % $num2" | bc
-}
-function pot { 
-echo -n $num1 elevado $num2 =  ; echo "$((num1 ** num2))" | bc
+suma(){
+    echo $(( $1 + $2))
 }
 
-PS3="Selecciona alguna de la opciones:"
-opciones=("Suma" "Resta" "División" "Multiplicación" "Módulo" "Potencia" "Salir")
+resta(){
+    echo $(( $1 - $2 ))
+}
 
-select opcion in "${opciones[@]}"
-do
- case $opcion in
-	Suma) suma $num1 $num2
+multiplicacion(){
+    echo $(( $1 * $2 ))
+}
+
+division(){
+    if [ $2 -eq 0 ]
+                then
+                echo "División por 0, error"
+                else
+                echo $(( $1 / $2))
+                fi
+}
+
+exponenciacion(){
+    echo $(( $1 ** $2))
+}
+
+resto_division (){
+    if [ $2 -eq 0 ]
+                      then
+                      echo "División por 0, error"
+                      else
+                      echo $(( $1 % $2))
+                      fi
+}
+
+echo ""
+echo "+++++++++++++++++++"
+echo "+                 +"
+echo "+   Calculadora   +"
+echo "+                 +"
+echo "+++++++++++++++++++" 
+echo ""
+
+echo "1: suma"
+echo "2: resta"
+echo "3: multiplicación"
+echo "4: división"
+echo "5: exponenciación"
+echo "6: resto_división"
+
+read -p "Indica la opción: " opcion
+
+case $opcion in 
+	1|suma) suma $operando1 $operando2
+	;; 
+	2|resta) resta $operando1 $operando2 
 	;;
-	Resta) resta $num1 $num2
+	3|multiplicación) multiplicacion $operando1 $operando2 
 	;;
-	División) divi $num1 $num2
-        ;;
-	Multiplicación) multi $num1 $num2
+	4|división) division $operando1 $operando2 
+	;; 
+	5|exponenciación) exponenciacion $operando1 $operando2 
 	;;
-	Módulo) mod $num1 $num2
+	6|resto_división) resto_division $operando1 $operando2 
 	;;
-	Potencia) pot $num1 $num2
+	*) echo "$opcion no es un valor válido"
 	;;
-	Salir) break
-	;;
-	*) echo "Error, selecione una opcion correcta"
 esac
-done
