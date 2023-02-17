@@ -12,16 +12,17 @@ REM VERSION: 1.0 (2023-01-27)
 REM
 REM ********************************************************
 title Comparando
-set peso=%1%
-set altura=%2%
+if "%1"=="" (
+	echo "Se deben indicar la altura y el peso"
+	exit /b
+)
+if "%2"=="" (
+	echo "Se deben indicar la altura y el peso"
+	exit /b
+)
 
-if "%peso%" == "" (
-	set /p "peso= Introduzca el peso: "
-					)
-
-if not defined altura (
-	set /p "altura= Introduzca la altura: "
-					)
+set peso=%1
+set altura=%2
 
 set/A imc = (%peso% * 10000)  /  (%altura% * %altura%)
 echo Su indice de masa corporal es: %imc%
