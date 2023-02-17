@@ -26,3 +26,8 @@ for /L %%i in (%num1%,1,%num2%) do (
 set /a par=%%i %%2
 if "!par!"=="0" (echo %%i es par y su cuadrado es)
 )
+
+set/A pot=1
+for /l %%_ in (1,1,%num2%) do (set /A pot*=%num1%)
+echo %num1% elevado a %num2% es igual a %pot%
+
