@@ -8,7 +8,7 @@
 # ARGUMENTOS: total=2, 1: minuendo, 2: sustraendo
 # SALIDAS: Obtenemos la resta de los argumentos
 #
-# FECHA:24/01/2023 
+# FECHA:17/02/2023 
 # VERSIONES: 1.0 (codigo inicial)
 #
 ############################################################################

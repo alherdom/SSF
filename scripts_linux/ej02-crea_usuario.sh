@@ -8,7 +8,7 @@
 # ARGUMENTOS: total=3, 1=nombre, 2=apellido, 3=usuario
 # SALIDAS: Se imprime en pantalla el mensaje 
 #
-#
+# FECHA: 17/02/2023
 # VERSIONES: 1.0 (codigo inicial)
 #
 ##############################################################################

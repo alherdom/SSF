@@ -8,7 +8,7 @@
 # ARGUMENTOS: total=1
 # SALIDAS: Se convierte grados Celsius a grados Fahrenheit
 #
-# FECHA: 13/01/2023
+# FECHA: 17/02/2023
 # VERSIONES: 1.0 (codigo inicial)
 #
 ##############################################################################
