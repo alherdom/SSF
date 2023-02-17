@@ -8,7 +8,7 @@
 # ARGUMENTOS: total=2
 # SALIDAS: IMC y clasificación segun OMS
 #
-# FECHA:15/02/2023 
+# FECHA: 17/02/2023 
 # VERSIONES: 1.0 (codigo inicial)
 #
 ##############################################################################
@@ -18,11 +18,14 @@ then
     echo "Indicar altura en cm y peso en kg"
     exit
 fi
+
 peso=$1
 altura=$2
+
 imc100=$(bc <<< "scale=0; ( $peso * 1000000 ) / ( $altura * $altura )")
 imc=$(bc <<< "scale=2; ( $peso * 10000 ) / ( $altura * $altura )")       
 echo "Su indice de masa corporal es: $imc"
+
 if [ $imc100 -lt 1600  ]
      then
           echo "Delgadez severa."
