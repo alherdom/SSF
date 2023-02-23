@@ -61,7 +61,13 @@ sudo apt-get purge [nombre-paquete]
 
 ## FHS en GNU/Linux
 - ¿Qué hace el siguiente comando?: ls -l /
+ listará todos los archivos situados en la raíz /
 - Después de ejecutar el comando anterior, explica para qué se utiliza cada directorio de los que aparecen en la salida
+bin: archivos binarios.
+boot: arranque del sistema.
+C: disco.
+cdrom: reservado para el lector cdrom.
+
 - ¿Por qué tenemos tres directorios aparentemente iguales? Explica para qué se usa cada uno de ellos: /bin, /usr/bin y /usr/local/bin
 - ¿Por qué tenemos varios directorios aparentemente iguales? Explica para qué se usa cada uno de ellos: /lib, /lib32, etc.
 - Al instalar un software, gran parte de él va a uno de los siguientes directorios, ¿para qué se usa cada uno? /usr, /usr/local y /opt
