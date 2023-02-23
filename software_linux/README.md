@@ -43,9 +43,7 @@ sudo apt install --only-upgrade [nombre-paquete]
 sudo apt-get update
 sudo apt-get upgrade
 - Reinstala algún paquete de los que hayas instalado en estos ejercicios.
-sudo apt-get remove [nombre-paquete]
-sudo apt-get purge [nombre-paquete]
-sudp apt-get install [nombre-paquete]
+sudo apt-get reinstall [nombre-paquete]
 - Elimina algún paquete de los instalados en estos ejercicios, pero dejando su configuración.
 sudo apt-get remove [nombre-paquete]
 - Elimina totalmente algún paquete de los instalados en estos ejercicios.
