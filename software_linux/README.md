@@ -1,7 +1,7 @@
 ## Comandos Gestión de Software GNU/Linux
 - Sincroniza tu lista de software local con la de los repositorios oficiales.
-sudo apt update
-sudo apt upgrade
+- sudo apt update
+- sudo apt upgrade
 - Lista todo el software que está en los repositorios oficiales, ¿cuántos paquetes hay?
 - apt list | wc -l
 - 77336
