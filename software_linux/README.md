@@ -43,9 +43,16 @@ sudo apt install --only-upgrade [nombre-paquete]
 sudo apt-get update
 sudo apt-get upgrade
 - Reinstala algún paquete de los que hayas instalado en estos ejercicios.
+sudo apt-get remove [nombre-paquete]
+sudo apt-get purge [nombre-paquete]
+sudp apt-get install [nombre-paquete]
 - Elimina algún paquete de los instalados en estos ejercicios, pero dejando su configuración.
+sudo apt-get remove [nombre-paquete]
 - Elimina totalmente algún paquete de los instalados en estos ejercicios.
+sudo apt-get remove [nombre-paquete]
+sudo apt-get purge [nombre-paquete]
 - Instala el navegador Google Chrome, o MS Teams, o Skype... ¿cómo lo has hecho? ¿por qué?
+
 - Investiga cómo podemos indicar durante la instalación si queremos añadir o no los paquetes recomendados, los sugeridos y/o las mejoras.
 - Busca alguna empresa (de reconocido prestigio) que tenga su software en repositorios y añade ese repositorio. ¿Puedes ver todos los paquetes del nuevo repositorio nada más añadirlo o necesitas hacer alguna operación previa? ¿Cuál y por qué? Instala alguno de sus paquetes.
 - Busca algún usuario (de reconocido prestigio) que tenga software en repositorios personales y añade ese repositorio. ¿Puedes ver todos los paquetes del nuevo repositorio nada más añadirlo o necesitas hacer alguna operación previa? ¿Cuál y por qué? Instala alguno de sus paquetes.
