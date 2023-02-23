@@ -9,7 +9,7 @@ apt list | wc -l
 apt list --installed | wc -l
 2146
 - Lista todo el software que puede ser actualizado en tu sistema, ¿cuántos son?
-apt list --upgradeable | wc -l
+apt list --upgradable | wc -l
 1
 - Muestra todos los repositorios que usa tu sistema para gestionar el software... ¿son todos oficiales? ¿hay alguno de empresas externas? ¿y PPA?
 nano /etc/apt/sources.list
@@ -33,9 +33,15 @@ sudo aptitude install fortune-mod
 fortune
 Generosity and perfection are your everlasting goals.
 - Instala varios paquetes que te puedan ser útiles: reproductores multimedia, navegadores, juegos, etc. Antes de instalarlos, muestra información sobre los mismos, qué dependencias tienen, qué versión se va a instalar, etc.
-
+apt search notepad
+apt show notepadqq
+apt install notepadqq
 - De la lista de software a actualizar, elige un paquete y actualiza sólo ese paquete.
+sudo apt --upgradable
+sudo apt install --only-upgrade [nombre-paquete]
 - Actualiza todos los paquetes del sistema.
+sudo apt-get update
+sudo apt-get upgrade
 - Reinstala algún paquete de los que hayas instalado en estos ejercicios.
 - Elimina algún paquete de los instalados en estos ejercicios, pero dejando su configuración.
 - Elimina totalmente algún paquete de los instalados en estos ejercicios.
