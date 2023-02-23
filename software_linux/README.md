@@ -57,8 +57,12 @@ sudo dpkg -i chrome64.deb
 - Investiga cómo podemos indicar durante la instalación si queremos añadir o no los paquetes recomendados, los sugeridos y/o las mejoras.
 - Busca alguna empresa (de reconocido prestigio) que tenga su software en repositorios y añade ese repositorio. ¿Puedes ver todos los paquetes del nuevo repositorio nada más añadirlo o necesitas hacer alguna operación previa? ¿Cuál y por qué? Instala alguno de sus paquetes.
 - Busca algún usuario (de reconocido prestigio) que tenga software en repositorios personales y añade ese repositorio. ¿Puedes ver todos los paquetes del nuevo repositorio nada más añadirlo o necesitas hacer alguna operación previa? ¿Cuál y por qué? Instala alguno de sus paquetes.
+
 - Elimina el software instalado a través de repositorios externos en los ejercicios anteriores, y elimina también esos repositorios externos.
+- sudo add-apt-repository --remove ppa:NOMBRE-PPA
+- sudo apt-get update && sudo apt-get dist-upgrade
 - Elimina todos los paquetes del sistema que se instalaron como dependencias y ya no son necesarios.
+- apt-get autoremove
 
 ## FHS en GNU/Linux
 - ¿Qué hace el siguiente comando?: ls -l /
