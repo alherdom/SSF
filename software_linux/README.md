@@ -1,13 +1,39 @@
 ## Comandos Gestión de Software GNU/Linux
-- Sincroniza tu lista de software local con la de los repositorios oficiales
+- Sincroniza tu lista de software local con la de los repositorios oficiales.
+sudo apt update
+sudo apt upgrade
 - Lista todo el software que está en los repositorios oficiales, ¿cuántos paquetes hay?
+apt list | wc -l
+77336
 - Lista todo el software que tienes instalado en tu sistema, ¿cuántos paquetes tienes?
+apt list --installed | wc -l
+2146
 - Lista todo el software que puede ser actualizado en tu sistema, ¿cuántos son?
+apt list --upgradeable | wc -l
+1
 - Muestra todos los repositorios que usa tu sistema para gestionar el software... ¿son todos oficiales? ¿hay alguno de empresas externas? ¿y PPA?
+nano /etc/apt/sources.list
+#deb cdrom:[Linux Mint 21 _Vanessa_ - Release amd64 20220726]/ jammy main
 - Lista todos los repositorios que tienes en tu sistema. Al listarlos aparecerán etiquetas como jammy, vanessa, main, universe, multiverse, restricted, security, backports... ¿qué significan?
+apt list
+Main, repositorio principal mantenido por Canonical.
+Universe, repositorio mantenido por la comunidad.
+Restricted, mantenido por Canonical, todo el software restringido, solo tendra actualizaciones o soluciones cuando los creadores lo consideren.
+Multivers... 
 - Al listar todos los paquetes, verás etiquetas como i386, amd64, beta, rc, etc.). Identifica 7 de estas etiquetas y explica su significado.
+i386: hace referencias a versiones de 32 bits.
+amd64: hace referencias versiones de 64 bits.
+beta: versión de prueba, no se ha testeado lo suficiente, tendrá fallos.
+RC: Release Candidate, candidato a ser publicado, ha pasado todos los test.
+LTS: Long Term Support, versión final con soporte de larga duración.
+arm64, aarch64: procesadores ARM (RISC) de 64 bits
+deprecated: software obsoleto
 - En GNU/Linux hay una pequeña aplicación llamada "galletas de la fortuna" (fortune cookies) que muestra un mensaje al iniciar una shell. - Búscala e instálala en tu sistema.
+sudo aptitude install fortune-mod
+fortune
+Generosity and perfection are your everlasting goals.
 - Instala varios paquetes que te puedan ser útiles: reproductores multimedia, navegadores, juegos, etc. Antes de instalarlos, muestra información sobre los mismos, qué dependencias tienen, qué versión se va a instalar, etc.
+
 - De la lista de software a actualizar, elige un paquete y actualiza sólo ese paquete.
 - Actualiza todos los paquetes del sistema.
 - Reinstala algún paquete de los que hayas instalado en estos ejercicios.
