@@ -52,7 +52,10 @@ sudo apt-get remove [nombre-paquete]
 sudo apt-get remove [nombre-paquete]
 sudo apt-get purge [nombre-paquete]
 - Instala el navegador Google Chrome, o MS Teams, o Skype... ¿cómo lo has hecho? ¿por qué?
-
+Descargo en linea el paquete de chrome para debina y 64 bits usando "wget -c"
+wget -c https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O chrome64.deb
+Descomprimo el paquete
+sudo dpkg -i chrome64.deb
 - Investiga cómo podemos indicar durante la instalación si queremos añadir o no los paquetes recomendados, los sugeridos y/o las mejoras.
 - Busca alguna empresa (de reconocido prestigio) que tenga su software en repositorios y añade ese repositorio. ¿Puedes ver todos los paquetes del nuevo repositorio nada más añadirlo o necesitas hacer alguna operación previa? ¿Cuál y por qué? Instala alguno de sus paquetes.
 - Busca algún usuario (de reconocido prestigio) que tenga software en repositorios personales y añade ese repositorio. ¿Puedes ver todos los paquetes del nuevo repositorio nada más añadirlo o necesitas hacer alguna operación previa? ¿Cuál y por qué? Instala alguno de sus paquetes.
