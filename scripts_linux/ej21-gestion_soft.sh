@@ -61,7 +61,7 @@ if [ $contador -eq 0 ]
 		;;
 		PURGE) 
 		echo "ELIMINANDO PAQUETE/CONFIGURACION"
-		sudo apt-get purge $paquete
+		sudo apt-get autoremove $paquete
 		;;
 		EXIT) break
 		;;
