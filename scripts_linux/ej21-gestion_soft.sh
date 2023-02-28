@@ -29,11 +29,11 @@ fi
 paquete=$1
 clear
 sudo apt-get update
+clear
 dpkg -s $paquete
-contador=$(echo $?)
-echo $contador
+instalado=$(echo $?)
 
-if [ $contador -eq 0 ]; then
+if [ $instalado -eq 0 ]; then
 	echo "El $paquete SI ESTA INSTALADO!"
 	PS3="SELECIONE ALGUNA DE LAS OPCIONES: "
 	opciones=("VERSION" "REINSTALL" "UPGRADE" "REMOVE" "PURGE" "EXIT")
@@ -69,10 +69,10 @@ if [ $contador -eq 0 ]; then
 		esac
 	done
 
-elif [ $contador -eq 1 ]; then
+elif [ $instalado -eq 1 ]; then
 	echo "El $paquete NO ESTA INSTALADO!"
-	contador2=$(apt-cache search $paquete | wc -l)
-	if [ $contador2 -eq 1 ]; then
+	existe=$(apt-cache search $paquete | wc -l)
+	if [ $existe -eq 1 ]; then
 		echo "INFORMACION DEL PAQUETE: $paquete"
 		apt-cache show $paquete
 		read -p "DESEA INSTALARLO? [Y/n] " respuesta
