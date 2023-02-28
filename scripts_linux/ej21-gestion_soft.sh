@@ -29,7 +29,7 @@ fi
 paquete=$1
 clear
 sudo apt-get update
-contador=$(apt list --installed | grep -c $paquete)
+contador=$(apt list --installed | grep -i -c $paquete)
 echo $contador
 
 if [ $contador -eq 1 ]
