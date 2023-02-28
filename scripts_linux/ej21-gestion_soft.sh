@@ -29,12 +29,10 @@ fi
 paquete=$1
 clear
 sudo apt-get update
-contador=$(apt list --installed | grep -c $paquete)
-echo $contador
-#dpkg -s
-#echo $?
+dpkg -s $paquete)
+contador=$(echo $?)
 
-if [ $contador -eq 1 ]
+if [ $contador -eq 0 ]
    then
        echo "El paquete SI ESTA INSTALADO!"
 	   PS3="SELECIONE ALGUNA DE LAS OPCIONES: "
