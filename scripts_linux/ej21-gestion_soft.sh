@@ -31,6 +31,8 @@ clear
 sudo apt-get update
 contador=$(apt list --installed | grep -c $paquete)
 echo $contador
+#dpkg -s
+#echo $?
 
 if [ $contador -eq 1 ]
    then
