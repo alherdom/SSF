@@ -31,7 +31,7 @@ clear
 sudo apt-get update
 dpkg -s $paquete
 contador=$(echo $?)
-
+echo $contador
 if [ $contador -eq 0 ]
    then
        echo "El paquete SI ESTA INSTALADO!"
@@ -58,7 +58,7 @@ if [ $contador -eq 0 ]
 		;;
        esac
        done
-else
+elif [ $contador -eq 1 ]
     echo "El paquete NO ESTA INSTALADO!"
     contador=$(apt search $paquete | wc -l)
     if [ $contador -ge 1 ]
