@@ -70,7 +70,7 @@ else
 	      then
 		  sudo apt-get install $paquete
 	   else
-               exit
+            exit
 	   fi
     else
         apt-cache search $paquete
