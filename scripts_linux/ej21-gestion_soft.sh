@@ -66,15 +66,15 @@ elif [ $contador -eq 1 ]
     	contador2=$(apt-cache search $paquete | wc -l)
     	if [ $contador2 -eq 1 ]
        		then
-	       	echo "INFORMACION DEL PAQUETE: $paquete"
-           	apt-cache show $paquete
-	       	read -p "DESEA INSTALARLO [Y/n]?" respuesta
-	   	   	if [ "$respuesta" == "Y" ]
-	       		then
-		        	sudo apt-get install $paquete
-	   	   	else
-            	exit
-	       fi
+	       		echo "INFORMACION DEL PAQUETE: $paquete"
+           		apt-cache show $paquete
+	       		read -p "DESEA INSTALARLO [Y/n]?" respuesta
+	   	   		if [ "$respuesta" == "Y" ]
+	       			then
+		        		sudo apt-get install $paquete
+	   	   		else
+            		exit
+	       		fi
     	else
         	apt-cache search $paquete
     	fi
