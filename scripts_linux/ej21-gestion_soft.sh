@@ -30,17 +30,16 @@ paquete=$1
 clear
 sudo apt-get update
 contador=$(apt list --installed | grep -c $paquete)
-echo "$contador"
+echo $contador
 
 if [ $contador == 1 ]
    then
-        echo "El paquete SI ESTA INSTALADO"
-	PS3="Selecciona alguna de la opciones:"
-	opciones=("Version" "Reinstalar" "Actualizar" "Remover" "Purgar" "Salir")
+       echo "El paquete SI ESTA INSTALADO"
+	   PS3="Selecciona alguna de la opciones:"
+	   opciones=("Version" "Reinstalar" "Actualizar" "Remover" "Purgar" "Salir")
 
 	select opcion in "${opciones[@]}"
 	do
-
         case $opcion in
 		Version) $paquete --version
 		;;
