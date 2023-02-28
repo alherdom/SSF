@@ -50,6 +50,7 @@ if [ $contador -eq 1 ]
 		Remover) sudo apt-get remove $paquete
 		;;
 		Purgar) sudo apt-get purge $paquete
+		sudo apt autoremove
 		;;
 		Salir) break
 		;;
