@@ -3,17 +3,17 @@
 # AUTOR: Alejandro Hernandez <alherdom@outlook.com>
 # NOMBRE: ej21-gestion_software.sh
 # OBJETIVO:
-# 1. Debe recibir un argumento (nombre del paquete), si el usuario no lo indica, se le pedirá luego por teclado hasta que especifique un nombre.
+# 1. Recibe un argumento (nombre del paquete), si no se indica, se le pedirá por teclado.
 # 2. Empezar sincronizando el listado de software local
-# 3. Si el paquete indicado NO ESTÁ INSTALADO en el sistema, se comproborá si existe en los repositorios del sistema:
-#    - Si el paquete SÍ EXISTE en los repositorios: se le mostrará la información del paquete y se le dará la opción de instalarlo.
-#    - Si el paquete NO EXISTE en los repositorios: se le mostrará el resultado de la búsqueda de paquetes con el nombre indicado.
+# 3. Si el paquete indicado NO ESTÁ INSTALADO se comproborá si existe en los repositorios del sistema:
+#    - Si el paquete SÍ EXISTE, se mostrará información del paquete y se da opción a instalarlo.
+#    - Si el paquete NO EXISTE, se mostrará resultado de búsqueda de paquetes con ese nombre.
 # 4. Si el paquete indicado SÍ ESTÁ INSTALADO: se le dará la opción de:
-#    - Mostrar su versión
-#    - Reinstalarlo
-#    - Actualizarlo (solo este paquete, si fuera actualizable)
-#    - Eliminarlo (guardando la configuración)
-#    - Eliminarlo totalmente
+#    - Mostrar su versión.
+#    - Reinstalarlo.
+#    - Actualizarlo (solo este paquete, si fuera actualizable).
+#    - Eliminarlo (guardando la configuración).
+#    - Eliminarlo totalmente.
 #
 # ARGUMENTOS: Total=1, paquete=1
 # SALIDAS: Opciones en la terminal.
