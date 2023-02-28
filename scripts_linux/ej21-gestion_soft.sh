@@ -43,15 +43,25 @@ if [ $contador -eq 0 ]
 	select opcion in "${opciones[@]}"
 	do
         case $opcion in
-		Version) $paquete --version
+		Version) 
+		echo "VERSIÓN DEL PAQUETE"
+		$paquete --version
 		;;
-		Reinstalar) sudo apt-get reinstall $paquete
+		Reinstalar)
+		echo "REINSTALANDO PAQUETE"
+		sudo apt-get reinstall $paquete
 		;;
-		Actualizar) sudo apt-get install --only-upgrade $paquete
+		Actualizar) 
+		echo "ACTUALIZANDO PAQUETE"
+		sudo apt-get install --only-upgrade $paquete
 		;;
-		Remover) dpkg -r $paquete
+		Remover) 
+		echo "ELIMINADO PAQUETE"
+		dpkg -r $paquete
 		;;
-		Purgar) dpkg -P $paquete
+		Purgar) 
+		echo "ELIMINANDO PAQUETE/CONFIGURACION"
+		dpkg -P $paquete
 		;;
 		Salir) break
 		;;
