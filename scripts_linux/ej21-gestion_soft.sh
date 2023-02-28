@@ -38,7 +38,7 @@ if [ $contador -eq 0 ]
    then
        echo "El paquete SI ESTA INSTALADO!"
 	   PS3="SELECIONE ALGUNA DE LAS OPCIONES: "
-	   opciones=("Version" "Reinstalar" "Actualizar" "Remover" "Purgar" "Salir")
+	   opciones=("VERSION" "REINSTALL" "UPGRADE" "REMOVE" "PURGE" "EXIT")
 
 	select opcion in "${opciones[@]}"
 	do
@@ -65,7 +65,7 @@ if [ $contador -eq 0 ]
 		;;
 		Salir) break
 		;;
-		*) echo "$opcion No es un opcion valida"
+		*) echo "$opcion NO ES UNA OPCION VALIDA!"
 		;;
        esac
     done
