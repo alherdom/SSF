@@ -57,11 +57,11 @@ if [ $contador -eq 0 ]
 		;;
 		REMOVE) 
 		echo "ELIMINADO PAQUETE"
-		dpkg -r $paquete
+		sudo apt-get remove $paquete
 		;;
 		PURGE) 
 		echo "ELIMINANDO PAQUETE/CONFIGURACION"
-		dpkg -P $paquete
+		sudo apt-get purge $paquete
 		;;
 		EXIT) break
 		;;
