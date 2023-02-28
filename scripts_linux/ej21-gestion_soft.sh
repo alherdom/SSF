@@ -1,7 +1,7 @@
 #!/bin/bash
 ############################################################################
 # AUTOR: Alejandro Hernandez <alherdom@outlook.com>
-# NOMBRE: gestion_software.sh
+# NOMBRE: ej21-gestion_software.sh
 # OBJETIVO:
 # 1. Debe recibir un argumento (nombre del paquete), si el usuario no lo indica, se le pedirá luego por teclado hasta que especifique un nombre.
 # 2. Empezar sincronizando el listado de software local
@@ -18,7 +18,7 @@
 # SALIDAS: Opciones por terminal en función de las condiciones establecidas.
 #
 # FECHA:27/02/2023
-# VERSIONES: 1.0 (codigo inicial)
+# VERSIONES: 1.0
 #
 ############################################################################
 if [ $# -eq 0 ]
