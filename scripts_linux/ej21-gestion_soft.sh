@@ -26,12 +26,14 @@ if [ $# -eq 0 ]
        echo "No se ha introducido ningun argumento"
        read -p "Indique el nombre del paquete: " paquete
 fi
+
 paquete=$1
 clear
 sudo apt-get update
 dpkg -s $paquete
 contador=$(echo $?)
 echo $contador
+
 if [ $contador -eq 0 ]
    then
        echo "El paquete SI ESTA INSTALADO!"
@@ -47,10 +49,9 @@ if [ $contador -eq 0 ]
 		;;
 		Actualizar) sudo apt-get install --only-upgrade $paquete
 		;;
-		Remover) sudo apt-get remove $paquete
+		Remover) dpkg -r $paquete
 		;;
-		Purgar) sudo apt-get purge $paquete
-		sudo apt autoremove
+		Purgar) dpkg -P $paquete
 		;;
 		Salir) break
 		;;
@@ -60,18 +61,18 @@ if [ $contador -eq 0 ]
        done
 elif [ $contador -eq 1 ]
     echo "El paquete NO ESTA INSTALADO!"
-    contador=$(apt search $paquete | wc -l)
-    if [ $contador -ge 1 ]
+    contador=$(apt-cache search $paquete | wc -l)
+    if [ $contador -eq 1 ]
        then
 	       echo "INFORMACION DEL PAQUETE: $paquete"
            apt-cache show $paquete
 	       read -p "DESEA INSTALARLO [Y/n]?" respuesta
-	   if [ "$respuesta" == "Y" ]
-	      then
-		      sudo apt-get install $paquete
-	   	  else
-              exit
-	   fi
+	   	   if [ "$respuesta" == "Y" ]
+	       	  then
+		          sudo apt-get install $paquete
+	   	   else
+               exit
+	       fi
     else
         apt-cache search $paquete
     fi
