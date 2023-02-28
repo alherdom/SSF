@@ -29,7 +29,7 @@ fi
 paquete=$1
 clear
 sudo apt-get update
-dpkg -s $paquete)
+dpkg -s $paquete
 contador=$(echo $?)
 
 if [ $contador -eq 0 ]
