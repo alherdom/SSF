@@ -21,10 +21,9 @@
 # VERSIONES: 1.0
 #
 ############################################################################
-if [ $# -eq 0 ]
-   then
-       echo "No se ha introducido ningun argumento"
-       read -p "Indique el nombre del paquete: " paquete
+if [ $# -eq 0 ]; then
+	echo "No se ha introducido ningun argumento"
+	read -p "Indique el nombre del paquete: " paquete
 fi
 
 paquete=$1
@@ -34,58 +33,55 @@ dpkg -s $paquete
 contador=$(echo $?)
 echo $contador
 
-if [ $contador -eq 0 ]
-   then
-       echo "El paquete SI ESTA INSTALADO!"
-	   PS3="SELECIONE ALGUNA DE LAS OPCIONES: "
-	   opciones=("VERSION" "REINSTALL" "UPGRADE" "REMOVE" "PURGE" "EXIT")
+if [ $contador -eq 0 ]; then
+	echo "El $paquete SI ESTA INSTALADO!"
+	PS3="SELECIONE ALGUNA DE LAS OPCIONES: "
+	opciones=("VERSION" "REINSTALL" "UPGRADE" "REMOVE" "PURGE" "EXIT")
 
-	select opcion in "${opciones[@]}"
-	do
-        case $opcion in
-		VERSION) 
-		echo "VERSIÓN DEL PAQUETE"
-		$paquete --version
-		;;
+	select opcion in "${opciones[@]}"; do
+		case $opcion in
+		VERSION)
+			echo "VERSIÓN DEL PAQUETE"
+			$paquete --version
+			;;
 		REINSTALL)
-		echo "REINSTALANDO PAQUETE"
-		sudo apt-get reinstall $paquete
-		;;
+			echo "REINSTALANDO PAQUETE"
+			sudo apt-get reinstall $paquete
+			;;
 		UPGRADE)
-		echo "ACTUALIZANDO PAQUETE"
-		sudo apt-get install --only-upgrade $paquete
-		;;
-		REMOVE) 
-		echo "ELIMINADO PAQUETE"
-		sudo apt-get remove $paquete
-		;;
-		PURGE) 
-		echo "ELIMINANDO PAQUETE/CONFIGURACION"
-		sudo apt-get autoremove $paquete
-		;;
-		EXIT) break
-		;;
-		*) echo "$opcion NO ES UNA OPCION VALIDA!"
-		;;
-       esac
-    done
+			echo "ACTUALIZANDO PAQUETE"
+			sudo apt-get install --only-upgrade $paquete
+			;;
+		REMOVE)
+			echo "ELIMINADO PAQUETE"
+			sudo apt-get remove $paquete
+			;;
+		PURGE)
+			echo "ELIMINANDO PAQUETE/CONFIGURACION"
+			sudo apt-get autoremove $paquete
+			;;
+		EXIT)
+			break
+			;;
+		*)
+			echo "$opcion NO ES UNA OPCION VALIDA!"
+			;;
+		esac
+	done
 
-elif [ $contador -eq 1 ]
-	then
-    	echo "El paquete NO ESTA INSTALADO!"
-    	contador2=$(apt-cache search $paquete | wc -l)
-    	if [ $contador2 -eq 1 ]
-       		then
-	       		echo "INFORMACION DEL PAQUETE: $paquete"
-           		apt-cache show $paquete
-	       		read -p "DESEA INSTALARLO [Y/n]?" respuesta
-	   	   		if [ "$respuesta" == "Y" ]
-	       			then
-		        		sudo apt-get install $paquete
-	   	   		else
-            		exit
-	       		fi
-    	else
-        	apt-cache search $paquete
-    	fi
+elif [ $contador -eq 1 ]; then
+	echo "El $paquete NO ESTA INSTALADO!"
+	contador2=$(apt-cache search $paquete | wc -l)
+	if [ $contador2 -eq 1 ]; then
+		echo "INFORMACION DEL PAQUETE: $paquete"
+		apt-cache show $paquete
+		read -p "DESEA INSTALARLO [Y/n]?" respuesta
+		if [ "$respuesta" == "Y" ]; then
+			sudo apt-get install $paquete
+		else
+			exit
+		fi
+	else
+		apt-cache search $paquete
+	fi
 fi
