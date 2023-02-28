@@ -68,8 +68,8 @@ else
 	   if [ "$respuesta" == "Y" ]
 	      then
 		      sudo apt-get install $paquete
-	   else
-            exit
+	   	  else
+              exit
 	   fi
     else
         apt-cache search $paquete
