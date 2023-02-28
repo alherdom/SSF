@@ -32,7 +32,7 @@ sudo apt-get update
 contador=$(apt list --installed | grep -c $paquete)
 echo $contador
 
-if [ $contador -eq 1 ]
+if [ "$contador" == 1 ]
    then
        echo "El paquete SI ESTA INSTALADO"
 	   PS3="Selecciona alguna de la opciones:"
