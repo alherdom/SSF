@@ -23,7 +23,7 @@
 ############################################################################
 if [ $# -eq 0 ]
    then
-       echo "Error: No se ha introducido ningun argumento"
+       echo "No se ha introducido ningun argumento"
        read -p "Indique el nombre del paquete: " paquete
 fi
 paquete=$1
@@ -34,8 +34,8 @@ echo $contador
 
 if [ $contador -eq 1 ]
    then
-       echo "El paquete SI ESTA INSTALADO"
-	   PS3="Selecciona alguna de la opciones:"
+       echo "El paquete SI ESTA INSTALADO!"
+	   PS3="SELECIONA ALGUNA DE LAS OPCIONES: "
 	   opciones=("Version" "Reinstalar" "Actualizar" "Remover" "Purgar" "Salir")
 
 	select opcion in "${opciones[@]}"
@@ -59,7 +59,7 @@ if [ $contador -eq 1 ]
        esac
        done
 else
-    echo "El paquete NO ESTA INSTALADO"
+    echo "El paquete NO ESTA INSTALADO!"
     contador=$(apt search $paquete | wc -l)
     if [ $contador -ge 1 ]
        then
