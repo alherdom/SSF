@@ -63,8 +63,8 @@ if [ $contador -eq 0 ]
 elif [ $contador -eq 1 ]
 	then
     	echo "El paquete NO ESTA INSTALADO!"
-    	contador=$(apt-cache search $paquete | wc -l)
-    	if [ $contador -eq 1 ]
+    	contador2=$(apt-cache search $paquete | wc -l)
+    	if [ $contador2 -eq 1 ]
        		then
 	       	echo "INFORMACION DEL PAQUETE: $paquete"
            	apt-cache show $paquete
