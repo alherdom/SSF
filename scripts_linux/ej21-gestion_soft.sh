@@ -75,7 +75,7 @@ elif [ $contador -eq 1 ]; then
 	if [ $contador2 -eq 1 ]; then
 		echo "INFORMACION DEL PAQUETE: $paquete"
 		apt-cache show $paquete
-		read -p "DESEA INSTALARLO [Y/n]?" respuesta
+		read -p "DESEA INSTALARLO? [Y/n] " respuesta
 		if [ "$respuesta" == "Y" ]; then
 			sudo apt-get install $paquete
 		else
