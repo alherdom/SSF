@@ -15,7 +15,7 @@
 #    - Eliminarlo (guardando la configuración)
 #    - Eliminarlo totalmente
 # ARGUMENTOS: Total=1, paquete=1
-# SALIDAS: Opciones por terminal en función de las condiciones establecidas.
+# SALIDAS: Opciones en la terminal.
 #
 # FECHA:27/02/2023
 # VERSIONES: 1.0
