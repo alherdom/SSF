@@ -35,7 +35,7 @@ echo $contador
 if [ $contador -eq 1 ]
    then
        echo "El paquete SI ESTA INSTALADO!"
-	   PS3="SELECIONA ALGUNA DE LAS OPCIONES: "
+	   PS3="SELECIONE ALGUNA DE LAS OPCIONES: "
 	   opciones=("Version" "Reinstalar" "Actualizar" "Remover" "Purgar" "Salir")
 
 	select opcion in "${opciones[@]}"
