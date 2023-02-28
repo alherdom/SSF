@@ -60,7 +60,7 @@ if [ $instalado -eq 0 ]; then
 			sudo apt-get autoremove $paquete
 			;;
 		EXIT)
-			echo "HASTA PRONTO!"
+			echo "ADIOS"
 			break
 			;;
 		*)
@@ -79,6 +79,7 @@ elif [ $instalado -eq 1 ]; then
 		if [ "$respuesta" == "Y" ]; then
 			sudo apt-get install $paquete
 		else
+			echo "INSTALACION CANCELADA"
 			exit
 		fi
 	else
