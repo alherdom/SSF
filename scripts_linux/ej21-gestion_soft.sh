@@ -27,11 +27,10 @@ if [ $# -eq 0 ]; then
 fi
 
 paquete=$1
-clear
 sudo apt-get update
-clear
 dpkg -s $paquete
 instalado=$(echo $?)
+clear
 
 if [ $instalado -eq 0 ]; then
 	echo "El $paquete SI ESTA INSTALADO!"
