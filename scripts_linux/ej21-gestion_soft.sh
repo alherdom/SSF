@@ -60,7 +60,7 @@ if [ $instalado -eq 0 ]; then
 			sudo apt-get autoremove $paquete
 			;;
 		EXIT)
-			echo "ADIOS"
+			echo "EXIT"
 			break
 			;;
 		*)
