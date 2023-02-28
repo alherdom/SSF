@@ -43,27 +43,27 @@ if [ $contador -eq 0 ]
 	select opcion in "${opciones[@]}"
 	do
         case $opcion in
-		Version) 
+		VERSION) 
 		echo "VERSIÓN DEL PAQUETE"
 		$paquete --version
 		;;
-		Reinstalar)
+		REINSTALL)
 		echo "REINSTALANDO PAQUETE"
 		sudo apt-get reinstall $paquete
 		;;
-		Actualizar) 
+		UPGRADE)
 		echo "ACTUALIZANDO PAQUETE"
 		sudo apt-get install --only-upgrade $paquete
 		;;
-		Remover) 
+		REMOVE) 
 		echo "ELIMINADO PAQUETE"
 		dpkg -r $paquete
 		;;
-		Purgar) 
+		PURGE) 
 		echo "ELIMINANDO PAQUETE/CONFIGURACION"
 		dpkg -P $paquete
 		;;
-		Salir) break
+		EXIT) break
 		;;
 		*) echo "$opcion NO ES UNA OPCION VALIDA!"
 		;;
