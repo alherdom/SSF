@@ -58,22 +58,24 @@ if [ $contador -eq 0 ]
 		*) echo "$opcion No es un opcion valida"
 		;;
        esac
-       done
+    done
+
 elif [ $contador -eq 1 ]
-    echo "El paquete NO ESTA INSTALADO!"
-    contador=$(apt-cache search $paquete | wc -l)
-    if [ $contador -eq 1 ]
-       then
-	       echo "INFORMACION DEL PAQUETE: $paquete"
-           apt-cache show $paquete
-	       read -p "DESEA INSTALARLO [Y/n]?" respuesta
-	   	   if [ "$respuesta" == "Y" ]
-	       	  then
-		          sudo apt-get install $paquete
-	   	   else
-               exit
+	then
+    	echo "El paquete NO ESTA INSTALADO!"
+    	contador=$(apt-cache search $paquete | wc -l)
+    	if [ $contador -eq 1 ]
+       		then
+	       	echo "INFORMACION DEL PAQUETE: $paquete"
+           	apt-cache show $paquete
+	       	read -p "DESEA INSTALARLO [Y/n]?" respuesta
+	   	   	if [ "$respuesta" == "Y" ]
+	       		then
+		        	sudo apt-get install $paquete
+	   	   	else
+            	exit
 	       fi
-    else
-        apt-cache search $paquete
-    fi
+    	else
+        	apt-cache search $paquete
+    	fi
 fi
