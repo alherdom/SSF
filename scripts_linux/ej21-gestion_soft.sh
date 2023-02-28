@@ -14,12 +14,12 @@
 #    - Actualizarlo (solo este paquete, si fuera actualizable)
 #    - Eliminarlo (guardando la configuración)
 #    - Eliminarlo totalmente
+#
 # ARGUMENTOS: Total=1, paquete=1
 # SALIDAS: Opciones en la terminal.
 #
 # FECHA:27/02/2023
 # VERSIONES: 1.0
-#
 ############################################################################
 if [ $# -eq 0 ]; then
 	echo "No se ha introducido ningun argumento"
