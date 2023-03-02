@@ -29,7 +29,7 @@ fi
 paquete=$1
 sudo apt-get update
 dpkg -s $paquete
-instalado=$(echo $?)
+instalado=$?
 clear
 
 if [ $instalado -eq 0 ]; then
