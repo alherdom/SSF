@@ -1,3 +1,4 @@
+## Ejercicio A (GNU/Linux)
 1. Muestre	todos	los	procesos	del	sistema:
 - ps
 - ps -f
