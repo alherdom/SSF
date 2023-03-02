@@ -8,7 +8,7 @@
 - ps - u root
 3. Ejecute	el	comando	Firefox y	desde	otra	terminal,	compruebe	el	estado	del	proceso	
 creado	¿cuál	es?
-- pgrep firefox
+- pgrep firefox o pidof firefox
 - ps "pid"
 - estado Sl+
 4. En	la	terminal	que	ejecutó el	firefox,	pulse	la	combinación	de	teclas	Ctrl+Z	¿qué	
@@ -94,16 +94,69 @@ Resuelve los siguientes apartados. Cuando se pregunte por qué comando se utiliz
 - El comando jobs solo nos muestra los trabajo vinculados a la terminal desde donde se ejecuta jobs, es decir, no nos mostrará aquellos trabajos que hayan sido lanzados desde otras terminales aunque se estén ejecutando en ese momento.
 - El "+" indica que el proceso esta corriendo en primer plano.
 - El "-" indica que el proceso esta corriendo en segundo plano.
+
 6. Al ejecutar el comando jobs veo que, por ejemplo, el elemento [3] de la lista está en estado stopped (Detenido, Terminado, Terminated o similar), ¿qué significa esto? ¿cómo puedo hacer que pase a ejecutarse en segundo plano?
+- Significa que dicho proceso se ordenó a "dormir" CTRL+Z y este esta esperando a volver ser llamado.
+- Si lanzamos el comando: "bg %3" volvemos a llamar al proceso 3 y lo ejecutamos en segundo plano.
 
 7. He lanzado un comando xeyes que ya se está ejecutando en primer plano, indicar qué tendría que hacer para pasarlo a ejecutar en segundo plano (y que siga ejecutándose)
 
+- CTRL+Z
+- disown -h %4
+- bg 4
+
 8. Lanzar el comando xeyes en segundo plano, y luego volver a pasarlo a primer plano.
+- xeyes &
+- fg 1
 
 9. ¿Cómo puedo hacer que el comando xeyes se siga ejecutando aunque se cierre la shell en la que se ejecutó si aún no lo he lanzado?
 
+- nohup xeyes &
+
 10. ¿Cómo puedo hacer que el comando xeyes se siga ejecutando aunque se cierre la shell en la que se ejecutó si ya se está ejecutando?
 
-11. Como usuario tienes que lanzar el comando xeyes con la mínima prioridad posible, ¿qué comando utilizarías? ¿qué valor le asignarías y cuánta es la prioridad efectiva final? ¿por qué? ¿qué pasaría en el caso inverso, que quisiera asignarle la máxima prioridad posible antes de lanzarlo?
+- CTRL+Z
+- disown -h %4
+- bg 4
 
-12. Repetir el ejercicio anterior, pero sobre el comando xeyes que ya se está ejecutando (indicar qué comando hay que utilizar para modificar la prioridad de un proceso que ya está en ejecución, y qué valores máximos y mínimos se pueden asignar)
+11. Como usuario tienes que lanzar el comando xeyes con la mínima prioridad posible, ¿qué comando utilizarías? ¿qué valor le asignarías y cuánta es la prioridad efectiva final? ¿por qué? ¿qué pasaría en el caso inverso, que quisiera asignarle la máxima prioridad posible antes de lanzarlo?
+- El comando nice nos permite establecer la prioridad de un proceso (Prioridades en Linux) al lanzarlo:
+
+- $ nice -n"niceness" "comando"
+
+- Los usuarios que no sean el superusuario sólo pueden establecer un niceness en el rango de 0 a 19. El superusuario (root) puede indicar la prioridad mediante cualquier valor nice del rango (-20 a 19)
+
+- Para lanzar un proceso con menor prioridad a la establecida por defecto (niceness = 0), un usuario ejecuta:
+
+- $ nice -n10 ./prueba.pl
+
+- Por otra parte, si quisiera ejecutarlo con mayor prioridad (valores de niceness <0), debería hacerlo como superusuario:
+
+- $ sudo nice -n-10 ./test.pl
+
+- Una vez en ejecución es posible Cambiar la prioridad de los procesos en Linux.
+
+- nice -n19 xeyes
+
+- Prioridad: 39
+
+- Al darle el máximo valor de "nice" como usuario (19) se establece inversamente la prioridad, es decir, esta "empeora".
+
+- nice -n0 xeyes
+
+- Prioridad: 20
+
+
+12. Repetir el ejercicio anterior, pero sobre el comando xeyes que ya se está ejecutando (indicar qué comando hay que utilizar para modificar la prioridad de un proceso que ya está en ejecución, y qué valores máximos y mínimos se pueden asignar).
+
+- Existen casos en los que necesitamos cambiar la prioridad de un proceso en ejecución. Para eso existe el comando renice.
+
+- renice [-n] "niceness" [-p|-g|-u] "identificadores"
+
+- $ renice +19 9786
+- $ 9786 (process ID) prioridad anterior 0, nueva prioridad 19
+- Como usuario solo se podrán aumentar el "nice" para bajarlo ha de ser como superusuario.
+
+- Valores de **nice** como Usuario: [0 - 19]
+
+- Valores de **nice** como SuperUsuario: [-20 - 19]
