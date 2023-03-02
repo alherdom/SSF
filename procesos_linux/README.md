@@ -46,3 +46,19 @@ nice?	¿qué	significa	un	valor	negativo?
 - Valor de nice es un espacio de usuario y la prioridad PR es el proceso real de la prioridad que el uso por el kernel de linux. En linux el sistema de prioridades de 0 a 139 en la cual 0 a 99 en tiempo real y de 100 a 139 para los usuarios. buen rango de valores es de -20 a +19 donde -20 es más alto, por defecto 0 y +19 es el más bajo. relación entre el valor de nice y la prioridad es :
 - PR = 20 + NI
 
+Ejercicio B (GNU/Linux)
+Resuelve los siguientes apartados. Cuando se pregunte por qué comando se utilizaría, debes indicar el comando completo, con las opciones y parámetros necesarios para que funcione:
+
+1. Ejecutar el comando ps aux e indicar qué significa cada columna. ¿Qué estados puede tener un proceso y qué significa cada uno? (si se tienen dudas, usar man ps o ps --help)
+2. Ejecutar el comando uptime. ¿Qué significa cada uno de los datos que muestra y qué información puedo obtener de ellos?
+3. ¿Un sistema con 8 cores tiene una carga de 5.3, a qué porcentaje aproximado de rendimiento está funcionando este equipo?
+4. a) Obtener el PID del proceso que más % CPU esté usando en ese momento
+4. b) Obtener el PID del proceso que más % MEM esté usando en ese momento
+5. ¿Qué información me muestra el comando jobs? ¿Qué significan los símbolos + y - que aparecen en la lista?
+6. Al ejecutar el comando jobs veo que, por ejemplo, el elemento [3] de la lista está en estado stopped (Detenido, Terminado, Terminated o similar), ¿qué significa esto? ¿cómo puedo hacer que pase a ejecutarse en segundo plano?
+7. He lanzado un comando xeyes que ya se está ejecutando en primer plano, indicar qué tendría que hacer para pasarlo a ejecutar en segundo plano (y que siga ejecutándose)
+8. Lanzar el comando xeyes en segundo plano, y luego volver a pasarlo a primer plano.
+9. ¿Cómo puedo hacer que el comando xeyes se siga ejecutando aunque se cierre la shell en la que se ejecutó si aún no lo he lanzado?
+10. ¿Cómo puedo hacer que el comando xeyes se siga ejecutando aunque se cierre la shell en la que se ejecutó si ya se está ejecutando?
+11. Como usuario tienes que lanzar el comando xeyes con la mínima prioridad posible, ¿qué comando utilizarías? ¿qué valor le asignarías y cuánta es la prioridad efectiva final? ¿por qué? ¿qué pasaría en el caso inverso, que quisiera asignarle la máxima prioridad posible antes de lanzarlo?
+12. Repetir el ejercicio anterior, pero sobre el comando xeyes que ya se está ejecutando (indicar qué comando hay que utilizar para modificar la prioridad de un proceso que ya está en ejecución, y qué valores máximos y mínimos se pueden asignar)
