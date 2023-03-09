@@ -87,6 +87,8 @@
 - runlevel 6: Reinicio del equipo.
 29. ¿Cuántos hay en tu sistema y qué significa cada uno?
 30. ¿En qué runlevel te encuentras actualmente?
+ - $ runlevel
+ - N 5
 31. Si el sistema presenta un error y necesito que se cargue lo mínimo posible, ¿qué runlevel debería usar? ¿Con qué comando puedo pasar a ese runlevel?
  - systemctl isolate runlevel1.target (runlevel 1 monousuario, sin red, sin entorno, sin demonios)
 32. Si mi sistema tiene un error y para solucionarlo necesito tener acceso a Internet, ¿cuál es el runlevel mínimo que tendría que usar?
