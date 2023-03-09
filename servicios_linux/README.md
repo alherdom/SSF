@@ -48,42 +48,42 @@
 - $ systemctl reload cups
 15. Recargar su configuración y, si eso falla, reiniciarlo
 - $ systemctl reload-or-restart cups
-6.9 Recargar su configuración y, si eso falla, reiniciarlo (sólo si estaba previamente activo)
+16. Recargar su configuración y, si eso falla, reiniciarlo (sólo si estaba previamente activo)
 - $ systemctl try-reload-or-restart cups
 
-7. Cada servicio puede estar activo/inactivo, habilitado/deshabilitado, enmascarado/desenmascarado...
-7.1. ¿Qué significa cada uno de estos estados?
+17. Cada servicio puede estar activo/inactivo, habilitado/deshabilitado, enmascarado/desenmascarado...
+18. ¿Qué significa cada uno de estos estados?
 - Servicio activo: servicio iniciado, está en funcionamiento. Los servicios inactivos no están en ejecución.
 - Servicio habilitado (enabled): Servicio que será iniciado durante el arranque (si está deshabilitado -disabled- NO se iniciará durante el arranque. Esto es totalmente independiente de si el servicio está activo o inactivo.
 - Servicio enmascarado (masked): Los servicios a los que se les haya hecho un mask, NO podrán iniciarse mientras estén enmascarados. Esto previene que un servicio pueda ser iniciado por otro.
 
-7.2. ¿Qué comando se utiliza para saber si un servicio está en cada uno de estos estados?
+19. ¿Qué comando se utiliza para saber si un servicio está en cada uno de estos estados?
 - $ systemctl is-active cups
 - $ systemctl is-enabled cups 
-7.3. ¿Están esos estados están relacionados? Es decir, sabiendo que un servicio está deshabilitado ¿puede saber si está activo o no? ¿Puede estar un servicio activo si está enmascarado?
-7.4. Usando un único comando, ¿cómo puedo habilitar un servicio y activarlo a la vez? ¿Y viceversa (deshabilitar y parar un servicio)?
+20. ¿Están esos estados están relacionados? Es decir, sabiendo que un servicio está deshabilitado ¿puede saber si está activo o no? ¿Puede estar un servicio activo si está enmascarado?
+21. Usando un único comando, ¿cómo puedo habilitar un servicio y activarlo a la vez? ¿Y viceversa (deshabilitar y parar un servicio)?
  
-8. ¿Qué es lo que tengo que hacer si quiero?:
-8.1. Parar un proceso que alguien me ha comentado que es un servicio.
+22. ¿Qué es lo que tengo que hacer si quiero?:
+23. Parar un proceso que alguien me ha comentado que es un servicio.
 - $ systemctl stop cups
-8.2. Evitar que ese proceso aparezca cada vez que arranco el equipo
+24. Evitar que ese proceso aparezca cada vez que arranco el equipo
 - $ systemctl disable cups
-8.3. ¿Es suficiente con parar un servicio y no cargarlo en cada arranque para asegurar que ese servicio nunca más se volverá a ejecutar?
+25. ¿Es suficiente con parar un servicio y no cargarlo en cada arranque para asegurar que ese servicio nunca más se volverá a ejecutar?
 - No.
-8.4 Si no fuese suficiente, ¿por qué? ¿cómo podría asegurarme que un servicio no se va a poder ejecutar de nuevo?
+26. Si no fuese suficiente, ¿por qué? ¿cómo podría asegurarme que un servicio no se va a poder ejecutar de nuevo?
 - Faltaria recargar la nueva configuración del servicio, para ello ejecutar el comando "reload" si el servicio lo permite esta no supondrá ningún impacto sobre el uso del servicio, en caso de no ser así habrá que reiniciarlo, esto si supondría impacto sobre el uso del servicio.
 - $ try-reload-or-restart
 
-9. Sobre los niveles de ejecución (runleveles) en GNU/Linux:
-9.1. ¿Para qué se usan y qué implican?
-9.2. ¿Cuántos hay en tu sistema y qué significa cada uno?
-9.3. ¿En qué runlevel te encuentras actualmente?
-9.4. Si el sistema presenta un error y necesito que se cargue lo mínimo posible, ¿qué runlevel debería usar? ¿Con qué comando puedo pasar a ese runlevel?
-9.5. Si mi sistema tiene un error y para solucionarlo necesito tener acceso a Internet, ¿cuál es el runlevel mínimo que tendría que usar?
-9.6. Si en una emergencia necesito apagar mi sistema, ¿podría hacerlo con runlevels? ¿cómo?
+27. Sobre los niveles de ejecución (runleveles) en GNU/Linux:
+28. ¿Para qué se usan y qué implican?
+29. ¿Cuántos hay en tu sistema y qué significa cada uno?
+30. ¿En qué runlevel te encuentras actualmente?
+31. Si el sistema presenta un error y necesito que se cargue lo mínimo posible, ¿qué runlevel debería usar? ¿Con qué comando puedo pasar a ese runlevel?
+32. Si mi sistema tiene un error y para solucionarlo necesito tener acceso a Internet, ¿cuál es el runlevel mínimo que tendría que usar?
+33. Si en una emergencia necesito apagar mi sistema, ¿podría hacerlo con runlevels? ¿cómo?
 ¿Y si necesito reiniciarlo?
  
-10. ¿Qué sistema Sistema de inicialización del kernel (init system) estás usando? ¿Cómo lo sabes?
-10.1. Muestra el total de tiempo que tarda en arrancar tu máquina. Generalmente el tiempo total se desglosa en varias etapas, ¿qué significa cada una de estas etapas? ¿Cuál es la que más tarde? ¿y la que menos? ¿por qué crees que esto es así?
-10.2 Muestra lo que tarda en cargarse cada uno de los servicios de tu máquina.
+34. ¿Qué sistema Sistema de inicialización del kernel (init system) estás usando? ¿Cómo lo sabes?
+35. Muestra el total de tiempo que tarda en arrancar tu máquina. Generalmente el tiempo total se desglosa en varias etapas, ¿qué significa cada una de estas etapas? ¿Cuál es la que más tarde? ¿y la que menos? ¿por qué crees que esto es así?
+36. Muestra lo que tarda en cargarse cada uno de los servicios de tu máquina.
  </di>
