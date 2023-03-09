@@ -62,7 +62,7 @@
 - $ systemctl is-enabled cups 
 20. ¿Están esos estados están relacionados? Es decir, sabiendo que un servicio está deshabilitado ¿puede saber si está activo o no? ¿Puede estar un servicio activo si está enmascarado?
 21. Usando un único comando, ¿cómo puedo habilitar un servicio y activarlo a la vez? ¿Y viceversa (deshabilitar y parar un servicio)?
- 
+ - $ systemctl enable --now
 22. ¿Qué es lo que tengo que hacer si quiero?:
 23. Parar un proceso que alguien me ha comentado que es un servicio.
 - $ systemctl stop cups
