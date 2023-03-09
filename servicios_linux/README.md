@@ -54,9 +54,9 @@
 
 17. Cada servicio puede estar activo/inactivo, habilitado/deshabilitado, enmascarado/desenmascarado...
 18. ¿Qué significa cada uno de estos estados?
-- Servicio activo: servicio iniciado, está en funcionamiento. Los servicios inactivos no están en ejecución.
-- Servicio habilitado (enabled): Servicio que será iniciado durante el arranque (si está deshabilitado -disabled- NO se iniciará durante el arranque. Esto es totalmente independiente de si el servicio está activo o inactivo.
-- Servicio enmascarado (masked): Los servicios a los que se les haya hecho un mask, NO podrán iniciarse mientras estén enmascarados. Esto previene que un servicio pueda ser iniciado por otro.
+- **Servicio activo: servicio iniciado, está en funcionamiento. Los servicios inactivos no están en ejecución.**
+- **Servicio habilitado (enabled): Servicio que será iniciado durante el arranque (si está deshabilitado -disabled- NO se iniciará durante el arranque. Esto es totalmente independiente de si el servicio está activo o inactivo.**
+- **Servicio enmascarado (masked): Los servicios a los que se les haya hecho un mask, NO podrán iniciarse mientras estén enmascarados. Esto previene que un servicio pueda ser iniciado por otro.**
 
 19. ¿Qué comando se utiliza para saber si un servicio está en cada uno de estos estados?
 - **$ systemctl is-active cups**
