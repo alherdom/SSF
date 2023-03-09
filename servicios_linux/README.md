@@ -77,7 +77,7 @@
 
 27. Sobre los niveles de ejecución (runleveles) en GNU/Linux:
 28. ¿Para qué se usan y qué implican?
-- Los niveles de ejecución indican el modo de operación en el que está el equipo, que va desde el nivel 0 que corresponde con el apagado, hasta el nivel 6 del reinicio. Según el nivel de ejecución que se encuentra la máquina, se montarán o no algunas unidades de disco, se activarán o no algunos servicios, etc. En general, los niveles de ejecución son los siguientes en la mayoría de distribuciones:
+- **Los niveles de ejecución indican el modo de operación en el que está el equipo, que va desde el nivel 0 que corresponde con el apagado, hasta el nivel 6 del reinicio. Según el nivel de ejecución que se encuentra la máquina, se montarán o no algunas unidades de disco, se activarán o no algunos servicios, etc. En general, los niveles de ejecución son los siguientes en la mayoría de distribuciones:**
 
 - **runlevel 0: Apagado o cierre del equipo.**
 - **runlevel 1: Monosuario (sólo se permite el usuario root), no se configura la red, no hay entorno gráfico (se trabaja a nivel de terminal) ni se arrancan demonios, etc. Es utilizado como modo de emergencia (modo recuperación) para solucionar problemas.**
@@ -101,13 +101,13 @@
  
 34. ¿Qué sistema de inicialización del kernel (init system) estás usando? ¿Cómo lo sabes?
  - **$ ps -p1 | grep "init\|upstar\|systemdd"**
- - **1 ?     00:00:02 systemd
+ - **1 ?     00:00:02 systemd**
 35. Muestra el total de tiempo que tarda en arrancar tu máquina. Generalmente el tiempo total se desglosa en varias etapas, ¿qué significa cada una de estas etapas? ¿Cuál es la que más tarde? ¿y la que menos? ¿por qué crees que esto es así?
  
  - $ systemd-analyze time
-- Startup finished in 5.234s (kernel) + 4.221s (userspace) = 9.455s 
-- graphical.target reached after 4.198s in userspace
+- **Startup finished in 5.234s (kernel) + 4.221s (userspace) = 9.455s**
+- **graphical.target reached after 4.198s in userspace**
 
 36. Muestra lo que tarda en cargarse cada uno de los servicios de tu máquina.
- - $ systemd-analyze blame (consumo de tiempo de cada servicio durante el arranque)
+ - **$ systemd-analyze blame (consumo de tiempo de cada servicio durante el arranque)**
  </di>
