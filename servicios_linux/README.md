@@ -104,7 +104,7 @@
  - **1 ?     00:00:02 systemd**
 35. Muestra el total de tiempo que tarda en arrancar tu máquina. Generalmente el tiempo total se desglosa en varias etapas, ¿qué significa cada una de estas etapas? ¿Cuál es la que más tarde? ¿y la que menos? ¿por qué crees que esto es así?
  
- - $ systemd-analyze time
+ - **$ systemd-analyze time**
 - **Startup finished in 5.234s (kernel) + 4.221s (userspace) = 9.455s**
 - **graphical.target reached after 4.198s in userspace**
 
