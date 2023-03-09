@@ -99,6 +99,8 @@
  - systemctl isolate runlevel6.target (runlevel 6 reinicio del equipo)
  
 34. ¿Qué sistema de inicialización del kernel (init system) estás usando? ¿Cómo lo sabes?
+ - $ ps -p1 | grep "init\|upstar\|systemdd"
+ - 1 ?     00:00:02 systemd
 35. Muestra el total de tiempo que tarda en arrancar tu máquina. Generalmente el tiempo total se desglosa en varias etapas, ¿qué significa cada una de estas etapas? ¿Cuál es la que más tarde? ¿y la que menos? ¿por qué crees que esto es así?
 36. Muestra lo que tarda en cargarse cada uno de los servicios de tu máquina.
  </di>
