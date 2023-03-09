@@ -25,18 +25,15 @@ if [ $# -eq 0 ]; then
 	echo "No se ha introducido ningun argumento"
 	read -p "Indique el nombre del paquete: " paquete
 fi
-
 paquete=$1
 sudo apt-get update
 dpkg -s $paquete
 instalado=$?
 clear
-
 if [ $instalado -eq 0 ]; then
 	echo "El $paquete SI ESTA INSTALADO!"
 	PS3="SELECIONE ALGUNA DE LAS OPCIONES: "
 	opciones=("VERSION" "REINSTALL" "UPGRADE" "REMOVE" "PURGE" "EXIT")
-
 	select opcion in "${opciones[@]}"; do
 		case $opcion in
 		VERSION)
@@ -68,7 +65,6 @@ if [ $instalado -eq 0 ]; then
 			;;
 		esac
 	done
-
 elif [ $instalado -eq 1 ]; then
 	echo "El $paquete NO ESTA INSTALADO!"
 	existe=$(apt-cache search $paquete | wc -l)
