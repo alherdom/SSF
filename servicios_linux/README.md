@@ -76,14 +76,27 @@
 
 27. Sobre los niveles de ejecución (runleveles) en GNU/Linux:
 28. ¿Para qué se usan y qué implican?
+- Los niveles de ejecución indican el modo de operación en el que está el equipo, que va desde el nivel 0 que corresponde con el apagado, hasta el nivel 6 del reinicio. Según el nivel de ejecución que se encuentra la máquina, se montarán o no algunas unidades de disco, se activarán o no algunos servicios, etc. En general, los niveles de ejecución son los siguientes en la mayoría de distribuciones:
+
+- runlevel 0: Apagado o cierre del equipo.
+- runlevel 1: Monosuario (sólo se permite el usuario root), no se configura la red, no hay entorno gráfico (se trabaja a nivel de terminal) ni se arrancan demonios, etc. Es utilizado como modo de emergencia (modo recuperación) para solucionar problemas.
+- runlevel 2: Multiusuario, pero sin soporte de red ni entorno gráfico.
+- runlevel 3: Multiusiario con soporte de red, pero sin entorno gráfico.
+- runlevel 4: Aunque es similar al 3, no suele estar en uso, sino que se reserva para propósitos especiales.
+- runlevel 5: Multiusuario con soporte de red y entorno gráfico, es el modo normal de uso.
+- runlevel 6: Reinicio del equipo.
 29. ¿Cuántos hay en tu sistema y qué significa cada uno?
 30. ¿En qué runlevel te encuentras actualmente?
 31. Si el sistema presenta un error y necesito que se cargue lo mínimo posible, ¿qué runlevel debería usar? ¿Con qué comando puedo pasar a ese runlevel?
+ - systemctl isolate runlevel1.target (runlevel 1 monousuario, sin red, sin entorno, sin demonios)
 32. Si mi sistema tiene un error y para solucionarlo necesito tener acceso a Internet, ¿cuál es el runlevel mínimo que tendría que usar?
+ - systemctl isolate runlevel3.target (runlevel 3 multiusuario, con red, sin entorno gráfico)
 33. Si en una emergencia necesito apagar mi sistema, ¿podría hacerlo con runlevels? ¿cómo?
 ¿Y si necesito reiniciarlo?
+ - systemctl isolate runlevel0.target (runlevel 0 apagado o cierre del equipo)
+ - systemctl isolate runlevel6.target (runlevel 6 reinicio del equipo)
  
-34. ¿Qué sistema Sistema de inicialización del kernel (init system) estás usando? ¿Cómo lo sabes?
+34. ¿Qué sistema de inicialización del kernel (init system) estás usando? ¿Cómo lo sabes?
 35. Muestra el total de tiempo que tarda en arrancar tu máquina. Generalmente el tiempo total se desglosa en varias etapas, ¿qué significa cada una de estas etapas? ¿Cuál es la que más tarde? ¿y la que menos? ¿por qué crees que esto es así?
 36. Muestra lo que tarda en cargarse cada uno de los servicios de tu máquina.
  </di>
