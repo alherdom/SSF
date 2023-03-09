@@ -102,5 +102,7 @@
  - $ ps -p1 | grep "init\|upstar\|systemdd"
  - 1 ?     00:00:02 systemd
 35. Muestra el total de tiempo que tarda en arrancar tu máquina. Generalmente el tiempo total se desglosa en varias etapas, ¿qué significa cada una de estas etapas? ¿Cuál es la que más tarde? ¿y la que menos? ¿por qué crees que esto es así?
+ 
 36. Muestra lo que tarda en cargarse cada uno de los servicios de tu máquina.
+ - $ systemd-analyze blame (consumo de tiempo de cada servicio durante el arranque)
  </di>
