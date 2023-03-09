@@ -1,5 +1,8 @@
-Resuelve los siguientes apartados en GNU/Linux. Cuando se pregunte por qué comando se utilizaría, debes indicar el comando completo, con las opciones y parámetros necesarios para que funcione.
-NOTA: Se debe indicar expresamente el uso de sudo (SOLO cuando sea estrictamente necesario).
+<div align=justify>
+
+ ## Hoja de ejercicios de Servicios y Demonios
+ 
+#### Resuelve los siguientes apartados en GNU/Linux. Cuando se pregunte por qué comando se utilizaría, debes indicar el comando completo, con las opciones y parámetros necesarios para que funcione. NOTA: Se debe indicar expresamente el uso de sudo (SOLO cuando sea estrictamente necesario).
 
 1. Muestra todos los servicios de tu sistema
 - $ service --status-all
@@ -10,29 +13,40 @@ NOTA: Se debe indicar expresamente el uso de sudo (SOLO cuando sea estrictamente
 - Si está habilitado o no
 - Si está enmascarado o no
  
-3. Los procesos "comunes" suelen tomar las entradas de periféricos como el teclado (o ratón) y mostrar las salidas y/o errores en pantalla. ¿Los servicios también funcionan así? Si no es así, indica de dónde suelen tomar las entradas (la configuración del servicio, por ejemplo) y dónde suelen mostrar las salidas (información de accesos, errores, etc.).
+3. Los procesos "comunes" suelen tomar las entradas de periféricos como el teclado (o ratón) y mostrar las salidas y/o errores en pantalla. ¿Los servicios también funcionan así?
  
-4. He cambiado la configuración de un servicio, pero por alguna razón parece que el servicio no se ve afectado por los cambios... ¿qué puede estar pasando? ¿qué tengo que hacer?
+ - NO.
  
-5. ¿Es siempre seguro detener cualquier servicio? ¿Por qué?
-¿Es siempre seguro reiniciar cualquier servicio? ¿Por qué?
+ 4. Si no es así, indica de dónde suelen tomar las entradas (la configuración del servicio, por ejemplo) y dónde suelen mostrar las salidas (información de accesos, errores, etc.).
  
-6. Para un servicio dado, por ejemplo openvpn (o cups o algunos de los que vimos en clase), indica lo que debo hacer para:
-6.1 Consultar su estado
+ - La comunicación se realiza mediante otras aplicaciones de tipo "cliente" que el usuario ejecuta "a demanda" para recoger los datos y luego ser enviados a los servicios (por ejemplo, la aplicación at con el demonio atd). Para comunicar errores o mensajes, se basan en ficheros de registros (logs, normalmente localizados en /var/log), o bien en otros servicios especializados en registros (como syslogd en GNU/Linux), etc.
+ 
+5. He cambiado la configuración de un servicio, pero por alguna razón parece que el servicio no se ve afectado por los cambios... ¿qué puede estar pasando? ¿qué tengo que hacer?
+
+ - Recargar el servicio si este lo permite para iniciarlo con la nueva configuracion, o reiniciarlo si esto no es posible.
+ - $ systemctl reload-or-restart "servicio"
+ - $ systemctl try-reload-or-restart "servicio"
+ 
+ 6. ¿Es siempre seguro detener cualquier servicio? ¿Por qué? ¿Es siempre seguro reiniciar cualquier servicio? ¿Por qué?
+ 
+ - No. Los servicios suelen llevar a cabo tareas especiales y básicas del sistema operativo (como por ejemplo las relacionadas con el control del hardware), muchas de ellas críticas sin las que el equipo no podría funcionar correctamente. Por ejemplo, el servicio de red, de energía, de sonido, de impresión, de ejecución programada de tareas, de interrupciones, etc. 
+ 
+7. Para un servicio dado, por ejemplo openvpn (o cups o algunos de los que vimos en clase), indica lo que debo hacer para:
+8. Consultar su estado
 - $ systemctl status cups
-6.2 Consultar su configuración
+9. Consultar su configuración
 - $ systemctl show cups
-6.3 Detenerlo
+10. Detenerlo
 - $ systemctl stop cups
-6.4 Activarlo
+11. Activarlo
 - $ systemctl start cups
-6.5 Reiniciarlo
+12. Reiniciarlo
 - $ systemctl restart cups
-6.6 Reiniciarlo (sólo si estaba previamente activo)
+13. Reiniciarlo (sólo si estaba previamente activo)
 - $ systemctl try-restart cups
-6.7 Recargar su configuración
+14. Recargar su configuración
 - $ systemctl reload cups
-6.8 Recargar su configuración y, si eso falla, reiniciarlo
+15. Recargar su configuración y, si eso falla, reiniciarlo
 - $ systemctl reload-or-restart cups
 6.9 Recargar su configuración y, si eso falla, reiniciarlo (sólo si estaba previamente activo)
 - $ systemctl try-reload-or-restart cups
@@ -72,3 +86,4 @@ NOTA: Se debe indicar expresamente el uso de sudo (SOLO cuando sea estrictamente
 10. ¿Qué sistema Sistema de inicialización del kernel (init system) estás usando? ¿Cómo lo sabes?
 10.1. Muestra el total de tiempo que tarda en arrancar tu máquina. Generalmente el tiempo total se desglosa en varias etapas, ¿qué significa cada una de estas etapas? ¿Cuál es la que más tarde? ¿y la que menos? ¿por qué crees que esto es así?
 10.2 Muestra lo que tarda en cargarse cada uno de los servicios de tu máquina.
+ </di>
