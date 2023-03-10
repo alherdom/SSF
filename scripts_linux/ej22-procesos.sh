@@ -9,8 +9,8 @@
 #
 # ARGUMENTOS: Total=2; maxCPU=$1 maxMem=$2
 # FECHA: 10/03/2023
-#
 ############################################
+
 # Control de argumentos
 if [ $# -lt 2 ]; then
     echo 'Error 100'
