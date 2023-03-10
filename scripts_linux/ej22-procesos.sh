@@ -30,6 +30,31 @@ if ! [ $2 -le 100 ]; then
     exit 150
 fi
 
+# Funciones señales de usuario
+function user_interruption {
+    echo " Interrumpiendo ejecución"
+    exit
+}
+trap user_interruption SIGTSTP
+
+function user_finish {
+    echo " Finalizando ejecución..."
+    exit
+}
+trap user_finish SIGINT
+
+function user_action1 {
+    echo " La carga del sistema es: "
+    uptime
+}
+trap user_action1 SIGUSR1
+
+function user_action2 {
+    echo " Reanudando procesos detenidos..."
+    kill -CONT -1
+}
+trap user_action2 SIGUSR2
+
 # Funcion bucle principal
 function comprobacion {
     while true; do
@@ -99,27 +124,3 @@ function operaciones_procesos {
     done
     exit
 }
-# Funciones señales de usuario
-function user_interruption {
-    echo " Interrumpiendo ejecución"
-    exit
-}
-trap user_interruption SIGTSTP
-
-function user_finish {
-    echo " Finalizando ejecución..."
-    exit
-}
-trap user_finish SIGINT
-
-function user_action1 {
-    echo " La carga del sistema es: "
-    uptime
-}
-trap user_action1 SIGUSR1
-
-function user_action2 {
-    echo " Reanudando procesos detenidos..."
-    kill -CONT -1
-}
-trap user_action2 SIGUSR2
