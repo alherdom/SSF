@@ -30,36 +30,32 @@ if ! [ $2 -le 100 ]; then
     exit 150
 fi
 
-# Funciones señales de usuario
-function user_interruption {
-    echo " Interrumpiendo ejecución"
-    exit
+# Funcion bucle principal
+function comprobacion {
+    while true; do
+        pid_CPU=$(ps -eo pid --sort=-%cpu h | head -n 1)
+        pid_mem=$(ps -eo pid --sort=-%mem h | head -n 1)
+        maxCPUsystem=$(ps -eo %cpu --sort=-%cpu h | head -n 1)
+        maxMemsystem=$(ps -eo %mem --sort=-%mem h | head -n 1)
+        overload_CPU=$(echo "$maxCPUsystem <= $maxCPU" | bc)
+        overload_Mem=$(echo "$maxMemsystem <= $maxMem" | bc)
+        if [ $overload_CPU -eq 1 ] && [ $overload_Mem -eq 1 ]; then
+            echo "Los procesos no superan los límites establecidos"
+            sleep 30
+        elif [ $overload_CPU -ne 1 ]; then
+            ps u -p $pid_CPU
+            echo "Los procesos superan los límites establecidos"
+            echo "El proceso del sistema que más porcentaje de CPU consume está por encima de $maxCPU"
+            operaciones_procesos
+        elif [ $overload_Mem -ne 1 ]; then
+            ps u -p $pid_mem
+            echo "Los procesos superan los límites establecidos"
+            echo "El proceso del sistema que más porcentaje de memoria consume está por encima de $maxMem"
+            operaciones_procesos
+        fi
+    done
 }
-trap user_interruption SIGTSTP
-
-function user_finish {
-    echo " Finalizando ejecución..."
-    exit
-}
-trap user_finish SIGINT
-
-function user_action1 {
-    echo " La carga del sistema es: "
-    uptime
-}
-trap user_action1 SIGUSR1
-
-function user_action2 {
-    echo " Reanudando procesos detenidos..."
-    kill -CONT -1
-}
-trap user_action2 SIGUSR2
-
-# Declaración variables
-pid_CPU=$(ps -eo pid --sort=-%cpu h | head -n 1)
-pid_mem=$(ps -eo pid --sort=-%mem h | head -n 1)
-maxCPUsystem=$(ps -eo %cpu --sort=-%cpu h | head -n 1)
-maxMemsystem=$(ps -eo %mem --sort=-%mem h | head -n 1)
+comprobacion
 
 # Función para las distintas operaciones de los procesos
 function operaciones_procesos {
@@ -103,26 +99,27 @@ function operaciones_procesos {
     done
     exit
 }
-
-# Funcion bucle principal
-function comprobacion {
-    while true; do
-        overload_CPU=$(echo "$maxCPUsystem <= $maxCPU" | bc)
-        overload_Mem=$(echo "$maxMemsystem <= $maxMem" | bc)
-        if [ $(echo "$maxCPUsystem <= $maxCPU" | bc) -eq 1 ] && [ $overload_Mem -eq 1 ]; then
-            echo "Los procesos no superan los límites establecidos"
-            sleep 30
-        elif [ $(echo "$maxCPUsystem >= $maxCPU" | bc) -eq 1 ]; then
-            ps u -p $pid_CPU
-            echo "Los procesos superan los límites establecidos"
-            echo "El proceso del sistema que más porcentaje de CPU consume está por encima de $maxCPU"
-            operaciones_procesos
-        elif [ $(echo "$maxMemsystem >= $maxMem" | bc) -eq 1 ]; then
-            ps u -p $pid_mem
-            echo "Los procesos superan los límites establecidos"
-            echo "El proceso del sistema que más porcentaje de memoria consume está por encima de $maxMem"
-            operaciones_procesos
-        fi
-    done
+# Funciones señales de usuario
+function user_interruption {
+    echo " Interrumpiendo ejecución"
+    exit
 }
-comprobacion
+trap user_interruption SIGTSTP
+
+function user_finish {
+    echo " Finalizando ejecución..."
+    exit
+}
+trap user_finish SIGINT
+
+function user_action1 {
+    echo " La carga del sistema es: "
+    uptime
+}
+trap user_action1 SIGUSR1
+
+function user_action2 {
+    echo " Reanudando procesos detenidos..."
+    kill -CONT -1
+}
+trap user_action2 SIGUSR2
