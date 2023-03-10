@@ -111,6 +111,7 @@ function comprobacion {
         overload_Mem=$(echo "$maxMemsystem <= $maxMem" | bc)
         if [ $overload_CPU -eq 1 ] && [ $overload_Mem -eq 1 ]; then
             echo "Los procesos no superan los límites establecidos"
+            sleep 30
         elif [ $overload_CPU -ne 1 ]; then
             ps u -p $pid_CPU
             echo "Los procesos superan los límites establecidos"
@@ -122,7 +123,6 @@ function comprobacion {
             echo "El proceso del sistema que más porcentaje de memoria consume está por encima de $maxMem"
             operaciones_procesos
         fi
-        sleep 30
     done
 }
 comprobacion
