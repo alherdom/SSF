@@ -55,6 +55,11 @@ function user_action2 {
 }
 trap user_action2 SIGUSR2
 
+# Declaración variables
+pid_CPU=$(ps -eo pid --sort=-%cpu h | head -n 1)
+pid_mem=$(ps -eo pid --sort=-%mem h | head -n 1)
+maxCPUsystem=$(ps -eo %cpu --sort=-%cpu h | head -n 1)
+maxMemsystem=$(ps -eo %mem --sort=-%mem h | head -n 1)
 
 # Función para las distintas operaciones de los procesos
 function operaciones_procesos {
@@ -102,10 +107,6 @@ function operaciones_procesos {
 # Funcion bucle principal
 function comprobacion {
     while true; do
-        pid_CPU=$(ps -eo pid --sort=-%cpu h | head -n 1)
-        pid_mem=$(ps -eo pid --sort=-%mem h | head -n 1)
-        maxCPUsystem=$(ps -eo %cpu --sort=-%cpu h | head -n 1)
-        maxMemsystem=$(ps -eo %mem --sort=-%mem h | head -n 1)
         overload_CPU=$(echo "$maxCPUsystem <= $maxCPU" | bc)
         overload_Mem=$(echo "$maxMemsystem <= $maxMem" | bc)
         if [ $overload_CPU -eq 1 ] && [ $overload_Mem -eq 1 ]; then
