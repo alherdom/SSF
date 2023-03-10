@@ -4,8 +4,8 @@
 #
 # NOMBRE: ej22-procesos.sh
 # AUTOR: <Samuel Eloy González Díaz> <Alejandro Hernández Domínguez>
-# OBJETIVO: Monitorizar el % de carga de la memoria y de la CPU de la máquina,
-# y mediante opciones por menú, actuar como se desee.
+# OBJETIVO: Monitorizar el % de carga de la memoria y de la CPU de la máquina, 
+# y mediante opciones por menú, actuar como se desee. 
 #
 # ARGUMENTOS: Total=2; maxCPU=$1 maxMem=$2
 # FECHA: 10/03/2023
@@ -33,13 +33,13 @@ fi
 # Funciones señales de usuario
 function user_interruption {
     echo " Interrumpiendo ejecución"
-    return 0
+    exit
 }
 trap user_interruption SIGTSTP
 
 function user_finish {
     echo " Finalizando ejecución..."
-    return 0
+    exit
 }
 trap user_finish SIGINT
 
@@ -107,17 +107,17 @@ function operaciones_procesos {
 # Funcion bucle principal
 function comprobacion {
     while true; do
-        #overload_CPU=$(echo "$maxCPUsystem <= $maxCPU" | bc)
-        #overload_Mem=$(echo "$maxMemsystem <= $maxMem" | bc)
-        if [ $(echo "$maxCPUsystem <= $maxCPU" | bc) -eq 1 ] && [ $(echo "$maxMemsystem <= $maxMem" | bc) -eq 1 ]; then
+        overload_CPU=$(echo "$maxCPUsystem <= $maxCPU" | bc)
+        overload_Mem=$(echo "$maxMemsystem <= $maxMem" | bc)
+        if [ $overload_CPU -eq 1 ] && [ $overload_Mem -eq 1 ]; then
             echo "Los procesos no superan los límites establecidos"
             sleep 30
-        elif [ $(echo "$maxCPU <= $maxCPUsystem" | bc) -eq 1 ]; then
+        elif [ $overload_CPU -ne 1 ]; then
             ps u -p $pid_CPU
             echo "Los procesos superan los límites establecidos"
             echo "El proceso del sistema que más porcentaje de CPU consume está por encima de $maxCPU"
             operaciones_procesos
-        elif [ $(echo "$maxMem <= $maxMemsystem" | bc) -eq 1 ]; then
+        elif [ $overload_Mem -ne 1 ]; then
             ps u -p $pid_mem
             echo "Los procesos superan los límites establecidos"
             echo "El proceso del sistema que más porcentaje de memoria consume está por encima de $maxMem"
