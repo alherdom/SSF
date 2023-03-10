@@ -4,8 +4,8 @@
 #
 # NOMBRE: ej22-procesos.sh
 # AUTOR: <Samuel Eloy González Díaz> <Alejandro Hernández Domínguez>
-# OBJETIVO: Monitorizar el % de carga de la memoria y de la CPU de la máquina, 
-# y mediante opciones por menú, actuar como se desee. 
+# OBJETIVO: Monitorizar el % de carga de la memoria y de la CPU de la máquina,
+# y mediante opciones por menú, actuar como se desee.
 #
 # ARGUMENTOS: Total=2; maxCPU=$1 maxMem=$2
 # FECHA: 10/03/2023
@@ -56,10 +56,6 @@ function user_action2 {
 trap user_action2 SIGUSR2
 
 # Declaración variables
-pid_CPU=$(ps -eo pid --sort=-%cpu h | head -n 1)
-pid_mem=$(ps -eo pid --sort=-%mem h | head -n 1)
-maxCPUsystem=$(ps -eo %cpu --sort=-%cpu h | head -n 1)
-maxMemsystem=$(ps -eo %mem --sort=-%mem h | head -n 1)
 
 # Función para las distintas operaciones de los procesos
 function operaciones_procesos {
@@ -106,7 +102,11 @@ function operaciones_procesos {
 
 # Funcion bucle principal
 function comprobacion {
+    pid_CPU=$(ps -eo pid --sort=-%cpu h | head -n 1)
+    pid_mem=$(ps -eo pid --sort=-%mem h | head -n 1)
     while true; do
+        maxCPUsystem=$(ps -eo %cpu --sort=-%cpu h | head -n 1)
+        maxMemsystem=$(ps -eo %mem --sort=-%mem h | head -n 1)
         overload_CPU=$(echo "$maxCPUsystem <= $maxCPU" | bc)
         overload_Mem=$(echo "$maxMemsystem <= $maxMem" | bc)
         if [ $overload_CPU -eq 1 ] && [ $overload_Mem -eq 1 ]; then
