@@ -55,8 +55,6 @@ function user_action2 {
 }
 trap user_action2 SIGUSR2
 
-# Declaración variables
-
 # Función para las distintas operaciones de los procesos
 function operaciones_procesos {
     select option in "Ignorar el aviso y seguir comprobando" "Disminuir en 3 puntos la prioridad del proceso" "Interrumpir el proceso" "Terminar el proceso" "Finalizar inmediatamente el proceso" "Detener el proceso ('"'congelarlo'"' de forma evitable)" "Detener el proceso ('"'congelarlo'"' de forma INevitable)" "Salir del script"; do
