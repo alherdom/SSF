@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################################################################
-# AUTOR: Alejandro Hernandez <alherdom@outlook.com>
+# AUTOR: Alejandro Hernandez Dominguez <alherdom@outlook.com>
 # NOMBRE: ej21-gestion_software.sh
 # OBJETIVO:
 # 1. Recibe un argumento (nombre del paquete), si no se indica, se le pedirá por teclado.
@@ -21,15 +21,19 @@
 # FECHA:27/02/2023
 # VERSIONES: 1.0
 ############################################################################
+# Chequeo de variable de entrada.
 if [ $# -eq 0 ]; then
 	echo "No se ha introducido ningun argumento"
 	read -p "Indique el nombre del paquete: " paquete
-fi
+else
 paquete=$1
+fi
+# Sincronización de software local y chequeo de instalación.
 sudo apt-get update
 dpkg -s $paquete
-instalado=$(echo $?)
+instalado=$?
 clear
+# Acciones si el paquete si esta instalado.
 if [ $instalado -eq 0 ]; then
 	echo "El $paquete SI ESTA INSTALADO!"
 	PS3="SELECIONE ALGUNA DE LAS OPCIONES: "
@@ -65,6 +69,7 @@ if [ $instalado -eq 0 ]; then
 			;;
 		esac
 	done
+# Accione si el paquete no esta instalado.
 elif [ $instalado -eq 1 ]; then
 	echo "El $paquete NO ESTA INSTALADO!"
 	existe=$(apt-cache search $paquete | wc -l)
@@ -72,7 +77,7 @@ elif [ $instalado -eq 1 ]; then
 		echo "INFORMACION DEL PAQUETE: $paquete"
 		apt-cache show $paquete
 		read -p "DESEA INSTALARLO? [Y/n] " respuesta
-		if [ "$respuesta" == "Y" ]; then
+		if [ "$respuesta" == "Y" ] || [ "$respuesta" == "y" ]; then
 			sudo apt-get install $paquete
 		else
 			echo "INSTALACION CANCELADA"
