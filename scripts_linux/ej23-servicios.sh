@@ -36,11 +36,11 @@ is_service=$?
 
 
 if [ is_service -eq 1 ]; then
-    echo 'Error 10: El $service_name no es un servicio'
+    echo "Error 10: El $service_name no es un servicio"
     exit 10
 else
-    echo 'El $service_name si es un servicio'
-    echo 'Mostrando su estado:'
+    echo "El $service_name si es un servicio"
+    echo "Mostrando su estado:"
     systemctl is-active $service_name
     systemctl is-enabled $service_name
 fi
