@@ -35,7 +35,7 @@ service --status-all | grep $service_name
 is_service=$?
 
 
-if [ is_service -eq 1 ]; then
+if [ $is_service -eq 1 ]; then
     echo "Error 10: El $service_name no es un servicio"
     exit 10
 else
