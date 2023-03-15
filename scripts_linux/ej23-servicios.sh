@@ -24,11 +24,12 @@
 # FECHA: 15/03/2023
 # VERSIONES: 1.0
 ############################################################################
-while [ $# -eq 0 ]; do
+if [ $# -eq 0 ]; do
 	echo "No se ha introducido ningun argumento"
 	read -p "Indique el nombre del servicio: " service_name
-done
+else
 service_name=$1
+fi
 
 service --status-all | grep $service_name
 is_service=$?
