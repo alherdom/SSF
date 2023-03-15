@@ -43,5 +43,4 @@ else
     echo 'Mostrando su estado:'
     systemctl is-active $service_name
     systemctl is-enabled $service_name
-    systemctl is-active $service_name
 fi
