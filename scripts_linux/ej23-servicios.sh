@@ -41,6 +41,7 @@ if [ $is_service -eq 1 ]; then
 else
     echo "El $service_name si es un servicio"
     echo "Mostrando su estado:"
-    systemctl is-active $service_name
+    is_active=$(systemctl is-active $service_name)
+    echo $is_active
     systemctl is-enabled $service_name
 fi
