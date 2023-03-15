@@ -24,7 +24,7 @@
 # FECHA: 15/03/2023
 # VERSIONES: 1.0
 ############################################################################
-if [ $# -eq 0 ]; do
+if [ $# -eq 0 ]; then
 	echo "No se ha introducido ningun argumento"
 	read -p "Indique el nombre del servicio: " service_name
 else
