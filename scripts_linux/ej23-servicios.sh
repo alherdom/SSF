@@ -24,24 +24,80 @@
 # FECHA: 15/03/2023
 # VERSIONES: 1.0
 ############################################################################
+# Input argument control
 if [ $# -eq 0 ]; then
-	echo "No se ha introducido ningun argumento"
-	read -p "Indique el nombre del servicio: " service_name
+	echo "No argument has been entered"
+	read -p "Enter the name of the service" service_name
 else
 service_name=$1
 fi
-
+# Check whether it is a service or not
 service --status-all | grep $service_name
 is_service=$?
 
-
 if [ $is_service -eq 1 ]; then
-    echo "Error 10: El $service_name no es un servicio"
+    echo "Error 10: The $service_name is NOT a service"
     exit 10
 else
-    echo "El $service_name si es un servicio"
-    echo "Mostrando su estado:"
+    echo "The $service_name IF it is a service"
+    echo "Showing summary of service status:"
     is_active=$(systemctl is-active $service_name)
-    echo $is_active
-    systemctl is-enabled $service_name
+    is_enabled=$(systemctl is-enabled $service_name)
+    if [ $is_active == "active" ]; then
+        echo "YES, the $service_name is active"
+    else
+         echo "NO, the $service_name is not active"
+    fi
+    if [ $is_enabled == "enabled" ]; then
+        echo "YES, the $service_name is enabled"
+    else
+        echo "NO, the $service_name is not enabled"
+    fi
+    if [ $is_enabled == "masked" ]; then
+        echo "YES, the $service_name is masked"
+    else
+        echo "NO, the $service_name is not masked"
+    fi
 fi
+
+# Menu with the options
+PS3="Select options about the service $service_name or system: "
+options=("Active" "Enable" "Mask" "Config" "Reload" "Try" "Uptime" "Runlevel0" "Runlevel6" "Exit")
+
+select opcion in "${options[@]}"
+do
+ case $opcion in
+	Active)
+    echo "Active"
+	;;
+	Enable)
+    echo "Enable"
+	;;
+	Mask)
+    echo "Mask"
+    ;;
+	Config)
+    echo "Config"
+	;;
+	Reload)
+    echo "Reload"
+	;;
+	Try)
+    echo "Try"
+	;;
+	Uptime)
+    uptime
+	;;
+    Runlevel0)
+    echo "Runlevel0"
+	;;
+    Runlevel6) 
+    echo "Runlevel6"
+	;;
+    Exit)
+    exit
+	;;
+	*)
+    echo "Incorrect option, please select one of the valid options"
+esac
+done
