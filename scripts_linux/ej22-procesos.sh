@@ -83,7 +83,7 @@ function operaciones_procesos {
             kill -20 $pid_mem || kill -20 $pid_CPU
             break
             ;;
-        "Detener el proceso ('congelarlo' de forma INevitable)")
+        "Detener el proceso ('congelarlo' de forma inevitable)")
             kill -19 $pid_mem || kill -19 $pid_CPU
             break
             ;;
