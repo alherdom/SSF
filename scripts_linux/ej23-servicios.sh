@@ -69,8 +69,27 @@ select opcion in "${options[@]}"
 do
  case $opcion in
 	Active)
-    echo "Active"
-	;;
+    if [ $is_active == "inactive" ] || [ $is_active != "masked" ]; then
+        echo "The $service_name is inactive"
+        read -p "Do you want to start the service? [Y/n] " reply
+		if [ $reply == "Y" ] || [ $reply == "y" ]; then
+            systemctl start $service_name
+		else
+			echo "Activation cancelled"
+			exit
+        fi
+    fi
+    if [ $is_active == "active" ]; then
+        echo "The $service_name is active"
+        read -p "Do you want to stop the service? [Y/n] " reply
+		if [ $reply == "Y" ] || [ $reply == "y" ]; then
+            systemctl stop $service_name
+		else
+			echo "Deactivation cancelled"
+			exit
+        fi
+    fi
+    ;;  
 	Enable)
     echo "Enable"
 	;;
