@@ -26,10 +26,10 @@
 ############################################################################
 # Input argument control and variable declaration
 if [ $# -eq 0 ]; then
-	echo "Error, no argument has been entered!"
-	read -p "Please, enter the name of the service: " service_name
+    echo "Error, no argument has been entered!"
+    read -p "Please, enter the name of the service: " service_name
 else
-service_name=$1
+    service_name=$1
 fi
 # Check whether it is a service or not
 service --status-all | grep $service_name
@@ -40,13 +40,13 @@ if [ $is_service -eq 1 ]; then
     exit 10
 else
     echo "YES the $service_name is a service"
-    echo "Showing summary of service status:"
+    echo "Summary of service status:"
     is_active=$(systemctl is-active $service_name)
     is_enabled=$(systemctl is-enabled $service_name)
     if [ $is_active == "active" ]; then
         echo " -> YES, the $service_name is active"
     else
-         echo " -> NO, the $service_name is not active"
+        echo " -> NO, the $service_name is not active"
     fi
     if [ $is_enabled == "enabled" ]; then
         echo " -> YES, the $service_name is enabled"
@@ -65,104 +65,104 @@ echo "MENU:"
 PS3="Select options about the service $service_name or system: "
 options=("Activate/Inactivate" "Enable/Disable" "Mask/Unmask" "Config" "Reload" "Try" "Uptime" "Analyze" "Runlevel0" "Runlevel6" "Exit")
 
-select opcion in "${options[@]}"
-do
- case $opcion in
-	Activate/Inactivate)
-    if [ $is_active == "inactive" ] && [ $is_enabled != "masked" ]; then
-        echo "The $service_name is inactive"
-        read -p "Do you want to start the service? [Y/n] " reply
-		if [ $reply == "Y" ] || [ $reply == "y" ]; then
-            sudo systemctl start $service_name
-		else
-			echo "Activation cancelled"
-			exit
+select opcion in "${options[@]}"; do
+    case $opcion in
+    Activate/Inactivate)
+        if [ $is_active == "inactive" ] && [ $is_enabled != "masked" ]; then
+            echo "The $service_name is inactive"
+            read -p "Do you want to start the service? [Y/n] " reply
+            if [ $reply == "Y" ] || [ $reply == "y" ]; then
+                sudo systemctl start $service_name
+            else
+                echo "Activation cancelled"
+                exit
+            fi
+        else
+            echo "The service is masked and inactive!"
         fi
-    else
-        echo "The service is masked and inactive!"
-    fi
-    if [ $is_active == "active" ]; then
-        echo "The $service_name is active"
-        read -p "Do you want to stop the service? [Y/n] " reply
-		if [ $reply == "Y" ] || [ $reply == "y" ]; then
-            sudo systemctl stop $service_name
-		else
-			echo "Deactivation cancelled"
-			exit
+        if [ $is_active == "active" ]; then
+            echo "The $service_name is active"
+            read -p "Do you want to stop the service? [Y/n] " reply
+            if [ $reply == "Y" ] || [ $reply == "y" ]; then
+                sudo systemctl stop $service_name
+            else
+                echo "Deactivation cancelled"
+                exit
+            fi
         fi
-    fi
-    ;;  
-	Enable/Disable)
-    if [ $is_enabled == "enabled" ]; then
-    read -p "Do you want to disable the service? [Y/n] " reply
-		if [ $reply == "Y" ] || [ $reply == "y" ]; then
-            sudo systemctl disable $service_name
-		else
-			echo "Disable cancelled"
-			exit
-        fi
-    else
-        read -p "Do you want to enable the service? [Y/n] " reply
+        ;;
+    Enable/Disable)
+        if [ $is_enabled == "enabled" ]; then
+            read -p "Do you want to disable the service? [Y/n] " reply
+            if [ $reply == "Y" ] || [ $reply == "y" ]; then
+                sudo systemctl disable $service_name
+            else
+                echo "Disable cancelled"
+                exit
+            fi
+        else
+            read -p "Do you want to enable the service? [Y/n] " reply
             if [ $reply == "Y" ] || [ $reply == "y" ]; then
                 sudo systemctl enable $service_name
             else
                 echo "Enable cancelled"
                 exit
             fi
-    fi
-	;;
-	Mask/Unmask)
-    if [ $is_enabled == "masked" ]; then
-    read -p "Do you want to unmask the service? [Y/n] " reply
-		if [ $reply == "Y" ] || [ $reply == "y" ]; then
-            sudo systemctl unmask $service_name
-		else
-			echo "Unmask cancelled"
-			exit
         fi
-    else
-        read -p "Do you want to mask the service? [Y/n] " reply
+        ;;
+    Mask/Unmask)
+        if [ $is_enabled == "masked" ]; then
+            read -p "Do you want to unmask the service? [Y/n] " reply
+            if [ $reply == "Y" ] || [ $reply == "y" ]; then
+                sudo systemctl unmask $service_name
+            else
+                echo "Unmask cancelled"
+                exit
+            fi
+        else
+            read -p "Do you want to mask the service? [Y/n] " reply
             if [ $reply == "Y" ] || [ $reply == "y" ]; then
                 sudo systemctl mask $service_name
             else
                 echo "Mask cancelled"
                 exit
             fi
-    fi
-    ;;
-	Config)
-    echo "Showing the $service_name config"
-    systemctl show $service_name
-	;;
-	Reload)
-    echo "Reloading the service $service_name: "
-    sudo systemctl reload $service_name
-	;;
-	Try)
-    echo "Try reloading or restarting the service $service_name"
-    sudo systemctl try-reload-or-restart $service_name
-	;;
-	Uptime)
-    echo "Showing the system load: "
-    uptime
-	;;
+        fi
+        ;;
+    Config)
+        echo "Showing the $service_name config"
+        systemctl show $service_name
+        ;;
+    Reload)
+        echo "Reloading the service $service_name: "
+        sudo systemctl reload $service_name
+        ;;
+    Try)
+        echo "Try reloading or restarting the service $service_name"
+        sudo systemctl try-reload-or-restart $service_name
+        ;;
+    Uptime)
+        echo "Showing the system load: "
+        uptime
+        ;;
     Analyze)
-    echo "Showing the $service_name load: "
-    systemd-analyze blame | grep $service_name.
-    ;;
+        echo "Showing the $service_name load: "
+        systemd-analyze blame | grep $service_name.
+        ;;
     Runlevel0)
-    echo "Runlevel0"
-    sudo systemctl isolate runlevel0.target
-	;;
-    Runlevel6) 
-    echo "Runlevel6"
-    sudo systemctl isolate runlevel6.target
-	;;
+        echo "Runlevel0"
+        sudo systemctl isolate runlevel0.target
+        ;;
+    Runlevel6)
+        echo "Runlevel6"
+        sudo systemctl isolate runlevel6.target
+        ;;
     Exit)
-    echo Bye!
-    exit
-	;;
-	*)
-    echo "Incorrect option, please select one of the valid options"
-esac
+        echo Bye!
+        exit
+        ;;
+    *)
+        echo "Incorrect option, please select one of the valid options"
+        ;;
+    esac
 done
