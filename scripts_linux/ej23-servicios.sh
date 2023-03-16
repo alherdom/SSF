@@ -69,21 +69,23 @@ select opcion in "${options[@]}"
 do
  case $opcion in
 	Activate/Inactivate)
-    if [ $is_active == "inactive" ] || [ $is_active != "masked" ]; then
+    if [ $is_active == "inactive" ] && [ $is_enabled != "masked" ]; then
         echo "The $service_name is inactive"
         read -p "Do you want to start the service? [Y/n] " reply
 		if [ $reply == "Y" ] || [ $reply == "y" ]; then
-            systemctl start $service_name
+            sudo systemctl start $service_name
 		else
 			echo "Activation cancelled"
 			exit
         fi
+    else
+        echo "The service is masked and inactive!"
     fi
     if [ $is_active == "active" ]; then
         echo "The $service_name is active"
         read -p "Do you want to stop the service? [Y/n] " reply
 		if [ $reply == "Y" ] || [ $reply == "y" ]; then
-            systemctl stop $service_name
+            sudo systemctl stop $service_name
 		else
 			echo "Deactivation cancelled"
 			exit
@@ -91,7 +93,23 @@ do
     fi
     ;;  
 	Enable/Disable)
-    echo "Enable"
+    if [ $is_enabled == "enabled" ]; then
+    read -p "Do you want to disable the service? [Y/n] " reply
+		if [ $reply == "Y" ] || [ $reply == "y" ]; then
+            sudo systemctl disable $service_name
+		else
+			echo "Disable cancelled"
+			exit
+        fi
+    else
+        read -p "Do you want to enable the service? [Y/n] " reply
+            if [ $reply == "Y" ] || [ $reply == "y" ]; then
+                sudo systemctl enable $service_name
+            else
+                echo "Enable cancelled"
+                exit
+            fi
+    fi
 	;;
 	Mask/Unmask)
     echo "Mask"
@@ -102,7 +120,7 @@ do
 	;;
 	Reload)
     echo "Reloading the service $service_name: "
-    systemctl reload $service_name
+    sudo systemctl reload $service_name
 	;;
 	Try)
     echo "Try"
@@ -117,11 +135,11 @@ do
     ;;
     Runlevel0)
     echo "Runlevel0"
-    systemctl isolate runlevel0.target
+    sudo systemctl isolate runlevel0.target
 	;;
     Runlevel6) 
     echo "Runlevel6"
-    systemctl isolate runlevel6.target
+    sudo systemctl isolate runlevel6.target
 	;;
     Exit)
     echo Bye!
