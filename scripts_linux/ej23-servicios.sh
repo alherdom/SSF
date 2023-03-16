@@ -27,7 +27,7 @@
 # Input argument control and variable declaration
 if [ $# -eq 0 ]; then
 	echo "Error, no argument has been entered!"
-	read -p "Pleases, enter the name of the service: " service_name
+	read -p "Please, enter the name of the service: " service_name
 else
 service_name=$1
 fi
@@ -44,9 +44,9 @@ else
     is_active=$(systemctl is-active $service_name)
     is_enabled=$(systemctl is-enabled $service_name)
     if [ $is_active == "active" ]; then
-        echo "YES, the $service_name is active"
+        echo "[ + ] YES, the $service_name is active"
     else
-         echo "NO, the $service_name is not active"
+         echo "[ - ] NO, the $service_name is not active"
     fi
     if [ $is_enabled == "enabled" ]; then
         echo "YES, the $service_name is enabled"
