@@ -74,10 +74,10 @@ select opcion in "${options[@]}"; do
             if [ $reply == "Y" ] || [ $reply == "y" ]; then
                 sudo systemctl start $service_name
             else
-                echo "Activation cancelled"
+                echo "Start cancelled"
                 exit
             fi
-        elif [ $is_enabled != "masked" ]; then
+        elif [ $is_enabled == "masked" ]; then
             echo "The service is masked and inactive!"
         fi
         if [ $is_active == "active" ]; then
@@ -86,7 +86,7 @@ select opcion in "${options[@]}"; do
             if [ $reply == "Y" ] || [ $reply == "y" ]; then
                 sudo systemctl stop $service_name
             else
-                echo "Deactivation cancelled"
+                echo "Stop cancelled"
                 exit
             fi
         fi
