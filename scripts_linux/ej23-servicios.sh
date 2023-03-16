@@ -140,6 +140,7 @@ do
 	;;
 	Try)
     echo "Try"
+    sudo systemctl try-reload-or-restart $service_name
 	;;
 	Uptime)
     echo "Showing the system load: "
