@@ -77,7 +77,7 @@ select opcion in "${options[@]}"; do
                 echo "Activation cancelled"
                 exit
             fi
-        else
+        elif [ $is_enabled != "masked" ]; then
             echo "The service is masked and inactive!"
         fi
         if [ $is_active == "active" ]; then
