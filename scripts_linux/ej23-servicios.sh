@@ -44,19 +44,19 @@ else
     is_active=$(systemctl is-active $service_name)
     is_enabled=$(systemctl is-enabled $service_name)
     if [ $is_active == "active" ]; then
-        echo "[ + ] YES, the $service_name is active"
+        echo " -> YES, the $service_name is active"
     else
-         echo "[ - ] NO, the $service_name is not active"
+         echo " -> NO, the $service_name is not active"
     fi
     if [ $is_enabled == "enabled" ]; then
-        echo "YES, the $service_name is enabled"
+        echo " -> YES, the $service_name is enabled"
     else
-        echo "NO, the $service_name is not enabled"
+        echo " -> NO, the $service_name is not enabled"
     fi
     if [ $is_enabled == "masked" ]; then
-        echo "YES, the $service_name is masked"
+        echo " -> YES, the $service_name is masked"
     else
-        echo "NO, the $service_name is not masked"
+        echo " -> NO, the $service_name is not masked"
     fi
 fi
 
