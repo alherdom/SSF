@@ -62,7 +62,7 @@ fi
 # Menu with the options
     echo "MENU:"
     PS3="Select options about the service $service_name or system: "
-    options=("Activate/Inactivate" "Enable/Disable" "Mask/Unmask" "Config" "Reload" "Try" "Uptime" "Analyze" "Runlevel0" "Runlevel6" "Exit")
+    options=("Activate/Inactivate" "Enable/Disable" "Mask/Unmask" "Config" "Reload" "Try" "Uptime" "Analyze" "PowerOff" "Reboot" "Exit")
 
     select opcion in "${options[@]}"; do
         is_active=$(systemctl is-active $service_name)
@@ -148,11 +148,11 @@ fi
             echo "Showing the $service_name load: "
             systemd-analyze blame | grep $service_name.
             ;;
-        Runlevel0)
+        PowerOff)
             echo "Machine power off!"
             sudo systemctl isolate runlevel0.target
             ;;
-        Runlevel6)
+        Reboot)
             echo "Machine reboot!"
             sudo systemctl isolate runlevel6.target
             ;;
