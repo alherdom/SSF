@@ -61,9 +61,6 @@ else
 fi
 
 # Menu with the options
-while true; do
-    is_active=$(systemctl is-active $service_name)
-    is_enabled=$(systemctl is-enabled $service_name)
     echo "MENU:"
     PS3="Select options about the service $service_name or system: "
     options=("Activate/Inactivate" "Enable/Disable" "Mask/Unmask" "Config" "Reload" "Try" "Uptime" "Analyze" "Runlevel0" "Runlevel6" "Exit")
@@ -71,6 +68,8 @@ while true; do
     select opcion in "${options[@]}"; do
         case $opcion in
         Activate/Inactivate)
+            is_active=$(systemctl is-active $service_name)
+            is_enabled=$(systemctl is-enabled $service_name)
             if [ $is_active == "inactive" ] && [ $is_enabled != "masked" ]; then
                 echo "The $service_name is inactive"
                 read -p "Do you want to start the service? [Y/n] " reply
@@ -95,6 +94,8 @@ while true; do
             fi
             ;;
         Enable/Disable)
+            is_active=$(systemctl is-active $service_name)
+            is_enabled=$(systemctl is-enabled $service_name)
             if [ $is_enabled == "enabled" ]; then
                 read -p "Do you want to disable the service? [Y/n] " reply
                 if [ $reply == "Y" ] || [ $reply == "y" ]; then
@@ -115,6 +116,8 @@ while true; do
             fi
             ;;
         Mask/Unmask)
+            is_active=$(systemctl is-active $service_name)
+            is_enabled=$(systemctl is-enabled $service_name)
             if [ $is_enabled == "masked" ]; then
                 read -p "Do you want to unmask the service? [Y/n] " reply
                 if [ $reply == "Y" ] || [ $reply == "y" ]; then
@@ -170,4 +173,3 @@ while true; do
             ;;
         esac
     done
-done
