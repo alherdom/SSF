@@ -24,10 +24,10 @@
 # FECHA: 15/03/2023
 # VERSIONES: 1.0
 ############################################################################
-# Input argument control
+# Input argument control and variable declaration
 if [ $# -eq 0 ]; then
-	echo "No argument has been entered"
-	read -p "Enter the name of the service" service_name
+	echo "Error, no argument has been entered!"
+	read -p "Pleases, enter the name of the service: " service_name
 else
 service_name=$1
 fi
@@ -61,8 +61,9 @@ else
 fi
 
 # Menu with the options
+echo "MENU:"
 PS3="Select options about the service $service_name or system: "
-options=("Active" "Enable" "Mask" "Config" "Reload" "Try" "Uptime" "Runlevel0" "Runlevel6" "Exit")
+options=("Active/Inactive" "Enable/Disable" "Mask/Unmask" "Config" "Reload" "Try" "Uptime" "A" "Runlevel0" "Runlevel6" "Exit")
 
 select opcion in "${options[@]}"
 do
@@ -80,21 +81,30 @@ do
     echo "Config"
 	;;
 	Reload)
-    echo "Reload"
+    echo "Reloading the service $service_name: "
+    systemctl reload $service_name
 	;;
 	Try)
     echo "Try"
 	;;
 	Uptime)
+    echo "Showing the system load: "
     uptime
 	;;
+    Analyze)
+    echo "Showing the service load: "
+    systemd-analyze blame | grep $service_name.
+    ;;
     Runlevel0)
     echo "Runlevel0"
+    systemctl isolate runlevel0.target
 	;;
     Runlevel6) 
     echo "Runlevel6"
+    systemctl isolate runlevel6.target
 	;;
     Exit)
+    echo Bye!
     exit
 	;;
 	*)
