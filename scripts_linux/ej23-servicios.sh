@@ -169,4 +169,5 @@ while true; do
             echo "Incorrect option, please select one of the valid options"
             ;;
         esac
+    done
 done
