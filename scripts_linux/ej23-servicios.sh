@@ -112,7 +112,6 @@ do
     fi
 	;;
 	Mask/Unmask)
-    echo "Mask"
     if [ $is_enabled == "masked" ]; then
     read -p "Do you want to unmask the service? [Y/n] " reply
 		if [ $reply == "Y" ] || [ $reply == "y" ]; then
