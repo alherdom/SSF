@@ -113,6 +113,23 @@ do
 	;;
 	Mask/Unmask)
     echo "Mask"
+    if [ $is_enabled == "masked" ]; then
+    read -p "Do you want to unmask the service? [Y/n] " reply
+		if [ $reply == "Y" ] || [ $reply == "y" ]; then
+            sudo systemctl unmask $service_name
+		else
+			echo "Unmask cancelled"
+			exit
+        fi
+    else
+        read -p "Do you want to mask the service? [Y/n] " reply
+            if [ $reply == "Y" ] || [ $reply == "y" ]; then
+                sudo systemctl mask $service_name
+            else
+                echo "Mask cancelled"
+                exit
+            fi
+    fi
     ;;
 	Config)
     echo "Showing the $service_name config"
