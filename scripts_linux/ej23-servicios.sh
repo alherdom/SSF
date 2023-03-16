@@ -38,7 +38,7 @@ if [ $is_service -eq 4 ]; then
     echo "Error 10: The $service_name is NOT a service"
     exit 10
 else
-    echo "YES the $service_name is a service"
+    echo "It's ok, the $service_name is a service"
     echo "Summary of service status:"
     is_active=$(systemctl is-active $service_name)
     is_enabled=$(systemctl is-enabled $service_name)
