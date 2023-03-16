@@ -139,7 +139,7 @@ do
     sudo systemctl reload $service_name
 	;;
 	Try)
-    echo "Try"
+    echo "Try reloading or restarting the service $service_name"
     sudo systemctl try-reload-or-restart $service_name
 	;;
 	Uptime)
