@@ -97,7 +97,8 @@ do
     echo "Mask"
     ;;
 	Config)
-    echo "Config"
+    echo "Showing the $service_name config"
+    systemctl show $service_name
 	;;
 	Reload)
     echo "Reloading the service $service_name: "
