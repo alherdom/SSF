@@ -68,7 +68,7 @@ options=("Activate/Inactivate" "Enable/Disable" "Mask/Unmask" "Config" "Reload" 
 select opcion in "${options[@]}"
 do
  case $opcion in
-	Active)
+	Activate/Inactivate)
     if [ $is_active == "inactive" ] || [ $is_active != "masked" ]; then
         echo "The $service_name is inactive"
         read -p "Do you want to start the service? [Y/n] " reply
@@ -90,10 +90,10 @@ do
         fi
     fi
     ;;  
-	Enable)
+	Enable/Disable)
     echo "Enable"
 	;;
-	Mask)
+	Mask/Unmask)
     echo "Mask"
     ;;
 	Config)
