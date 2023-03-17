@@ -34,15 +34,18 @@ fi
 # Check whether it is a service or not, and show summary
 systemctl status $service_name >/dev/null 2>/dev/null
 is_service=$?
+
 if [ $is_service -eq 4 ]; then
     echo "Error 10: The $service_name is NOT a service"
     exit 10
 else
+    is_active=$(systemctl is-active $service_name)
+    is_enabled=$(systemctl is-enabled $service_name)
+
     echo "It's ok, the $service_name is a service"
     echo "-----------------------------------"
     echo "| SUMMARY of service status is:   |"
-    is_active=$(systemctl is-active $service_name)
-    is_enabled=$(systemctl is-enabled $service_name)
+    
     if [ $is_active == "active" ]; then
         echo "| --> YES, the $service_name is active     |"
     else
