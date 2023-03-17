@@ -24,7 +24,7 @@
 # VERSIONES: 1.0
 ############################################################################
 # Input argument control and variable declaration
-unti [ ! -z $# ]; do
+until [ ! -z $# ]; do
     echo "Error, no argument has been entered!"
     read -p "Please, enter the name of the service: " service_name
 done
