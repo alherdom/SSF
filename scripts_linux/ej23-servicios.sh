@@ -24,12 +24,13 @@
 # VERSIONES: 1.0
 ############################################################################
 # Input argument control and variable declaration
-if [ $# -eq 0 ]; then
+unti [ ! -z $# ]; do
     echo "Error, no argument has been entered!"
     read -p "Please, enter the name of the service: " service_name
-else
-    service_name=$1
-fi
+done
+
+service_name=$1
+
 # Check whether it is a service or not, and show summary
 systemctl status $service_name >/dev/null 2>/dev/null
 is_service=$?
@@ -146,7 +147,7 @@ select opcion in "${options[@]}"; do
         ;;
     System_Load)
         echo "Showing the system load: "
-        uptime
+        systemd-analyze time
         ;;
     Service_Load)
         echo "Showing the $service_name load: "
