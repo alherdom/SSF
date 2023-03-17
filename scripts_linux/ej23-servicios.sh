@@ -64,7 +64,7 @@ fi
 echo "-----------------------------------"
 echo "--------------| MENU |-------------"
 PS3="Select options about the service $service_name or system: "
-options=("Activate/Inactivate" "Enable/Disable" "Mask/Unmask" "Configuration" "Reload Service" "Try Reload/Restart" "System Load" "Service Load" "PowerOff" "Reboot" "Exit")
+options=("Activate/Inactivate" "Enable/Disable" "Mask/Unmask" "Configuration" "Reload_Service" "Try_Reload/Restart" "System_Load" "Service_Load" "PowerOff" "Reboot" "Exit")
 
 select opcion in "${options[@]}"; do
     is_active=$(systemctl is-active $service_name)
@@ -134,19 +134,19 @@ select opcion in "${options[@]}"; do
         echo "Showing the $service_name configuration: "
         systemctl show $service_name
         ;;
-    Reload Service)
+    Reload_Service)
         echo "Reloading the service $service_name: "
         sudo systemctl reload $service_name
         ;;
-    Try Reload/Restart)
+    Try_Reload/Restart)
         echo "Try reloading or restarting the service $service_name"
         sudo systemctl try-reload-or-restart $service_name
         ;;
-    System Load)
+    System_Load)
         echo "Showing the system load: "
         uptime
         ;;
-    Service Load)
+    Service_Load)
         echo "Showing the $service_name load: "
         systemd-analyze blame | grep $service_name.
         ;;
