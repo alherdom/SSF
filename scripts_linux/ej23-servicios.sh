@@ -64,13 +64,13 @@ fi
 echo "-----------------------------------"
 echo "--------------| MENU |-------------"
 PS3="Select options about the service $service_name or system: "
-options=("Activate/Inactivate" "Enable/Disable" "Mask/Unmask" "Configuration" "Reload_Service" "Try_Reload/Restart" "System_Load" "Service_Load" "PowerOff" "Reboot" "Exit")
+options=("Start/Stop" "Enable/Disable" "Mask/Unmask" "Configuration" "Reload_Service" "Try_Reload/Restart" "System_Load" "Service_Load" "PowerOff" "Reboot" "Exit")
 
 select opcion in "${options[@]}"; do
     is_active=$(systemctl is-active $service_name)
     is_enabled=$(systemctl is-enabled $service_name)
     case $opcion in
-    Activate/Inactivate)
+    Start/Stop)
         if [ $is_active == "inactive" ] && [ $is_enabled != "masked" ]; then
             echo "The $service_name is inactive"
             read -p "Do you want to start the service? [Y/n] " reply
