@@ -18,8 +18,7 @@
 #    9. Apagar la máquina
 #    10. Reiniciar la máquina
 #    11. Salir.
-#
-# ARGUMENTOS: Total=1, paquete=1
+# ARGUMENTOS: Total=1, service_name=$1
 # SALIDAS: Opciones en la terminal.
 # FECHA: 15/03/2023
 # VERSIONES: 1.0
