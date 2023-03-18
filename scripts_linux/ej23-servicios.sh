@@ -23,6 +23,7 @@
 # FECHA: 15/03/2023
 # VERSIONES: 1.0
 ############################################################################
+
 # Input argument control and variable declaration
 service_name=$1
 until [ ! -z $service_name ]; do
@@ -30,10 +31,11 @@ until [ ! -z $service_name ]; do
     read -p "Please, enter the name of the service: " service_name
 done
 
-# Check whether it is a service or not, and show summary
+# Check whether it is a service or not
 systemctl status $service_name >/dev/null 2>/dev/null
 is_service=$?
 
+# If is service then show summary, if is not show error and exit
 if [ $is_service -eq 4 ]; then
     echo "Error 10: The $service_name is NOT a service"
     exit 10
