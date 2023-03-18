@@ -1,6 +1,7 @@
 #!/bin/bash
 ############################################################################
-# AUTOR: Alejandro Hernández Domínguez <alherdom@outlook.com>
+# AUTORES: Alejandro Hernández Domínguez <alherdom@outlook.com>
+#          Yamila Ramos Hernández 
 # NOMBRE: ej23-servicios.sh
 # OBJETIVO:
 # 1. Debe recibir un argumento (nombre del servicio), si el usuario no lo indica, se le pedirá luego por teclado hasta que especifique un nombre.
