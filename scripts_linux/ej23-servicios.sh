@@ -24,12 +24,11 @@
 # VERSIONES: 1.0
 ############################################################################
 # Input argument control and variable declaration
-until [ ! -z $# ]; do
+service_name=$1
+until [ ! -z $service_name ]; do
     echo "Error, no argument has been entered!"
     read -p "Please, enter the name of the service: " service_name
 done
-
-service_name=$1
 
 # Check whether it is a service or not, and show summary
 systemctl status $service_name >/dev/null 2>/dev/null
@@ -45,7 +44,7 @@ else
     echo "It's ok, the $service_name is a service"
     echo "-----------------------------------"
     echo "| SUMMARY of service status is:   |"
-    
+
     if [ $is_active == "active" ]; then
         echo "| --> YES, the $service_name is active     |"
     else
