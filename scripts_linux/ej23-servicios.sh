@@ -77,6 +77,7 @@ select opcion in "${options[@]}"; do
             echo "The $service_name is inactive"
             read -p "Do you want to start the service? [Y/n] " reply
             if [ $reply == "Y" ] || [ $reply == "y" ]; then
+                echo "Start $service_name"
                 sudo systemctl start $service_name
             else
                 echo "Start cancelled"
@@ -88,6 +89,7 @@ select opcion in "${options[@]}"; do
             echo "The $service_name is active"
             read -p "Do you want to stop the service? [Y/n] " reply
             if [ $reply == "Y" ] || [ $reply == "y" ]; then
+                echo "Stop $service_name"
                 sudo systemctl stop $service_name
             else
                 echo "Stop cancelled"
@@ -99,6 +101,7 @@ select opcion in "${options[@]}"; do
             echo "The $service_name is enabled"
             read -p "Do you want to disable the service? [Y/n] " reply
             if [ $reply == "Y" ] || [ $reply == "y" ]; then
+                echo "Disable $service_name"
                 sudo systemctl disable $service_name
             else
                 echo "Disable cancelled"
@@ -107,6 +110,7 @@ select opcion in "${options[@]}"; do
             echo "The $service_name is disabled"
             read -p "Do you want to enable the service? [Y/n] " reply
             if [ $reply == "Y" ] || [ $reply == "y" ]; then
+                echo "Enable $service_name"
                 sudo systemctl enable $service_name
             else
                 echo "Enable cancelled"
@@ -118,6 +122,7 @@ select opcion in "${options[@]}"; do
             echo "The $service_name is masked"
             read -p "Do you want to unmask the service? [Y/n] " reply
             if [ $reply == "Y" ] || [ $reply == "y" ]; then
+                echo "Unmask $service_name"
                 sudo systemctl unmask $service_name
             else
                 echo "Unmask cancelled"
@@ -126,6 +131,7 @@ select opcion in "${options[@]}"; do
             echo "The $service_name is unmasked"
             read -p "Do you want to mask the service? [Y/n] " reply
             if [ $reply == "Y" ] || [ $reply == "y" ]; then
+                echo "Mask $service_name"
                 sudo systemctl mask $service_name
             else
                 echo "Mask cancelled"
