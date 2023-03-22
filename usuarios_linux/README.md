@@ -4,9 +4,9 @@ Resuelve los siguientes apartados en la máquina virtual de GNU/Linux. Cuando se
 ```
 cat /etc/passwd
 ```
-La información se encuentra en la carpeta **/etc/passwd.**
+- La información se encuentra en la carpeta **/etc/passwd.**
 
-Campos de **passwd:**
+- Campos de **passwd:**
 <div align="center">
 <img src="img/campos_passwd.png" width="500px"/>
 </div>
@@ -61,10 +61,9 @@ fwupd-refresh:x:123:135:fwupd-refresh user,,,:/run/systemd:/usr/sbin/nologin
 alejandro:x:1001:1001:Alejandro Hernandez,,,:/home/alejandro:/bin/bash
 geoclue:x:124:136::/var/lib/geoclue:/usr/sbin/nologin
 mysql:x:125:137:MySQL Server,,,:/nonexistent:/bin/false
-
 ```
 3. Fíjate en el UID de los usuarios. ¿Ves alguna diferencia entre los usuarios con UID < 1000 y los que tiene un UID >= 1000? ¿Por qué es así?
-
+- Por debajo de 1000 se resrvan para el sistema, por encima para usuarios "normales".
 4. Muestra todos los grupos de tu máquina virtual. ¿Dónde está esa información? ¿Qué datos guarda el sistema sobre sus grupos y cómo se organizan?
 5. ¿Por qué hay tantos grupos? Intenta buscar información sobre qué funciones tienen los diferentes grupos de tu sistema, en los apuntes hay un enlace con algo de información.
 6. ¿Cómo comprobarías si un usuario existe ya en el sistema? ¿Y un grupo?
