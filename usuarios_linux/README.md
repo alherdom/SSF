@@ -65,9 +65,113 @@ mysql:x:125:137:MySQL Server,,,:/nonexistent:/bin/false
 3. Fíjate en el UID de los usuarios. ¿Ves alguna diferencia entre los usuarios con UID < 1000 y los que tiene un UID >= 1000? ¿Por qué es así?
 - Por debajo de 1000 se resrvan para el sistema, por encima para usuarios "normales".
 4. Muestra todos los grupos de tu máquina virtual. ¿Dónde está esa información? ¿Qué datos guarda el sistema sobre sus grupos y cómo se organizan?
+- Se encuentra en la carpeta **/etc/group.**
+```
+alejandro@xubuurano11:~/Repositorios/sistemas-informaticos/scripts_linux$ cat /etc/group
+root:x:0:
+daemon:x:1:
+bin:x:2:
+sys:x:3:
+adm:x:4:syslog
+tty:x:5:syslog
+disk:x:6:
+lp:x:7:
+mail:x:8:
+news:x:9:
+uucp:x:10:
+man:x:12:
+proxy:x:13:
+kmem:x:15:
+dialout:x:20:
+fax:x:21:
+voice:x:22:
+cdrom:x:24:
+floppy:x:25:
+tape:x:26:
+sudo:x:27:alejandro
+audio:x:29:pulse
+dip:x:30:
+www-data:x:33:
+backup:x:34:
+operator:x:37:
+list:x:38:
+irc:x:39:
+src:x:40:
+gnats:x:41:
+shadow:x:42:
+utmp:x:43:
+video:x:44:
+sasl:x:45:
+plugdev:x:46:
+staff:x:50:
+games:x:60:
+users:x:100:
+nogroup:x:65534:
+systemd-journal:x:101:
+systemd-network:x:102:
+systemd-resolve:x:103:
+systemd-timesync:x:104:
+crontab:x:105:
+messagebus:x:106:
+input:x:107:
+kvm:x:108:
+render:x:109:
+syslog:x:110:
+tss:x:111:
+bluetooth:x:112:
+ssl-cert:x:113:
+uuidd:x:114:
+mlocate:x:115:
+tcpdump:x:116:
+avahi-autoipd:x:117:
+rtkit:x:118:
+netdev:x:120:
+lpadmin:x:121:
+lightdm:x:122:
+nopasswdlogin:x:123:
+avahi:x:124:
+scanner:x:125:saned
+saned:x:126:
+whoopsie:x:127:
+colord:x:128:
+pulse:x:129:
+pulse-access:x:130:
+lxd:x:131:
+sambashare:x:132:
+systemd-coredump:x:999:
+vboxsf:x:998:
+sgx:x:133:
+plocate:x:134:
+_ssh:x:119:
+fwupd-refresh:x:135:
+alejandro:x:1001:
+geoclue:x:136:
+mysql:x:137:
+docker:x:138:
+```
+- Guarda la siguiente información:
+<div align="center">
+<img src="img/campos_group.png" width="500px"/>
+</div>
 5. ¿Por qué hay tantos grupos? Intenta buscar información sobre qué funciones tienen los diferentes grupos de tu sistema, en los apuntes hay un enlace con algo de información.
+<div align="center">
+<img src="img/detalle_grupos.png" width="700px"/>
+</div>
+
 6. ¿Cómo comprobarías si un usuario existe ya en el sistema? ¿Y un grupo?
+```
+alejandro@xubuurano11:~$ id alejandro
+uid=1001(alejandro) gid=1001(alejandro) grupos=1001(alejandro),27(sudo)
+```
+```
+alejandro@xubuurano11:~$ groups root
+root : root
+```
+
 7. Crea el usuario "test01" de forma que su home sea /home/test01 (se deben copiar la configuración básica de /etc/skel) y su shell sea /bin/bash.
+
+
+
 8. Intenta abrir una sesión como "test01" una vez creado... ¿puedes? ¿Por qué? ¿Cómo lo arreglarías?
 9. El usuario "test01", ¿qué grupo principal tiene? Cámbialo para que sea su grupo principal sea "tests".-
 10. Borra el grupo principal antiguo de test01, ¿puedes eliminarlo? ¿Por qué?
