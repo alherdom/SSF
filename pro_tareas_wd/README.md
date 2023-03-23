@@ -31,4 +31,5 @@ schtask /create /tn test /sc weekly /d MON,WED,FRI /st 20:00
 ```
 7. Mañana a las 12:00, y repetir la ejecución 5 veces cada 10 minutos
 ```
-
+schtasks /create /tn "Tarea" /tr "Ruta completa del archivo que se ejecutará" /sc once /st 12:00 /sd tomorrow /ri 10 /du 00:50:00
+```
