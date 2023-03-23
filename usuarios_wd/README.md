@@ -83,7 +83,7 @@ net user test01 /logonpasswordchg:yes
 ```
 
 ```
-net user test01 /expires:{fecha}
+net user test01 /expires:31/12/2023
 ```
 
 14. Desactiva al usuario test02.
@@ -128,7 +128,7 @@ net localgroup Informatica test03 /delete
 net accounts
 ```
 
-20. Modifica la configuración global para que todas las contraseñas tengan una longitud mínima de 6 caracteres, se tengan que cambiar cada mes y no se puedan usar las últimas 3 contraseñas).
+20. Modifica la configuración global para que todas las contraseñas tengan una longitud mínima de 6 caracteres, se tengan que cambiar cada mes y no se puedan usar las últimas 3 contraseñas.
 
 ```
 net accounts /minpwlen:6
