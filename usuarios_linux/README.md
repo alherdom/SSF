@@ -1,17 +1,21 @@
 Resuelve los siguientes apartados en la máquina virtual de GNU/Linux. Cuando se pregunte por qué comando se utilizaría, debes indicar el comando completo, con las opciones y parámetros necesarios para que funcione:
 
 1. Muestra todos los usuarios de tu máquina virtual. ¿Dónde está esa información? ¿Qué datos guarda el sistema sobre sus usuarios y cómo se organizan?
+
 ```
 cat /etc/passwd
 ```
+
 - La información se encuentra en la carpeta **/etc/passwd.**
 
 - Campos de **passwd:**
+
 <div align="center">
 <img src="img/campos_passwd.png" width="500px"/>
 </div>
 
 2. ¿Por qué hay tantos usuarios? De todos ellos, ¿cuáles realmente pueden abrir una consola de comandos? ¿cuáles podrían inciar una sesión con una contraseña válida? ¿Cómo sabes estos datos? ¿Por qué crees que es así?
+
 ```
 alejandro@xubuurano11:~$ cat /etc/passwd
 root:x:0:0:root:/root:/bin/bash
@@ -62,10 +66,15 @@ alejandro:x:1001:1001:Alejandro Hernandez,,,:/home/alejandro:/bin/bash
 geoclue:x:124:136::/var/lib/geoclue:/usr/sbin/nologin
 mysql:x:125:137:MySQL Server,,,:/nonexistent:/bin/false
 ```
+
 3. Fíjate en el UID de los usuarios. ¿Ves alguna diferencia entre los usuarios con UID < 1000 y los que tiene un UID >= 1000? ¿Por qué es así?
+
 - Por debajo de 1000 se reservan para el sistema, por encima para usuarios "normales".
+
 4. Muestra todos los grupos de tu máquina virtual. ¿Dónde está esa información? ¿Qué datos guarda el sistema sobre sus grupos y cómo se organizan?
+
 - Se encuentra en la carpeta **/etc/group.**
+
 ```
 alejandro@xubuurano11:~/Repositorios/sistemas-informaticos/scripts_linux$ cat /etc/group
 root:x:0:
@@ -149,7 +158,9 @@ geoclue:x:136:
 mysql:x:137:
 docker:x:138:
 ```
+
 - Guarda la siguiente información:
+
 <div align="center">
 <img src="img/campos_group.png" width="500px"/>
 </div>
@@ -159,14 +170,17 @@ docker:x:138:
 </div>
 
 6. ¿Cómo comprobarías si un usuario existe ya en el sistema? ¿Y un grupo?
+
 ```
 alejandro@xubuurano11:~$ id alejandro
 uid=1001(alejandro) gid=1001(alejandro) grupos=1001(alejandro),27(sudo)
 ```
+
 ```
 alejandro@xubuurano11:~$ groups root
 root : root
 ```
+
 7. Crea el usuario "test01" de forma que su home sea /home/test01 (se deben copiar la configuración básica de /etc/skel) y su shell sea /bin/bash.
 
 ```
@@ -176,13 +190,16 @@ sudo useradd -s /bin/bash test01
 8. Intenta abrir una sesión como "test01" una vez creado... ¿puedes? ¿Por qué? ¿Cómo lo arreglarías?
 
 - No se ha establecido contraseña.
+
 ```
 sudo passwd test01
 Nueva contraseña: 
 Vuelva a escribir la nueva contraseña: 
 passwd: contraseña actualizada correctamente
 ```
+
 9. El usuario "test01", ¿qué grupo principal tiene? Cámbialo para que sea su grupo principal sea "tests".-
+
 ```
 id test01
 uid=1001(test01) gid=1002(tests) grupos=1001(test01)
@@ -191,63 +208,89 @@ sudo usermod -g tests test01
 id test01
 uid=1001(test01) gid=1002(tests) grupos=1002(tests)
 ```
+
 10. Borra el grupo principal antiguo de test01, ¿puedes eliminarlo? ¿Por qué?
+
 ```
 sudo groupdel test01
 ```
+
 11. Borra el grupo "tests", ¿puedes eliminarlo? ¿Por qué?
+
 ```
 sudo groupdel tests
 groupdel: no se pudo eliminar el grupo primario del usuario «test01»
 ```
+
 12. Asigna algunos grupos secundarios a "test01". Indica para qué sirve cada uno de los grupos creados
+
 ```
 sudo usermod -G fax test01
 id test01
 uid=1001(test01) gid=1002(tests) grupos=1002(tests),21(fax)
 ```
+
 13. Asigna algunos grupos más secundarios a "test01", SIN borrar los que ya tenía
+
 ```
 sudo usermod -a -G games,bluetooth test01
 id test01
 uid=1001(test01) gid=1002(tests) grupos=1002(tests),21(fax),60(games),116(bluetooth)
 ```
+
 14. Elimina algunos grupos secundarios del usuario test01
+
 ```
 sudo gpasswd -d test01 bluetooth
 Eliminando al usuario test01 del grupo bluetooth
 id test01
 uid=1001(test01) gid=1002(tests) grupos=1002(tests),21(fax),60(games)
 ```
+
 15. Bloquea al usuario test01. Luego intenta abrir una sesión... ¿puedes? ¿Por qué?
+
 ```
 sudo usermod -L test01
 ```
+
 - No. Su contraseña de ha "hasehado".
+
 16. Desbloquea al usuario test01. ¿Se ha perdido algo de su información?
+
 ```
 sudo usermod -U test01
 ```
+
 17. Cambia la información de test01 indicando su nombre completo, oficina, teléfono, etc.
+
 ```
 sudo chfn -f "full name" -h "home phone" -o "other" -r "room" -w "work phone" test01
 ```
+
 18. Cambia la shell de test01 a una que no permita ejecutar comandos
+
 ```
 sudo usermod -s false test01
 ```
+
 19. Vuelve a dejarle a test01 su shell original
+
 ```
 sudo usermod -s /bin/bash test01
 ```
+
 20. Añade restricciones al usuario test01 de forma que tenga que cambiar la contraseña cada 15 días y que le avisen 3 días antes, dándole 2 días de margen para poder cambiar una contraseña caducada sin que se bloquee su cuenta. Además, la cuenta quedará deshabilitada el 30 de junio.
+
 ```
 sudo chage -M 15 -W 3 -I 2 -E 2023-06-30 test01
 ```
+
 ```
 sudo chage -E "2023-06-30" test01
 ```
+
 21. Elimina el usuario test01 con todo el contenido en su espacio personal. Ten en cuenta que test01 podría seguir conectado.
+
 ```
 sudo userdel -rf test01
 userdel: test01 mail spool (/var/mail/test01) not found
@@ -255,7 +298,9 @@ userdel: test01 directorio personal (/home/test01) no encontrado
 id test01
 id: «test01»: no existe ese usuario
 ```
+
 22. ¿Qué pasaría si test01 siguiera conectado en el momento que se elimina su cuenta? ¿Podría seguir usando el equipo con normalidad? ¿Cómo harías para cerrar inmediatamente todos sus procesos que estuvieran aún en ejecución?
+
 ```
 sudo pkill -u test01
 ```
