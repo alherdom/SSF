@@ -63,7 +63,7 @@ geoclue:x:124:136::/var/lib/geoclue:/usr/sbin/nologin
 mysql:x:125:137:MySQL Server,,,:/nonexistent:/bin/false
 ```
 3. Fíjate en el UID de los usuarios. ¿Ves alguna diferencia entre los usuarios con UID < 1000 y los que tiene un UID >= 1000? ¿Por qué es así?
-- Por debajo de 1000 se resrvan para el sistema, por encima para usuarios "normales".
+- Por debajo de 1000 se reservan para el sistema, por encima para usuarios "normales".
 4. Muestra todos los grupos de tu máquina virtual. ¿Dónde está esa información? ¿Qué datos guarda el sistema sobre sus grupos y cómo se organizan?
 - Se encuentra en la carpeta **/etc/group.**
 ```
@@ -167,19 +167,62 @@ uid=1001(alejandro) gid=1001(alejandro) grupos=1001(alejandro),27(sudo)
 alejandro@xubuurano11:~$ groups root
 root : root
 ```
-
 7. Crea el usuario "test01" de forma que su home sea /home/test01 (se deben copiar la configuración básica de /etc/skel) y su shell sea /bin/bash.
 
-
+```
+sudo useradd -s /bin/bash test01
+```
 
 8. Intenta abrir una sesión como "test01" una vez creado... ¿puedes? ¿Por qué? ¿Cómo lo arreglarías?
+
+- No se ha establecido contraseña.
+```
+sudo passwd test01
+Nueva contraseña: 
+Vuelva a escribir la nueva contraseña: 
+passwd: contraseña actualizada correctamente
+```
 9. El usuario "test01", ¿qué grupo principal tiene? Cámbialo para que sea su grupo principal sea "tests".-
+```
+id test01
+uid=1001(test01) gid=1002(tests) grupos=1001(test01)
+sudo groupadd tests
+sudo usermod -g tests test01
+id test01
+uid=1001(test01) gid=1002(tests) grupos=1002(tests)
+```
 10. Borra el grupo principal antiguo de test01, ¿puedes eliminarlo? ¿Por qué?
+```
+sudo groupdel test01
+```
 11. Borra el grupo "tests", ¿puedes eliminarlo? ¿Por qué?
+```
+sudo groupdel tests
+groupdel: no se pudo eliminar el grupo primario del usuario «test01»
+```
 12. Asigna algunos grupos secundarios a "test01". Indica para qué sirve cada uno de los grupos creados
+```
+sudo usermod -G fax test01
+id test01
+uid=1001(test01) gid=1002(tests) grupos=1002(tests),21(fax)
+```
 13. Asigna algunos grupos más secundarios a "test01", SIN borrar los que ya tenía
+```
+sudo usermod -a -G games,bluetooth test01
+id test01
+uid=1001(test01) gid=1002(tests) grupos=1002(tests),21(fax),60(games),116(bluetooth)
+```
 14. Elimina algunos grupos secundarios del usuario test01
+```
+sudo gpasswd -d test01 bluetooth
+Eliminando al usuario test01 del grupo bluetooth
+id test01
+uid=1001(test01) gid=1002(tests) grupos=1002(tests),21(fax),60(games)
+```
 15. Bloquea al usuario test01. Luego intenta abrir una sesión... ¿puedes? ¿Por qué?
+```
+sudo usermod -L test01
+```
 16. Desbloquea al usuario test01. ¿Se ha perdido algo de su información?
 17. Cambia la información de test01 indicando su nombre completo, oficina, teléfono, etc.
 18. Cambia la shell de test01 a una que no permita ejecutar comandos
