@@ -25,7 +25,13 @@ crontab -e
 ```
 */30 * * * * uptime >> ~/carga30min.txt
 ```
-4. Borrar todos los ficheros más antiguos de 30 días a las 3 de la mañana todos los días 10, 20 y 30 de cada mes
+4. Borrar todos los ficheros más antiguos de 30 días a las 3 de la mañana todos los días 10, 20 y 30 de cada mes.
+```
+crontab -e
+```
+```
+0 3 */10-20-30 * * find ~/ -type f -mtime +30 -detele
+```
 5. Realizar los siguientes pasos (crea un script con nombre "miscript.sh" en tu HOME que simplemente imprima la fecha en el formato: "Ahora mismo son las HH:MM del día DD/MM/YYYY"). En cada tarea haz que la salida se añada a un fichero llamado "datos_fecha.txt" localizado en tu HOME.
 
     1. Ejecutar el script "~/miscript.sh" en 12 horas a partir de ahora.
