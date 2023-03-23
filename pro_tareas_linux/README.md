@@ -64,7 +64,9 @@ crontab -e
     ```
 
     4. Ejecutar el script "~/miscript.sh" cada 4 horas durante los diez primeros días de cada mes.
-    - */4 1-10* * ~/miscript.sh >> ~/datos_fecha.txt
+    ```
+    */4 1-10* * ~/miscript.sh >> ~/datos_fecha.txt
+    ```
     5. Ejecutar el script "~/miscript.sh" sólo cuando la carga baje de 1.5
 
     6. Mostrar que las ejecuciones están programadas y esperando para ejecutarse.
