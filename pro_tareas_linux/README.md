@@ -43,7 +43,12 @@ crontab -e
 0 3 */10-20-30 * * find ~/ -type f -mtime +30 -detele
 ```
 
+```
+0 3 */10 * * find ~/ -type f -atime +30 -exec rm {} \;
+```
+
 5. Realizar los siguientes pasos (crea un script con nombre "miscript.sh" en tu HOME que simplemente imprima la fecha en el formato: "Ahora mismo son las HH:MM del día DD/MM/YYYY"). En cada tarea haz que la salida se añada a un fichero llamado "datos_fecha.txt" localizado en tu HOME.
+
 
     1. Ejecutar el script "~/miscript.sh" en 12 horas a partir de ahora.
 
@@ -64,9 +69,11 @@ crontab -e
     ```
 
     4. Ejecutar el script "~/miscript.sh" cada 4 horas durante los diez primeros días de cada mes.
+
     ```
     */4 1-10* * ~/miscript.sh >> ~/datos_fecha.txt
     ```
+
     5. Ejecutar el script "~/miscript.sh" sólo cuando la carga baje de 1.5
 
     6. Mostrar que las ejecuciones están programadas y esperando para ejecutarse.
