@@ -13,7 +13,10 @@ Algunas opciones útiles de at son:
 
 2. Guardar en un fichero llamado "cargaAllMondays.txt" situado en el HOME la carga del sistema TODOS los lunes a las 2:00 am.
 ```
-
+crontab -e
+```
+```
+0 2 * * 1 uptime >> ~/cargaAllMondays.txt
 ```
 3. Guardar en un fichero llamado "carga30min.txt" situado en el HOME la carga del sistema cada 30 minutos de forma indefinida
 4. Borrar todos los ficheros más antiguos de 30 días a las 3 de la mañana todos los días 10, 20 y 30 de cada mes
