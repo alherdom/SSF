@@ -1,0 +1,42 @@
+1. ¿Por qué MS Windows distingue entre usuarios/grupos locales y globales?
+2. Muestra todos los usuarios locales de tu máquina virtual. ¿Cuál es la función de cada usuario?
+```
+net users
+```
+3. Muestra información detallada del usuario que estás usando ahora mismo. ¿Qué significa cada línea? ¿A qué grupos perteneces?
+```
+net user nombre
+```
+4. Muestra todos los grupos locales de tu máquina virtual. ¿Qué función tiene cada grupo (busca unos cuantos)?
+```
+net localgroup
+```
+5. Muestra información detallada del grupo "Usuarios". ¿Quién pertenece a este grupo? Repite la operación para el grupo de "Administradores"
+```
+net localgroup Usuarios
+```
+```
+net localgroup Administradores
+```
+6. Crea un usuario test01 SIN indicar contraseña
+```
+net user test01 /add
+```
+7. Crea un usuario test02 indicando la contraseña en el propio comando
+net user test02 test02 /add
+8. Crea un usuario test03 y solicita que se indique la contraseña por teclado, sin mostrarla
+
+9. Prueba a abrir sesión con los usuarios creados. ¿Puedes acceder con todos? Si no puedes acceder con alguno(s), indica cuál es el problema y soluciónalo.
+10. ¿A qué grupo(s) local(es) pertenecen los usuarios creados?
+11. Crea un grupo local llamado Informática. Añade los tres usuarios anteriores a ese grupo y muestra la lista de usuarios del grupo para ver que así es.
+12. Haz que test03 sea administrador.
+13. Haz que la cuenta de test01 caduque al final de 2023 y que tenga que cambiar la contraseña la próxima vez que inicie sesión.
+14. Desactiva al usuario test02.
+15. Haz que el usuario test03 NO pueda cambiar su contraseña, y que esta NO sea obligatoria.
+16. Prueba a iniciar de nuevo sesión con cada usuario... ¿qué sucede?
+17. Indica el nombre completo del usuario test01 (invéntate uno) y añade comentarios a su cuenta.
+18. Elimina al usuario test03 del grupo local de "Informática".
+19. Muestra la configuración global de las cuentas (longitud mínima de las contraseñas, duración, bloqueos, etc.).
+20. Modifica la configuración global para que todas las contraseñas tengan uan longitud mínima de 6 caracteres, se tengan que cambiar cada mes y no se puedan usar las últimas 3 contraseñas). 
+21. Elimina el grupo local de "Informática". Muestra todos los grupos locales para asegurate de que está eliminado.
+22. Elimina todos los usuarios creados en estos ejercicios. Muestra todos los usuarios locales para asegurarte de que han sido eliminados.
