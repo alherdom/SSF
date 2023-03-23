@@ -49,7 +49,6 @@ crontab -e
 
 5. Realizar los siguientes pasos (crea un script con nombre "miscript.sh" en tu HOME que simplemente imprima la fecha en el formato: "Ahora mismo son las HH:MM del día DD/MM/YYYY"). En cada tarea haz que la salida se añada a un fichero llamado "datos_fecha.txt" localizado en tu HOME.
 
-
     1. Ejecutar el script "~/miscript.sh" en 12 horas a partir de ahora.
 
     ```
