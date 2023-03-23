@@ -256,4 +256,6 @@ id test01
 id: «test01»: no existe ese usuario
 ```
 22. ¿Qué pasaría si test01 siguiera conectado en el momento que se elimina su cuenta? ¿Podría seguir usando el equipo con normalidad? ¿Cómo harías para cerrar inmediatamente todos sus procesos que estuvieran aún en ejecución?
+```
 sudo pkill -u test01
+```
