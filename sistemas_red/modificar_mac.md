@@ -71,23 +71,21 @@ lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536
 
         4. Fíjate que hemos separado la dirección MAC en una primera parte (primeros 3 bytes o 24 bits) y una segunda parte (últimos 3 bytes o 24 bits). ¿Qué tiene de particular cada una de estas partes en las direcciones MAC y por qué se ha hecho así?
 
-            <p>
-
-            __La dirección MAC está conformada por 48 bits direccion mac agrupados por 6 octetos, donde 3 identifican al fabricante y los otros 3 corresponden al NIC o modelo del dispositivo__
-            </p>
+        ```
+        La dirección MAC está conformada por 48 bits direccion mac agrupados por 6 octetos, donde 3 identifican al fabricante y los otros 3 corresponden al NIC o modelo del dispositivo
+        ```
 
     4. Activa el "modo promiscuo". ¿Qué significa este modo?
 
-    <div align="center">
-
-    **sudo ifconfig enp0s3 promisc**
-    </div>
+        ```
+        sudo ifconfig enp0s3 promisc**
+        ```
 
     5. Vuelve a activar esa interfaz de red.
-    <div align="center">
-
-    **ifconfig enp0s3 up**
-    </div>
+        
+        ```
+        ifconfig enp0s3 up**
+        ```
     
     6. Muestra de nuevo la información asociada a esa interfaz para comprobar que los cambios se han aplicado correctamente, muestra que la MAC ha sido modificada y que la tarjeta está en modo promiscuo.
 
@@ -103,11 +101,9 @@ lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536
  
 3. ¿Los cambios hechos en el apartado anterior son temporales o permanentes? Reinicia la máquina virtual y vuelve a mostrar la información de esa interfaz... ¿se siguen mostrando los datos que modificaste o los originales? ¿El adaptador está en "modo promiscuo" o no? ¿Por qué? 
 
-    <p>
-
-    __Los cambios son temporales, no se mantienen y la configuración de red vuelve a la original.__
-    
-    </p>
+        ```
+        Los cambios son temporales, no se mantienen y la configuración de red vuelve a la original.
+        ```
 
     <pre><span style="background-color:#0087D7"> alejandro10 </span><span style="background-color:#585858"><font color="#0087D7"></font></span><span style="background-color:#585858"> ~ </span><font color="#585858"></font> ifconfig enp0s3
     enp0s3: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500
