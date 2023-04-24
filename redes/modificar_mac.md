@@ -64,7 +64,7 @@ lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536
         <div align="center">
 
         <br>
-        
+
         **D: A: W: A: H: D**
         <br>
         **44:41:57:41:48:44**
@@ -72,10 +72,10 @@ lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536
 
         4. Fíjate que hemos separado la dirección MAC en una primera parte (primeros 3 bytes o 24 bits) y una segunda parte (últimos 3 bytes o 24 bits). ¿Qué tiene de particular cada una de estas partes en las direcciones MAC y por qué se ha hecho así?
 
-        <p>
+            <p>
 
-        __La dirección MAC está conformada por 48 bits direccion mac agrupados por 6 octetos, donde 3 identifican al fabricante y los otros 3 corresponden al NIC o modelo del dispositivo__
-        </p>
+            __La dirección MAC está conformada por 48 bits direccion mac agrupados por 6 octetos, donde 3 identifican al fabricante y los otros 3 corresponden al NIC o modelo del dispositivo__
+            </p>
 
     4. Activa el "modo promiscuo". ¿Qué significa este modo?
 
