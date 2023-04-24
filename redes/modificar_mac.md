@@ -62,7 +62,7 @@ lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536
 
         3. Alumno DAW, Alejandro Hernández Domínguez (AHD)  tendría que poner: DAWAHD en código hexadecimal ASCII:
         <div align="center">
-
+        <br>
         **D: A: W: A: H: D**
         <br>
         **44:41:57:41:48:44**
