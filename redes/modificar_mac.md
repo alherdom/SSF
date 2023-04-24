@@ -7,7 +7,7 @@ Puedes hacer todos los apartados con los comandos vistos en clase: ifconfig, ip,
 1. La mayoría de equipos disponen de varios adaptadores de red (cable, WiFi, etc.). Muestra todos los adaptadores de red de tu equipo con su dirección MAC asociada, indicando a qué conexión corresponden y la información más relevante de cada adaptador.
 
 <pre><span style="background-color:#0087D7"> alejandro10 </span><span style="background-color:#585858"><font color="#0087D7"></font></span><span style="background-color:#585858"> ~ </span><font color="#585858"></font> ifconfig
-enp0s3: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500
+    enp0s3: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500
         inet 192.168.31.191  netmask 255.255.255.0  broadcast 192.168.31.255
         inet6 fe80::abd0:3247:bccc:385f  prefixlen 64  scopeid 0x20&lt;link&gt;
         ether 08:00:27:58:5e:99  txqueuelen 1000  (Ethernet)
@@ -64,7 +64,7 @@ lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536
         4. Fíjate que hemos separado la dirección MAC en una primera parte (primeros 3 bytes o 24 bits) y una segunda parte (últimos 3 bytes o 24 bits). ¿Qué tiene de particular cada una de estas partes en las direcciones MAC y por qué se ha hecho así?
 
         <p>
-        
+
         __La dirección MAC está conformada por 48 bits direccion mac agrupados por 6 octetos, donde 3 identifican al fabricante y los otros 3 corresponden al NIC o modelo del dispositivo__
         
         </p>
