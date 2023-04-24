@@ -66,7 +66,7 @@ lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536
         <p>
         
         __La dirección MAC está conformada por 48 bits direccion mac agrupados por 6 octetos, donde 3 identifican al fabricante y los otros 3 corresponden al NIC o modelo del dispositivo__
-
+        
         </p>
 
     4. Activa el "modo promiscuo". ¿Qué significa este modo?
