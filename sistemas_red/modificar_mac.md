@@ -101,9 +101,9 @@ lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536
  
 3. ¿Los cambios hechos en el apartado anterior son temporales o permanentes? Reinicia la máquina virtual y vuelve a mostrar la información de esa interfaz... ¿se siguen mostrando los datos que modificaste o los originales? ¿El adaptador está en "modo promiscuo" o no? ¿Por qué? 
 
-        ```
-        Los cambios son temporales, no se mantienen y la configuración de red vuelve a la original.
-        ```
+    ```
+    Los cambios son temporales, no se mantienen y la configuración de red vuelve a la original.
+    ```
 
     <pre><span style="background-color:#0087D7"> alejandro10 </span><span style="background-color:#585858"><font color="#0087D7"></font></span><span style="background-color:#585858"> ~ </span><font color="#585858"></font> ifconfig enp0s3
     enp0s3: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500
