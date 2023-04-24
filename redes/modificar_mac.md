@@ -43,20 +43,32 @@ lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536
 
     3. Modifica la MAC. La MAC elegida deberá ser del tipo: AA:BB:CC:DD:EE:FF, donde:
         1. AA:BB:CC: Según el ciclo en el que estés (ASR, DAM o DAW), busca el código HEXADECIMAL de cada letra en una tabla ASCII.
+        <div align="center">
 
-            <div align="center">
+        **DAW -> 44:41:57**
 
-            **DAW -> 44:41:57**
-
-            </div>
-
+        </div>
         2. DD:EE:FF: Cada byte es el código hexadecimal ASCII de la primera letra de tu primer nombre, la primera letra de tu apellido y la primera letra de tu segundo apellido.
+        <div align="center">
 
+        **AHD -> 41:48:44**
 
-        3. Por ejemplo, una alumna que estudie ASIR (ASR) y que se llame Julia García Pérez (JGP)  tendría que poner: ASRJPG en código hexadecimal ASCII:
-        A: S: R: J: G: P
-        41:53:52:4A:47:50
+        </div>
+        3. Alumno DAW, Alejandro Hernández Domínguez (AHD)  tendría que poner: DAWAHD en código hexadecimal ASCII:
+        <div align="center">
+
+        **D: A: W: A: H: D**
+        **44:41:57:41:48:44**
+
+        </div>
         4. Fíjate que hemos separado la dirección MAC en una primera parte (primeros 3 bytes o 24 bits) y una segunda parte (últimos 3 bytes o 24 bits). ¿Qué tiene de particular cada una de estas partes en las direcciones MAC y por qué se ha hecho así?
+
+        <p>
+        
+        __La dirección MAC está conformada por 48 bits direccion mac agrupados por 6 octetos, donde 3 identifican al fabricante y los otros 3 corresponden al NIC o modelo del dispositivo__
+
+        </p>
+
     4. Activa el "modo promiscuo". ¿Qué significa este modo?
     5. Vuelve a activar esa interfaz de red.
     6. Muestra de nuevo la información asociada a esa interfaz para comprobar que los cambios se han aplicado correctamente, muestra que la MAC ha sido modificada y que la tarjeta está en modo promiscuo.
