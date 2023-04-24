@@ -40,26 +40,27 @@ lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</pre>
 
     2.  Desactiva la interfaz a la que le vas a cambiar la MAC (recuerda que para hacer cambios en la configuración de red, primero debes desactivarla).
+    <div align="center">
+
+    **ifconfig eth0 down**
+    </div>
 
     3. Modifica la MAC. La MAC elegida deberá ser del tipo: AA:BB:CC:DD:EE:FF, donde:
         1. AA:BB:CC: Según el ciclo en el que estés (ASR, DAM o DAW), busca el código HEXADECIMAL de cada letra en una tabla ASCII.
         <div align="center">
 
         **DAW -> 44:41:57**
-
         </div>
         2. DD:EE:FF: Cada byte es el código hexadecimal ASCII de la primera letra de tu primer nombre, la primera letra de tu apellido y la primera letra de tu segundo apellido.
         <div align="center">
 
         **AHD -> 41:48:44**
-
         </div>
         3. Alumno DAW, Alejandro Hernández Domínguez (AHD)  tendría que poner: DAWAHD en código hexadecimal ASCII:
         <div align="center">
 
         **D: A: W: A: H: D**
         **44:41:57:41:48:44**
-
         </div>
         4. Fíjate que hemos separado la dirección MAC en una primera parte (primeros 3 bytes o 24 bits) y una segunda parte (últimos 3 bytes o 24 bits). ¿Qué tiene de particular cada una de estas partes en las direcciones MAC y por qué se ha hecho así?
 
