@@ -42,10 +42,10 @@ __2. Elige un adaptador de red (interfaz) de los listados anteriormente, vamos a
 
 2.  Desactiva la interfaz a la que le vas a cambiar la MAC (recuerda que para hacer cambios en la configuración de red, primero debes desactivarla).
 
-```
-sudo ifconfig enp0s3 down
-
-```
+    ```
+    sudo ifconfig enp0s3 down
+    
+    ```
 
     3. Modifica la MAC. La MAC elegida deberá ser del tipo: AA:BB:CC:DD:EE:FF, donde:
 
