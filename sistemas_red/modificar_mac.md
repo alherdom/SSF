@@ -71,7 +71,7 @@ __2. Elige un adaptador de red (interfaz) de los listados anteriormente, vamos a
         <br>
         
         ```
-        D: A: W: A: H: D = 44:41:57:41:48:44
+        D:A:W:A:H:D = 44:41:57:41:48:44
         ```
 
         4. Fíjate que hemos separado la dirección MAC en una primera parte (primeros 3 bytes o 24 bits) y una segunda parte (últimos 3 bytes o 24 bits). ¿Qué tiene de particular cada una de estas partes en las direcciones MAC y por qué se ha hecho así?
