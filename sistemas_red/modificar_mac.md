@@ -175,7 +175,7 @@ __Investiga y cambia la MAC por la interfaz gráfica. Utiliza la misma MAC que e
         Windows y Linux, tienen las misma dirección MAC, dado que se realizo la misma configuración de RED cuando crearon las máquinas virtuales (hipervisor).
         
 <p align="center">
-<img width=310 src="img\Captura0.PNG"><img width=400 src="img\Captura1.PNG">
+<img width=310 src="img\capt0.PNG"><img width=400 src="img\capt1.PNG">
 </p>
         
         C:\Windows\system32>ipconfig /all
@@ -278,5 +278,21 @@ __6. ¿Los cambios hechos en el apartado anterior son temporales o permanentes? 
     DUID de cliente DHCPv6. . . . . . . . . . : 00-01-00-01-2B-D9-73-C4-44-41-57-41-48-44
     Servidores DNS. . . . . . . . . . . . . . : 192.168.31.1
     NetBIOS sobre TCP/IP. . . . . . . . . . . : habilitado
+
+## Cualquier dispositivo
+
+En un dispositivo que tengas conectado por WiFi (puede ser un equipo de sobremesa, portátil, tablet, móvil, etc.), consulta los detalles de la conexión WiFi y busca qué tipo de MAC se está enviando, si es la real o una aleatoria. Captura la pantalla donde se muestre esta información sobre la MAC, así como el tipo de WiFi, IP, etc.
+
+<p align="center">
+<img width=300 src="img\iphone.jpeg">
+</p>
+
+¿Por qué crees que algunos dispositivos por defecto crean MAC aleatorias al conectarse? ¿Qué ventajas y desventajas tiene esta opción?
+
+```
+Generar direcciones MAC aleatorias evita el rastreo de la MAC original del dispositivo en todas las redes a las que se haya conectado o se vaya a conectar, protegemos la privacidad y seguridad del dispositivo.
+
+Una desventaja podría ser, dentro de un registro de direcciones MAC consideradas válidas para conectarse a una red determinada, si se genera de manera aleatoria no se podría verificar que ese dispositivo es quién dicer ser que es.
+```
 
 </div>
