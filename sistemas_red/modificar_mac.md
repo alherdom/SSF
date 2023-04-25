@@ -29,8 +29,8 @@ __2. Elige un adaptador de red (interfaz) de los listados anteriormente, vamos a
 
    1. Muestra y apunta la dirección MAC original.
 
-    ```    
-    alejandro10 ~ ifconfig enp0s3
+        ```    
+        alejandro10  ~  ifconfig enp0s3
         enp0s3: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500
                 inet 192.168.31.191  netmask 255.255.255.0  broadcast 192.168.31.255
                 inet6 fe80::abd0:3247:bccc:385f  prefixlen 64  scopeid 0x20&lt;link&gt;
@@ -39,8 +39,8 @@ __2. Elige un adaptador de red (interfaz) de los listados anteriormente, vamos a
                 RX errors 0  dropped 0  overruns 0  frame 0
                 TX packets 8754  bytes 3782103 (3.7 MB)
                 TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-    ```
-    
+        ```
+
 2.  Desactiva la interfaz a la que le vas a cambiar la MAC (recuerda que para hacer cambios en la configuración de red, primero debes desactivarla).
 
     ```
