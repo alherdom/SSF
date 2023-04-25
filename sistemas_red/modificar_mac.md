@@ -196,6 +196,31 @@ Investiga y cambia la MAC por la interfaz gráfica. Utiliza la misma MAC que en 
     NetBIOS sobre TCP/IP. . . . . . . . . . . : habilitado
     ```
 3. Investiga y cambia la MAC a través de la PowerShell, utilizando la misma MAC que en GNU/Linux.
+    ```
+    PS C:\Windows\system32> Get-NetAdapter
+
+    Name                      InterfaceDescription                    ifIndex Status       MacAddress             LinkSpeed
+    ----                      --------------------                    ------- ------       ----------             ---------
+    Ethernet                  Intel(R) PRO/1000 MT Desktop Adapter         11 Up           08-00-27-58-5E-99         1 Gbps
+    ```
+
+    ```
+    PS C:\Windows\system32> set-NetAdapter -name "Ethernet" -MacAddress "44-41-57-41-48-44"
+
+    Confirmar
+    ¿Está seguro de que desea realizar esta acción?
+    Set-NetAdapter 'Ethernet' -MacAddress 444157414844
+    [S] Sí  [O] Sí a todo  [N] No  [T] No a todo  [U] Suspender  [?] Ayuda (el valor predeterminado es "S"): S
+    ```
+    
+    ```
+    PS C:\Windows\system32> Get-NetAdapter
+
+    Name                      InterfaceDescription                    ifIndex Status       MacAddress             LinkSpeed
+    ----                      --------------------                    ------- ------       ----------             ---------
+    Ethernet                  Intel(R) PRO/1000 MT Desktop Adapter         11 Up           44-41-57-41-48-44         1 Gbps
+    ```
+
 4. Primero lista todos los adaptadores de red y su MAC asociada con el cmdlet:
 Get-NetAdapter | select name, macaddress
 Luego para cambiar la MAC puedes usar algún cmdlet como:
