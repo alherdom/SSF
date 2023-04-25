@@ -50,7 +50,7 @@ __2. Elige un adaptador de red (interfaz) de los listados anteriormente, vamos a
 
     3. Modifica la MAC. La MAC elegida deberá ser del tipo: AA:BB:CC:DD:EE:FF, donde:
 
-        1. AA:BB:CC: Según el ciclo en el que estés (ASR, DAM o DAW), busca el código HEXADECIMAL de cada letra en una tabla ASCII.</br>
+        1. AA:BB:CC: Según el ciclo en el que estés (ASR, DAM o DAW), busca el código HEXADECIMAL de cada letra en una tabla ASCII.\
 
         ```
         DAW -> 44:41:57**
