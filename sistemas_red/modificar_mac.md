@@ -161,53 +161,53 @@ __2. Muestra la MAC original y apúntula. ¿Coincide este MAC original de Window
 
 __Investiga y cambia la MAC por la interfaz gráfica. Utiliza la misma MAC que en GNU/Linux.__
 
-    ```
-    Windows y Linux, tienen las misma dirección MAC.
-    ```
-    <p align="center">
-    <img width=310 src="img\Captura0.PNG"><img width=400 src="img\Captura1.PNG">
-    </p>
+    
+        Windows y Linux, tienen las misma dirección MAC.
+        
+        <p align="center">
+        <img width=310 src="img\Captura0.PNG"><img width=400 src="img\Captura1.PNG">
+        </p>
 
-    ```
-    C:\Windows\system32>ipconfig /all
+        
+        C:\Windows\system32>ipconfig /all
 
-    Configuración IP de Windows
+        Configuración IP de Windows
 
-    Nombre de host. . . . . . . . . : DESKTOP-BBIOHG8
-    Sufijo DNS principal  . . . . . :
-    Tipo de nodo. . . . . . . . . . : híbrido
-    Enrutamiento IP habilitado. . . : no
-    Proxy WINS habilitado . . . . . : no
+        Nombre de host. . . . . . . . . : DESKTOP-BBIOHG8
+        Sufijo DNS principal  . . . . . :
+        Tipo de nodo. . . . . . . . . . : híbrido
+        Enrutamiento IP habilitado. . . : no
+        Proxy WINS habilitado . . . . . : no
 
-    Adaptador de Ethernet Ethernet:
+        Adaptador de Ethernet Ethernet:
 
-    Sufijo DNS específico para la conexión. . :
-    Descripción . . . . . . . . . . . . . . . : Intel(R) PRO/1000 MT Desktop Adapter
-    Dirección física. . . . . . . . . . . . . : 44-41-57-41-48-44
-    DHCP habilitado . . . . . . . . . . . . . : sí
-    Configuración automática habilitada . . . : sí
-    Vínculo: dirección IPv6 local. . . : fe80::aae:c2b2:5046:7248%11(Preferido)
-    Dirección IPv4. . . . . . . . . . . . . . : 192.168.31.38(Preferido)
-    Máscara de subred . . . . . . . . . . . . : 255.255.255.0
-    Concesión obtenida. . . . . . . . . . . . : martes, 25 de abril de 2023 12:00:31
-    La concesión expira . . . . . . . . . . . : miércoles, 26 de abril de 2023 0:00:31
-    Puerta de enlace predeterminada . . . . . : 192.168.31.1
-    Servidor DHCP . . . . . . . . . . . . . . : 192.168.31.1
-    IAID DHCPv6 . . . . . . . . . . . . . . . : 101187623
-    DUID de cliente DHCPv6. . . . . . . . . . : 00-01-00-01-2A-FE-D6-EC-08-00-27-58-5E-99
-    Servidores DNS. . . . . . . . . . . . . . : 192.168.31.1
-    NetBIOS sobre TCP/IP. . . . . . . . . . . : habilitado
-    ```
+        Sufijo DNS específico para la conexión. . :
+        Descripción . . . . . . . . . . . . . . . : Intel(R) PRO/1000 MT Desktop Adapter
+        Dirección física. . . . . . . . . . . . . : 44-41-57-41-48-44
+        DHCP habilitado . . . . . . . . . . . . . : sí
+        Configuración automática habilitada . . . : sí
+        Vínculo: dirección IPv6 local. . . : fe80::aae:c2b2:5046:7248%11(Preferido)
+        Dirección IPv4. . . . . . . . . . . . . . : 192.168.31.38(Preferido)
+        Máscara de subred . . . . . . . . . . . . : 255.255.255.0
+        Concesión obtenida. . . . . . . . . . . . : martes, 25 de abril de 2023 12:00:31
+        La concesión expira . . . . . . . . . . . : miércoles, 26 de abril de 2023 0:00:31
+        Puerta de enlace predeterminada . . . . . : 192.168.31.1
+        Servidor DHCP . . . . . . . . . . . . . . : 192.168.31.1
+        IAID DHCPv6 . . . . . . . . . . . . . . . : 101187623
+        DUID de cliente DHCPv6. . . . . . . . . . : 00-01-00-01-2A-FE-D6-EC-08-00-27-58-5E-99
+        Servidores DNS. . . . . . . . . . . . . . : 192.168.31.1
+        NetBIOS sobre TCP/IP. . . . . . . . . . . : habilitado
+    
     
 __3. Investiga y cambia la MAC a través de la PowerShell, utilizando la misma MAC que en GNU/Linux.__
 
-    ```
-    PS C:\Windows\system32> Get-NetAdapter
+    
+        PS C:\Windows\system32> Get-NetAdapter
 
-    Name                      InterfaceDescription                    ifIndex Status       MacAddress             LinkSpeed
-    ----                      --------------------                    ------- ------       ----------             ---------
-    Ethernet                  Intel(R) PRO/1000 MT Desktop Adapter         11 Up           08-00-27-58-5E-99         1 Gbps
-    ```
+        Name                      InterfaceDescription                    ifIndex Status       MacAddress             LinkSpeed
+        ----                      --------------------                    ------- ------       ----------             ---------
+        Ethernet                  Intel(R) PRO/1000 MT Desktop Adapter         11 Up           08-00-27-58-5E-99         1 Gbps
+    
 
 __4. Primero lista todos los adaptadores de red y su MAC asociada con el cmdlet:__
 __"Get-NetAdapter | select name, macaddress"__
