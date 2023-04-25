@@ -31,14 +31,14 @@ __2. Elige un adaptador de red (interfaz) de los listados anteriormente, vamos a
 
 
     <pre><span style="background-color:#0087D7"> alejandro10 </span><span style="background-color:#585858"><font color="#0087D7"></font></span><span style="background-color:#585858"> ~ </span><font color="#585858"></font> ifconfig enp0s3
-    enp0s3: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500
-        inet 192.168.31.191  netmask 255.255.255.0  broadcast 192.168.31.255
-        inet6 fe80::abd0:3247:bccc:385f  prefixlen 64  scopeid 0x20&lt;link&gt;
-        ether 08:00:27:58:5e:99  txqueuelen 1000  (Ethernet)
-        RX packets 21736  bytes 25907333 (25.9 MB)
-        RX errors 0  dropped 0  overruns 0  frame 0
-        TX packets 8754  bytes 3782103 (3.7 MB)
-        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</pre>
+        enp0s3: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500
+            inet 192.168.31.191  netmask 255.255.255.0  broadcast 192.168.31.255
+            inet6 fe80::abd0:3247:bccc:385f  prefixlen 64  scopeid 0x20&lt;link&gt;
+            ether 08:00:27:58:5e:99  txqueuelen 1000  (Ethernet)
+            RX packets 21736  bytes 25907333 (25.9 MB)
+            RX errors 0  dropped 0  overruns 0  frame 0
+            TX packets 8754  bytes 3782103 (3.7 MB)
+            TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</pre>
 
 2.  Desactiva la interfaz a la que le vas a cambiar la MAC (recuerda que para hacer cambios en la configuración de red, primero debes desactivarla).
 
