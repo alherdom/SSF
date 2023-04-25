@@ -232,13 +232,13 @@ __Luego para cambiar la MAC puedes usar algún cmdlet como: "Set-NetAdapter" "Se
 
 __5. Una vez cambiada la MAC, muestra de nuevo la información de la red, para comprobar que la MAC sea la que has modificado.__
 
-    
-        PS C:\Windows\system32> Get-NetAdapter
+    ````
+    PS C:\Windows\system32> Get-NetAdapter
 
-        Name                      InterfaceDescription                    ifIndex Status       MacAddress             LinkSpeed
-        ----                      --------------------                    ------- ------       ----------             ---------
-        Ethernet                  Intel(R) PRO/1000 MT Desktop Adapter         11 Up           44-41-57-41-48-44         1 Gbps
-    
+    Name                      InterfaceDescription                    ifIndex Status       MacAddress             LinkSpeed
+    ----                      --------------------                    ------- ------       ----------             ---------
+    Ethernet                  Intel(R) PRO/1000 MT Desktop Adapter         11 Up           44-41-57-41-48-44         1 Gbps
+    ````
 
 __6. ¿Los cambios hechos en el apartado anterior son temporales o permanentes? Reinicia la máquina virtual y vuelve a mostrar la información de esa interfaz... ¿se siguen mostrando los datos que modificaste o los originales? ¿Por qué?__
 
