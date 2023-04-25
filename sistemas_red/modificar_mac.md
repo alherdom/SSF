@@ -56,22 +56,19 @@ __2. Elige un adaptador de red (interfaz) de los listados anteriormente, vamos a
         DAW -> 44:41:57**
         ```
 
-    2. DD:EE:FF: Cada byte es el código hexadecimal ASCII de la primera letra de tu primer nombre, la primera letra de tu apellido y la primera letra de tu segundo apellido.
-        <br>
+    2. DD:EE:FF: Cada byte es el código hexadecimal ASCII de la primera letra de tu primer nombre, la primera letra de tu apellido y la primera letra de tu segundo apellido.<br>
         
         ```
         AHD -> 41:48:44**
         ```
 
-    3. Alumno DAW, Alejandro Hernández Domínguez (AHD)  tendría que poner: DAWAHD en código hexadecimal ASCII:
-        <br>
+    3. Alumno DAW, Alejandro Hernández Domínguez (AHD)  tendría que poner: DAWAHD en código hexadecimal ASCII:<br>
         
         ```
         D:A:W:A:H:D = 44:41:57:41:48:44
         ```
 
-    4. Fíjate que hemos separado la dirección MAC en una primera parte (primeros 3 bytes o 24 bits) y una segunda parte (últimos 3 bytes o 24 bits). ¿Qué tiene de particular cada una de estas partes en las direcciones MAC y por qué se ha hecho así?
-        <br>
+    4. Fíjate que hemos separado la dirección MAC en una primera parte (primeros 3 bytes o 24 bits) y una segunda parte (últimos 3 bytes o 24 bits). ¿Qué tiene de particular cada una de estas partes en las direcciones MAC y por qué se ha hecho así?<br>
         
         ```
         La dirección MAC está conformada por 48 bits direccion mac agrupados por 6 octetos, donde 3 identifican al fabricante y los otros 3 corresponden al NIC o modelo del dispositivo
