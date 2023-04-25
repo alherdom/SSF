@@ -47,7 +47,6 @@ sudo ifconfig enp0s3 down
 
 ```
 
-
     3. Modifica la MAC. La MAC elegida deberá ser del tipo: AA:BB:CC:DD:EE:FF, donde:
 
         1. AA:BB:CC: Según el ciclo en el que estés (ASR, DAM o DAW), busca el código HEXADECIMAL de cada letra en una tabla ASCII.
