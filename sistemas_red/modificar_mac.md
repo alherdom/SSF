@@ -1,6 +1,6 @@
 <div align="justify">
 
-# GNU/Linux
+## GNU/Linux
 
 Puedes hacer todos los apartados con los comandos vistos en clase: ifconfig, ip, etc.
 
@@ -115,7 +115,7 @@ Puedes hacer todos los apartados con los comandos vistos en clase: ifconfig, ip,
         TX packets 2281  bytes 970417 (970.4 KB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</pre>
 
-# MS Windows
+## MS Windows
 
 Existen diferentes comandos para mostrar la información de red desde consola (ipconfig, getmac, netsh, etc.). El cambio de MAC, también se puede hacer de diferentes formas:
 - Por la interfaz gráfica, modificando las propiedades del adaptador de red.
@@ -195,7 +195,9 @@ Investiga y cambia la MAC por la interfaz gráfica. Utiliza la misma MAC que en 
     Servidores DNS. . . . . . . . . . . . . . : 192.168.31.1
     NetBIOS sobre TCP/IP. . . . . . . . . . . : habilitado
     ```
+    
 3. Investiga y cambia la MAC a través de la PowerShell, utilizando la misma MAC que en GNU/Linux.
+
     ```
     PS C:\Windows\system32> Get-NetAdapter
 
@@ -225,7 +227,7 @@ Set-NetAdapterAdvancedProperty ...
     Set-NetAdapter 'Ethernet' -MacAddress 444157414844
     [S] Sí  [O] Sí a todo  [N] No  [T] No a todo  [U] Suspender  [?] Ayuda (el valor predeterminado es "S"): S
     ```
-    
+
 5. Una vez cambiada la MAC, muestra de nuevo la información de la red, para comprobar que la MAC sea la que has modificado.
 
     ```
@@ -236,6 +238,36 @@ Set-NetAdapterAdvancedProperty ...
     Ethernet                  Intel(R) PRO/1000 MT Desktop Adapter         11 Up           44-41-57-41-48-44         1 Gbps
     ```
 
-    
 6. ¿Los cambios hechos en el apartado anterior son temporales o permanentes? Reinicia la máquina virtual y vuelve a mostrar la información de esa interfaz... ¿se siguen mostrando los datos que modificaste o los originales? ¿Por qué?
+
+    ```
+    C:\Users\Alejandro10>ipconfig /All
+
+    Configuración IP de Windows
+
+    Nombre de host. . . . . . . . . : DESKTOP-BBIOHG8
+    Sufijo DNS principal  . . . . . :
+    Tipo de nodo. . . . . . . . . . : híbrido
+    Enrutamiento IP habilitado. . . : no
+    Proxy WINS habilitado . . . . . : no
+
+    Adaptador de Ethernet Ethernet:
+
+    Sufijo DNS específico para la conexión. . :
+    Descripción . . . . . . . . . . . . . . . : Intel(R) PRO/1000 MT Desktop Adapter
+    Dirección física. . . . . . . . . . . . . : 44-41-57-41-48-44
+    DHCP habilitado . . . . . . . . . . . . . : sí
+    Configuración automática habilitada . . . : sí
+    Vínculo: dirección IPv6 local. . . : fe80::aae:c2b2:5046:7248%11(Preferido)
+    Dirección IPv4. . . . . . . . . . . . . . : 192.168.31.38(Preferido)
+    Máscara de subred . . . . . . . . . . . . : 255.255.255.0
+    Concesión obtenida. . . . . . . . . . . . : martes, 25 de abril de 2023 13:54:13
+    La concesión expira . . . . . . . . . . . : miércoles, 26 de abril de 2023 1:54:13
+    Puerta de enlace predeterminada . . . . . : 192.168.31.1
+    Servidor DHCP . . . . . . . . . . . . . . : 192.168.31.1
+    IAID DHCPv6 . . . . . . . . . . . . . . . : 101187623
+    DUID de cliente DHCPv6. . . . . . . . . . : 00-01-00-01-2B-D9-73-C4-44-41-57-41-48-44
+    Servidores DNS. . . . . . . . . . . . . . : 192.168.31.1
+    NetBIOS sobre TCP/IP. . . . . . . . . . . : habilitado
+    ```
 </div>
