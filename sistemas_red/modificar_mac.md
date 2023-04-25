@@ -50,16 +50,13 @@ __2. Elige un adaptador de red (interfaz) de los listados anteriormente, vamos a
 
 3. Modifica la MAC. La MAC elegida deberá ser del tipo: AA:BB:CC:DD:EE:FF, donde:
 
-    1. AA:BB:CC: Según el ciclo en el que estés (ASR, DAM o DAW), busca el código HEXADECIMAL de cada letra en una tabla ASCII.
-
-        <br>
+    1. AA:BB:CC: Según el ciclo en el que estés (ASR, DAM o DAW), busca el código HEXADECIMAL de cada letra en una tabla ASCII.<br>
 
         ```
         DAW -> 44:41:57**
         ```
 
     2. DD:EE:FF: Cada byte es el código hexadecimal ASCII de la primera letra de tu primer nombre, la primera letra de tu apellido y la primera letra de tu segundo apellido.
-
         <br>
         
         ```
@@ -67,7 +64,6 @@ __2. Elige un adaptador de red (interfaz) de los listados anteriormente, vamos a
         ```
 
     3. Alumno DAW, Alejandro Hernández Domínguez (AHD)  tendría que poner: DAWAHD en código hexadecimal ASCII:
-
         <br>
         
         ```
@@ -75,7 +71,6 @@ __2. Elige un adaptador de red (interfaz) de los listados anteriormente, vamos a
         ```
 
     4. Fíjate que hemos separado la dirección MAC en una primera parte (primeros 3 bytes o 24 bits) y una segunda parte (últimos 3 bytes o 24 bits). ¿Qué tiene de particular cada una de estas partes en las direcciones MAC y por qué se ha hecho así?
-        
         <br>
         
         ```
