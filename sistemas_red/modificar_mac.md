@@ -25,7 +25,7 @@ __1. La mayoría de equipos disponen de varios adaptadores de red (cable, WiFi, 
             TX packets 59  bytes 7112 (7.1 KB)
             TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</pre>
 
-**2. Elige un adaptador de red (interfaz) de los listados anteriormente, vamos a cambiar la dirección MAC y hacer otras operaciones. Para ello:**
+__2. Elige un adaptador de red (interfaz) de los listados anteriormente, vamos a cambiar la dirección MAC y hacer otras operaciones. Para ello:__
 
    1. Muestra y apunta la dirección MAC original
 
