@@ -109,7 +109,7 @@ __2. Elige un adaptador de red (interfaz) de los listados anteriormente, vamos a
 
     #!/bin/bash
     ifconfig eth0 down
-    ifconfig eth0 hw ether 02:01:02:03:04:08
+    ifconfig eth0 hw ether 44:41:57:41:48:44
     ifconfig eth0 up
     /etc/init.d/networking restart
     ```
