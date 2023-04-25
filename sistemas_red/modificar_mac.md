@@ -213,35 +213,30 @@ __"Get-NetAdapter | select name, macaddress"__
 
 __Luego para cambiar la MAC puedes usar algún cmdlet como: "Set-NetAdapter" "Set-NetAdapterAdvancedProperty"__
 
-    ```
     PS C:\Windows\system32> Get-NetAdapter
 
     Name                      InterfaceDescription                    ifIndex Status       MacAddress             LinkSpeed
     ----                      --------------------                    ------- ------       ----------             ---------
     Ethernet                  Intel(R) PRO/1000 MT Desktop Adapter         11 Up           08-00-27-58-5E-99         1 Gbps
-    ```
-    ```
+
+
     PS C:\Windows\system32> set-NetAdapter -name "Ethernet" -MacAddress "44-41-57-41-48-44"
 
     Confirmar
     ¿Está seguro de que desea realizar esta acción?
     Set-NetAdapter 'Ethernet' -MacAddress 444157414844
     [S] Sí  [O] Sí a todo  [N] No  [T] No a todo  [U] Suspender  [?] Ayuda (el valor predeterminado es "S"): S
-    ```
 
 __5. Una vez cambiada la MAC, muestra de nuevo la información de la red, para comprobar que la MAC sea la que has modificado.__
 
-    ````
     PS C:\Windows\system32> Get-NetAdapter
 
     Name                      InterfaceDescription                    ifIndex Status       MacAddress             LinkSpeed
     ----                      --------------------                    ------- ------       ----------             ---------
     Ethernet                  Intel(R) PRO/1000 MT Desktop Adapter         11 Up           44-41-57-41-48-44         1 Gbps
-    ````
 
 __6. ¿Los cambios hechos en el apartado anterior son temporales o permanentes? Reinicia la máquina virtual y vuelve a mostrar la información de esa interfaz... ¿se siguen mostrando los datos que modificaste o los originales? ¿Por qué?__
 
-    ```
     C:\Users\Alejandro10>ipconfig /All
 
     Configuración IP de Windows
@@ -270,5 +265,5 @@ __6. ¿Los cambios hechos en el apartado anterior son temporales o permanentes? 
     DUID de cliente DHCPv6. . . . . . . . . . : 00-01-00-01-2B-D9-73-C4-44-41-57-41-48-44
     Servidores DNS. . . . . . . . . . . . . . : 192.168.31.1
     NetBIOS sobre TCP/IP. . . . . . . . . . . : habilitado
-    ```
+
 </div>
