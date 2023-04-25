@@ -102,6 +102,18 @@ __2. Elige un adaptador de red (interfaz) de los listados anteriormente, vamos a
 
     ```
     Los cambios son temporales, no se mantienen y la configuración de red vuelve a la original.
+    
+    Una manera de cambiar la MAC cada vez que se inicie la máquina, sería mediante un script
+    en la carpeta /etc/init.d/ y enlances simbólicos en /etc/rc2.d, /etc/rc3.d, /etc/rc4.d,
+    /etc/rc5.d apuntando al script en /init.d/
+
+    Script:
+
+    #!/bin/bash
+    ifconfig eth0 down
+    ifconfig eth0 hw ether 02:01:02:03:04:08
+    ifconfig eth0 up
+    /etc/init.d/networking restart
     ```
 
     <pre><span style="background-color:#0087D7"> alejandro10 </span><span style="background-color:#585858"><font color="#0087D7"></font></span><span style="background-color:#585858"> ~ </span><font color="#585858"></font> ifconfig enp0s3
@@ -162,7 +174,7 @@ __2. Muestra la MAC original y apúntula. ¿Coincide este MAC original de Window
 __Investiga y cambia la MAC por la interfaz gráfica. Utiliza la misma MAC que en GNU/Linux.__
 
     
-        Windows y Linux, tienen las misma dirección MAC.
+        Windows y Linux, tienen las misma dirección MAC, dado que se realizo la misma configuración de RED cuando crearon las máquinas virtuales (hipervisor).
         
 <p align="center">
 <img width=310 src="img\Captura0.PNG"><img width=400 src="img\Captura1.PNG">
@@ -237,6 +249,9 @@ __5. Una vez cambiada la MAC, muestra de nuevo la información de la red, para c
 
 __6. ¿Los cambios hechos en el apartado anterior son temporales o permanentes? Reinicia la máquina virtual y vuelve a mostrar la información de esa interfaz... ¿se siguen mostrando los datos que modificaste o los originales? ¿Por qué?__
 
+    
+    Se mantienen los cambios, dado que Windows, por como está implementado, realiza directamente las modificaciones en registro
+    
     C:\Users\Alejandro10>ipconfig /All
 
     Configuración IP de Windows
