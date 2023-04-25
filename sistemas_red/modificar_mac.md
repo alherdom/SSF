@@ -162,7 +162,7 @@ Investiga y cambia la MAC por la interfaz gráfica. Utiliza la misma MAC que en 
     Windows y Linux, tienen las misma dirección MAC.
     ```
     <p align="center">
-    <img width=300 src="img\Captura0.PNG"><img width=350 src="img\Captura1.PNG">
+    <img width=310 src="img\Captura0.PNG"><img width=400 src="img\Captura1.PNG">
     </p>
 
     ```
