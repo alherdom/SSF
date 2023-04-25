@@ -40,7 +40,7 @@ enp0s3: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500
     TX packets 8754  bytes 3782103 (3.7 MB)
     TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</pre>
 
-    2.  Desactiva la interfaz a la que le vas a cambiar la MAC (recuerda que para hacer cambios en la configuración de red, primero debes desactivarla).
+2.  Desactiva la interfaz a la que le vas a cambiar la MAC (recuerda que para hacer cambios en la configuración de red, primero debes desactivarla).
 
         ```
         sudo ifconfig enp0s3 down
