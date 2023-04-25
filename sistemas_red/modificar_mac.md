@@ -103,9 +103,7 @@ __2. Elige un adaptador de red (interfaz) de los listados anteriormente, vamos a
     ```
     Los cambios son temporales, no se mantienen y la configuración de red vuelve a la original.
     
-    Una manera de cambiar la MAC cada vez que se inicie la máquina, sería mediante un script
-    en la carpeta /etc/init.d/ y enlances simbólicos en /etc/rc2.d, /etc/rc3.d, /etc/rc4.d,
-    /etc/rc5.d apuntando al script en /init.d/
+    Una manera de cambiar la MAC cada vez que se inicie la máquina, sería mediante un script en la carpeta /etc/init.d/ y enlances simbólicos en /etc/rc2.d, /etc/rc3.d, /etc/rc4.d, /etc/rc5.d apuntando al script en /init.d/
 
     Script:
 
