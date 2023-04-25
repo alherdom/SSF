@@ -116,13 +116,15 @@ __2. Elige un adaptador de red (interfaz) de los listados anteriormente, vamos a
 
 ## MS Windows
 
-Existen diferentes comandos para mostrar la información de red desde consola (ipconfig, getmac, netsh, etc.). El cambio de MAC, también se puede hacer de diferentes formas:
+**Existen diferentes comandos para mostrar la información de red desde consola (ipconfig, getmac, netsh, etc.). El cambio de MAC, también se puede hacer de diferentes formas:**
 - Por la interfaz gráfica, modificando las propiedades del adaptador de red.
 - Modificando el Registro (NO usar esa forma en esta práctica).
 - Por comandos, por ejemplo usando en la PowerShell.
 - etc.
-En MS Windows, realiza los siguientes pasos:
-1. Muestra por comando la información de la red (investiga qué comandos y opciones te interesan para mostrar los detalles). ¿Qué adaptadores de red hay? ¿Qué función tiene cada uno?
+
+**En MS Windows, realiza los siguientes pasos:**
+
+__1. Muestra por comando la información de la red (investiga qué comandos y opciones te interesan para mostrar los detalles). ¿Qué adaptadores de red hay? ¿Qué función tiene cada uno?__
 
     ```
     C:\Windows\system32>ipconfig /all
@@ -155,8 +157,10 @@ En MS Windows, realiza los siguientes pasos:
     NetBIOS sobre TCP/IP. . . . . . . . . . . : habilitado
     ```
 
-2. Muestra la MAC original y apúntula. ¿Coincide este MAC original de Windows con la original de GNU/Linux? ¿Por qué?
-Investiga y cambia la MAC por la interfaz gráfica. Utiliza la misma MAC que en GNU/Linux.
+__2. Muestra la MAC original y apúntula. ¿Coincide este MAC original de Windows con la original de GNU/Linux? ¿Por qué?__
+
+__Investiga y cambia la MAC por la interfaz gráfica. Utiliza la misma MAC que en GNU/Linux.__
+
     ```
     Windows y Linux, tienen las misma dirección MAC.
     ```
@@ -195,7 +199,7 @@ Investiga y cambia la MAC por la interfaz gráfica. Utiliza la misma MAC que en 
     NetBIOS sobre TCP/IP. . . . . . . . . . . : habilitado
     ```
     
-3. Investiga y cambia la MAC a través de la PowerShell, utilizando la misma MAC que en GNU/Linux.
+__3. Investiga y cambia la MAC a través de la PowerShell, utilizando la misma MAC que en GNU/Linux.__
 
     ```
     PS C:\Windows\system32> Get-NetAdapter
@@ -203,13 +207,12 @@ Investiga y cambia la MAC por la interfaz gráfica. Utiliza la misma MAC que en 
     Name                      InterfaceDescription                    ifIndex Status       MacAddress             LinkSpeed
     ----                      --------------------                    ------- ------       ----------             ---------
     Ethernet                  Intel(R) PRO/1000 MT Desktop Adapter         11 Up           08-00-27-58-5E-99         1 Gbps
-    ```   
+    ```
 
-4. Primero lista todos los adaptadores de red y su MAC asociada con el cmdlet:
-Get-NetAdapter | select name, macaddress
-Luego para cambiar la MAC puedes usar algún cmdlet como:
-Set-NetAdapter ...
-Set-NetAdapterAdvancedProperty ...
+__4. Primero lista todos los adaptadores de red y su MAC asociada con el cmdlet:__
+__"Get-NetAdapter | select name, macaddress"__
+
+__Luego para cambiar la MAC puedes usar algún cmdlet como: "Set-NetAdapter" "Set-NetAdapterAdvancedProperty"__
 
     ```
     PS C:\Windows\system32> Get-NetAdapter
@@ -227,17 +230,17 @@ Set-NetAdapterAdvancedProperty ...
     [S] Sí  [O] Sí a todo  [N] No  [T] No a todo  [U] Suspender  [?] Ayuda (el valor predeterminado es "S"): S
     ```
 
-5. Una vez cambiada la MAC, muestra de nuevo la información de la red, para comprobar que la MAC sea la que has modificado.
+__5. Una vez cambiada la MAC, muestra de nuevo la información de la red, para comprobar que la MAC sea la que has modificado.__
 
-    ```
-    PS C:\Windows\system32> Get-NetAdapter
+    
+        PS C:\Windows\system32> Get-NetAdapter
 
-    Name                      InterfaceDescription                    ifIndex Status       MacAddress             LinkSpeed
-    ----                      --------------------                    ------- ------       ----------             ---------
-    Ethernet                  Intel(R) PRO/1000 MT Desktop Adapter         11 Up           44-41-57-41-48-44         1 Gbps
-    ```
+        Name                      InterfaceDescription                    ifIndex Status       MacAddress             LinkSpeed
+        ----                      --------------------                    ------- ------       ----------             ---------
+        Ethernet                  Intel(R) PRO/1000 MT Desktop Adapter         11 Up           44-41-57-41-48-44         1 Gbps
+    
 
-6. ¿Los cambios hechos en el apartado anterior son temporales o permanentes? Reinicia la máquina virtual y vuelve a mostrar la información de esa interfaz... ¿se siguen mostrando los datos que modificaste o los originales? ¿Por qué?
+__6. ¿Los cambios hechos en el apartado anterior son temporales o permanentes? Reinicia la máquina virtual y vuelve a mostrar la información de esa interfaz... ¿se siguen mostrando los datos que modificaste o los originales? ¿Por qué?__
 
     ```
     C:\Users\Alejandro10>ipconfig /All
