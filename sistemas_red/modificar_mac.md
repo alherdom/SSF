@@ -115,4 +115,92 @@ lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536
         TX packets 2281  bytes 970417 (970.4 KB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</pre>
 
+# MS Windows
+
+Existen diferentes comandos para mostrar la información de red desde consola (ipconfig, getmac, netsh, etc.). El cambio de MAC, también se puede hacer de diferentes formas:
+- Por la interfaz gráfica, modificando las propiedades del adaptador de red.
+- Modificando el Registro (NO usar esa forma en esta práctica).
+- Por comandos, por ejemplo usando en la PowerShell.
+- etc.
+En MS Windows, realiza los siguientes pasos:
+1. Muestra por comando la información de la red (investiga qué comandos y opciones te interesan para mostrar los detalles). ¿Qué adaptadores de red hay? ¿Qué función tiene cada uno?
+
+    ```
+    C:\Windows\system32>ipconfig /all
+
+    Configuración IP de Windows
+
+    Nombre de host. . . . . . . . . : DESKTOP-BBIOHG8
+    Sufijo DNS principal  . . . . . :
+    Tipo de nodo. . . . . . . . . . : híbrido
+    Enrutamiento IP habilitado. . . : no
+    Proxy WINS habilitado . . . . . : no
+
+    Adaptador de Ethernet Ethernet:
+
+    Sufijo DNS específico para la conexión. . :
+    Descripción . . . . . . . . . . . . . . . : Intel(R) PRO/1000 MT Desktop Adapter
+    Dirección física. . . . . . . . . . . . . : 08-00-27-58-5E-99
+    DHCP habilitado . . . . . . . . . . . . . : sí
+    Configuración automática habilitada . . . : sí
+    Vínculo: dirección IPv6 local. . . : fe80::4114:4df:e8a8:790%11(Preferido)
+    Dirección IPv4. . . . . . . . . . . . . . : 192.168.31.191(Preferido)
+    Máscara de subred . . . . . . . . . . . . : 255.255.255.0
+    Concesión obtenida. . . . . . . . . . . . : martes, 25 de abril de 2023 11:47:23
+    La concesión expira . . . . . . . . . . . : martes, 25 de abril de 2023 23:47:22
+    Puerta de enlace predeterminada . . . . . : 192.168.31.1
+    Servidor DHCP . . . . . . . . . . . . . . : 192.168.31.1
+    IAID DHCPv6 . . . . . . . . . . . . . . . : 101187623
+    DUID de cliente DHCPv6. . . . . . . . . . : 00-01-00-01-2A-FE-D6-EC-08-00-27-58-5E-99
+    Servidores DNS. . . . . . . . . . . . . . : 192.168.31.1
+    NetBIOS sobre TCP/IP. . . . . . . . . . . : habilitado
+    ```
+
+2. Muestra la MAC original y apúntula. ¿Coincide este MAC original de Windows con la original de GNU/Linux? ¿Por qué?
+Investiga y cambia la MAC por la interfaz gráfica. Utiliza la misma MAC que en GNU/Linux.
+    ```
+    Windows y Linux, tienen las misma dirección MAC.
+    ```
+    <p align="center">
+    <img width=300 src="img\Captura0.PNG"><img width=350 src="img\Captura1.PNG">
+    </p>
+
+    ```
+    C:\Windows\system32>ipconfig /all
+
+    Configuración IP de Windows
+
+    Nombre de host. . . . . . . . . : DESKTOP-BBIOHG8
+    Sufijo DNS principal  . . . . . :
+    Tipo de nodo. . . . . . . . . . : híbrido
+    Enrutamiento IP habilitado. . . : no
+    Proxy WINS habilitado . . . . . : no
+
+    Adaptador de Ethernet Ethernet:
+
+    Sufijo DNS específico para la conexión. . :
+    Descripción . . . . . . . . . . . . . . . : Intel(R) PRO/1000 MT Desktop Adapter
+    Dirección física. . . . . . . . . . . . . : 44-41-57-41-48-44
+    DHCP habilitado . . . . . . . . . . . . . : sí
+    Configuración automática habilitada . . . : sí
+    Vínculo: dirección IPv6 local. . . : fe80::aae:c2b2:5046:7248%11(Preferido)
+    Dirección IPv4. . . . . . . . . . . . . . : 192.168.31.38(Preferido)
+    Máscara de subred . . . . . . . . . . . . : 255.255.255.0
+    Concesión obtenida. . . . . . . . . . . . : martes, 25 de abril de 2023 12:00:31
+    La concesión expira . . . . . . . . . . . : miércoles, 26 de abril de 2023 0:00:31
+    Puerta de enlace predeterminada . . . . . : 192.168.31.1
+    Servidor DHCP . . . . . . . . . . . . . . : 192.168.31.1
+    IAID DHCPv6 . . . . . . . . . . . . . . . : 101187623
+    DUID de cliente DHCPv6. . . . . . . . . . : 00-01-00-01-2A-FE-D6-EC-08-00-27-58-5E-99
+    Servidores DNS. . . . . . . . . . . . . . : 192.168.31.1
+    NetBIOS sobre TCP/IP. . . . . . . . . . . : habilitado
+    ```
+3. Investiga y cambia la MAC a través de la PowerShell, utilizando la misma MAC que en GNU/Linux.
+4. Primero lista todos los adaptadores de red y su MAC asociada con el cmdlet:
+Get-NetAdapter | select name, macaddress
+Luego para cambiar la MAC puedes usar algún cmdlet como:
+Set-NetAdapter ...
+Set-NetAdapterAdvancedProperty ...
+5. Una vez cambiada la MAC, muestra de nuevo la información de la red, para comprobar que la MAC sea la que has modificado.
+6. ¿Los cambios hechos en el apartado anterior son temporales o permanentes? Reinicia la máquina virtual y vuelve a mostrar la información de esa interfaz... ¿se siguen mostrando los datos que modificaste o los originales? ¿Por qué?
 </div>
