@@ -164,10 +164,9 @@ __Investiga y cambia la MAC por la interfaz gráfica. Utiliza la misma MAC que e
     
         Windows y Linux, tienen las misma dirección MAC.
         
-        <p align="center">
-        <img width=310 src="img\Captura0.PNG"><img width=400 src="img\Captura1.PNG">
-        </p>
-
+<p align="center">
+<img width=310 src="img\Captura0.PNG"><img width=400 src="img\Captura1.PNG">
+</p>
         
         C:\Windows\system32>ipconfig /all
 
