@@ -126,36 +126,36 @@ __2. Elige un adaptador de red (interfaz) de los listados anteriormente, vamos a
 
 __1. Muestra por comando la información de la red (investiga qué comandos y opciones te interesan para mostrar los detalles). ¿Qué adaptadores de red hay? ¿Qué función tiene cada uno?__
 
-    ```
-    C:\Windows\system32>ipconfig /all
 
-    Configuración IP de Windows
+        C:\Windows\system32>ipconfig /all
 
-    Nombre de host. . . . . . . . . : DESKTOP-BBIOHG8
-    Sufijo DNS principal  . . . . . :
-    Tipo de nodo. . . . . . . . . . : híbrido
-    Enrutamiento IP habilitado. . . : no
-    Proxy WINS habilitado . . . . . : no
+        Configuración IP de Windows
 
-    Adaptador de Ethernet Ethernet:
+        Nombre de host. . . . . . . . . : DESKTOP-BBIOHG8
+        Sufijo DNS principal  . . . . . :
+        Tipo de nodo. . . . . . . . . . : híbrido
+        Enrutamiento IP habilitado. . . : no
+        Proxy WINS habilitado . . . . . : no
 
-    Sufijo DNS específico para la conexión. . :
-    Descripción . . . . . . . . . . . . . . . : Intel(R) PRO/1000 MT Desktop Adapter
-    Dirección física. . . . . . . . . . . . . : 08-00-27-58-5E-99
-    DHCP habilitado . . . . . . . . . . . . . : sí
-    Configuración automática habilitada . . . : sí
-    Vínculo: dirección IPv6 local. . . : fe80::4114:4df:e8a8:790%11(Preferido)
-    Dirección IPv4. . . . . . . . . . . . . . : 192.168.31.191(Preferido)
-    Máscara de subred . . . . . . . . . . . . : 255.255.255.0
-    Concesión obtenida. . . . . . . . . . . . : martes, 25 de abril de 2023 11:47:23
-    La concesión expira . . . . . . . . . . . : martes, 25 de abril de 2023 23:47:22
-    Puerta de enlace predeterminada . . . . . : 192.168.31.1
-    Servidor DHCP . . . . . . . . . . . . . . : 192.168.31.1
-    IAID DHCPv6 . . . . . . . . . . . . . . . : 101187623
-    DUID de cliente DHCPv6. . . . . . . . . . : 00-01-00-01-2A-FE-D6-EC-08-00-27-58-5E-99
-    Servidores DNS. . . . . . . . . . . . . . : 192.168.31.1
-    NetBIOS sobre TCP/IP. . . . . . . . . . . : habilitado
-    ```
+        Adaptador de Ethernet Ethernet:
+
+        Sufijo DNS específico para la conexión. . :
+        Descripción . . . . . . . . . . . . . . . : Intel(R) PRO/1000 MT Desktop Adapter
+        Dirección física. . . . . . . . . . . . . : 08-00-27-58-5E-99
+        DHCP habilitado . . . . . . . . . . . . . : sí
+        Configuración automática habilitada . . . : sí
+        Vínculo: dirección IPv6 local. . . : fe80::4114:4df:e8a8:790%11(Preferido)
+        Dirección IPv4. . . . . . . . . . . . . . : 192.168.31.191(Preferido)
+        Máscara de subred . . . . . . . . . . . . : 255.255.255.0
+        Concesión obtenida. . . . . . . . . . . . : martes, 25 de abril de 2023 11:47:23
+        La concesión expira . . . . . . . . . . . : martes, 25 de abril de 2023 23:47:22
+        Puerta de enlace predeterminada . . . . . : 192.168.31.1
+        Servidor DHCP . . . . . . . . . . . . . . : 192.168.31.1
+        IAID DHCPv6 . . . . . . . . . . . . . . . : 101187623
+        DUID de cliente DHCPv6. . . . . . . . . . : 00-01-00-01-2A-FE-D6-EC-08-00-27-58-5E-99
+        Servidores DNS. . . . . . . . . . . . . . : 192.168.31.1
+        NetBIOS sobre TCP/IP. . . . . . . . . . . : habilitado
+    
 
 __2. Muestra la MAC original y apúntula. ¿Coincide este MAC original de Windows con la original de GNU/Linux? ¿Por qué?__
 
