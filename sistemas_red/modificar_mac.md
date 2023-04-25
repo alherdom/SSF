@@ -89,15 +89,15 @@ Puedes hacer todos los apartados con los comandos vistos en clase: ifconfig, ip,
     
     6. Muestra de nuevo la información asociada a esa interfaz para comprobar que los cambios se han aplicado correctamente, muestra que la MAC ha sido modificada y que la tarjeta está en modo promiscuo.
 
-    <pre><span style="background-color:#0087D7"> alejandro10 </span><span style="background-color:#585858"><font color="#0087D7"></font></span><span style="background-color:#585858"> ~ </span><font color="#585858"></font> ifconfig enp0s3
-    enp0s3: flags=4419&lt;UP,BROADCAST,RUNNING,PROMISC,MULTICAST&gt;  mtu 1500
-        inet 192.168.31.38  netmask 255.255.255.0  broadcast 192.168.31.255
-        inet6 fe80::abd0:3247:bccc:385f  prefixlen 64  scopeid 0x20&lt;link&gt;
-        ether 44:41:57:41:48:44  txqueuelen 1000  (Ethernet)
-        RX packets 47572  bytes 46926381 (46.9 MB)
-        RX errors 0  dropped 0  overruns 0  frame 0
-        TX packets 25525  bytes 10229542 (10.2 MB)
-        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</pre>
+        <pre><span style="background-color:#0087D7"> alejandro10 </span><span style="background-color:#585858"><font color="#0087D7"></font></span><span style="background-color:#585858"> ~ </span><font color="#585858"></font> ifconfig enp0s3
+        enp0s3: flags=4419&lt;UP,BROADCAST,RUNNING,PROMISC,MULTICAST&gt;  mtu 1500
+            inet 192.168.31.38  netmask 255.255.255.0  broadcast 192.168.31.255
+            inet6 fe80::abd0:3247:bccc:385f  prefixlen 64  scopeid 0x20&lt;link&gt;
+            ether 44:41:57:41:48:44  txqueuelen 1000  (Ethernet)
+            RX packets 47572  bytes 46926381 (46.9 MB)
+            RX errors 0  dropped 0  overruns 0  frame 0
+            TX packets 25525  bytes 10229542 (10.2 MB)
+            TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</pre>
  
 3. ¿Los cambios hechos en el apartado anterior son temporales o permanentes? Reinicia la máquina virtual y vuelve a mostrar la información de esa interfaz... ¿se siguen mostrando los datos que modificaste o los originales? ¿El adaptador está en "modo promiscuo" o no? ¿Por qué? 
 
