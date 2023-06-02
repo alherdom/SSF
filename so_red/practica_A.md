@@ -26,11 +26,80 @@ Como hemos visto en clase, la IP de un servidor debería ser estática, para que
 
 - Con estos comandos busca y anota información básica sobre la configuración de tu máquina real: IP, máscara, Gateway (Pasarela), DNS, etc. También puedes conseguir información sobre las interfaces de red y su tipo (ethernet, wifi, etc), MAC, CIDR, velocidad, MTU, etc.
 
+````
+C:\Users\Alejandro Hdez Dguez>ipconfig
+
+Configuración IP de Windows
+
+
+Adaptador de Ethernet Ethernet 3:
+
+   Estado de los medios. . . . . . . . . . . : medios desconectados
+   Sufijo DNS específico para la conexión. . :
+
+Adaptador de Ethernet VirtualBox Host-Only Network:
+
+   Sufijo DNS específico para la conexión. . :
+   Vínculo: dirección IPv6 local. . . : fe80::943c:761f:8763:59ca%19
+   Dirección IPv4. . . . . . . . . . . . . . : 192.168.56.1
+   Máscara de subred . . . . . . . . . . . . : 255.255.255.0
+   Puerta de enlace predeterminada . . . . . :
+
+Adaptador de LAN inalámbrica Conexión de área local* 1:
+
+   Estado de los medios. . . . . . . . . . . : medios desconectados
+   Sufijo DNS específico para la conexión. . :
+
+Adaptador de LAN inalámbrica Conexión de área local* 2:
+
+   Estado de los medios. . . . . . . . . . . : medios desconectados
+   Sufijo DNS específico para la conexión. . :
+
+Adaptador de Ethernet Ethernet 2:
+
+   Estado de los medios. . . . . . . . . . . : medios desconectados
+   Sufijo DNS específico para la conexión. . :
+
+Adaptador de LAN inalámbrica Wi-Fi:
+
+   Sufijo DNS específico para la conexión. . :
+   Vínculo: dirección IPv6 local. . . : fe80::6da3:c454:4f93:3e76%10
+   Dirección IPv4. . . . . . . . . . . . . . : 192.168.31.215
+   Máscara de subred . . . . . . . . . . . . : 255.255.255.0
+   Puerta de enlace predeterminada . . . . . : 192.168.31.1
+
+Adaptador de Ethernet Conexión de red Bluetooth:
+
+   Estado de los medios. . . . . . . . . . . : medios desconectados
+   Sufijo DNS específico para la conexión. . :
+````
+
 ##### SEGUNDO PASO
 
 - Ahora conéctate a tu máquina virtual y mira la configuración de red. ¿Se trata de una IP que está o no en la misma red? Confirma que, salvo la IP, comparten la misma configuración: máscara, gateway, etc.
 
 - Si no es así, consulta la configuración de red de VirtualBox y confirma que en el adaptador de red de tu máquina virtual, estés conectado a un ADAPTADOR PUENTE. Si estás en NAT o en otro tipo de adaptador, cambia a "Adaptador puente" (puedes hacerlo con la máquina virtual encendida, la configuración se actualiza a los pocos segundos, no hace falta reiniciar). Reflexiona sobre los diferentes adaptadores puente de la máquina virtual y qué significa cada uno, tienes más información en el aula virtual.
+
+````
+ alejandro10  ~  127  ifconfig
+enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.31.191  netmask 255.255.255.0  broadcast 192.168.31.255
+        inet6 fe80::abd0:3247:bccc:385f  prefixlen 64  scopeid 0x20<link>
+        ether 08:00:27:58:5e:99  txqueuelen 1000  (Ethernet)
+        RX packets 2717  bytes 1914126 (1.9 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 1174  bytes 113019 (113.0 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Bucle local)
+        RX packets 375  bytes 35014 (35.0 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 375  bytes 35014 (35.0 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+````
 
 ##### TERCER PASO
 
