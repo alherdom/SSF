@@ -122,7 +122,7 @@ dhclient
 
 - Si tienes una IP estática, lo más probable es que la IP se haya asignado mediante alguna interfaz gráfica, como la de NetworkManager que usamos cuando empezamos a usar la máquina. Puedes comprobar la configuración accediendo a esta interfaz y viendo las propiedades o detalles de la conexión, o también puedes ver los datos que se han guardado en el fichero de configuración (por ejemplo, busca el nombre de tu conexión en el directorio: /etc/NetworkManager/system-connections/
 
-NOTA: si teniendo una IP estática ejecutaste los comandos del 3a, verás que ha pasado algo raro, ¡tu adaptador de red tiene ahora DOS IPs!!!! (lo puedes ver con ip a, ya que ifconfig no lo muestra por defecto). ¿Cómo es esto posible? Fíjate que una de ellas es "secundaria", averigua para qué se usa esto. Puedes "eliminar" (liberar) esta segunda IP usando: dhclient -r.
+**NOTA**: si teniendo una IP estática ejecutaste los comandos del 3a, verás que ha pasado algo raro, ¡tu adaptador de red tiene ahora DOS IPs!!!! (lo puedes ver con ip a, ya que ifconfig no lo muestra por defecto). ¿Cómo es esto posible? Fíjate que una de ellas es "secundaria", averigua para qué se usa esto. Puedes "eliminar" (liberar) esta segunda IP usando: dhclient -r.
 
 ##### CUARTO PASO
 
@@ -192,7 +192,7 @@ auto <interfaz>
 
 - Ahora comprueba la nueva IP, ¿es la que habías indicado en la configuración? ¿Qué es lo que ha sucedido?
 
-NOTA: Quizá te dé algunos avisos o errores al ejecutar los comandos, por ahora sólo léelos e intenta averiguar qué te está queriendo decir.
+**NOTA:** Quizá te dé algunos avisos o errores al ejecutar los comandos, por ahora sólo léelos e intenta averiguar qué te está queriendo decir.
 
 ##### SEXTO PASO
 
@@ -240,7 +240,7 @@ nameserver 8.8.4.4
 
 - Usando PowerShell, cambia la IP de la máquina virtual de Windows con la misma configuración que la vista en la práctica A1 (misma IP estática, máscara, gateway, etc). Puedes seguir este tutorial o algún otro similar: https://techexpert.tips/es/powershell-es/powershell-configurar-una-direccion-ip-estatica/
 
-Nota: Ten en cuenta que el parámetro PrefixLength es el equivalente al CIDR. Por ejemplo, -PrefixLength 24 equivale a CIDR /24 o máscara 255.255.255.0. Elige el valor de PrefixLength correcto cuando vayas a indicar la configuración de la IP estática.
+**NOTA:** Ten en cuenta que el parámetro PrefixLength es el equivalente al CIDR. Por ejemplo, -PrefixLength 24 equivale a CIDR /24 o máscara 255.255.255.0. Elige el valor de PrefixLength correcto cuando vayas a indicar la configuración de la IP estática.
 
 - Una vez cambiada la IP, comprueba que todo es correcto (IP estática permanente, máscara, pasarela y DNS correctos, etc.). Avisa al profe cuando hayas acabado para revisar y marcar esta tarea como realizada.
 
