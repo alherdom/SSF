@@ -243,7 +243,9 @@ IMPORTANTE: antes de proceder a instalar el software, sincroniza tu lista local 
 
 ### Práctica A2. Configuración IP (Windows)
 
-- Usando PowerShell, cambia la IP de la máquina virtual de Windows con la misma configuración que la vista en la práctica A1 (misma IP estática, máscara, gateway, etc). Puedes seguir este tutorial o algún otro similar: https://techexpert.tips/es/powershell-es/powershell-configurar-una-direccion-ip-estatica/
+- Usando PowerShell, cambia la IP de la máquina virtual de Windows con la misma configuración que la vista en la práctica A1 (misma IP estática, máscara, gateway, etc). Puedes seguir este tutorial o algún otro similar:
+
+      https://techexpert.tips/es/powershell-es/powershell-configurar-una-direccion-ip-estatica/
 
 **NOTA:** Ten en cuenta que el parámetro PrefixLength es el equivalente al CIDR. Por ejemplo, -PrefixLength 24 equivale a CIDR /24 o máscara 255.255.255.0. Elige el valor de PrefixLength correcto cuando vayas a indicar la configuración de la IP estática.
 
