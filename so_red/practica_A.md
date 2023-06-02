@@ -207,8 +207,12 @@ auto <interfaz>
 
 - Esa IP corresponde a uno de los servidores de Google, pero... ¿cómo es posible que el ping esté funcionando y los servidores de Google me envíen respuestas si "no tienes internet"? Pues la realidad es que sí que "tienes Internet", estás conectado a la red y hay tráfico, pero hay un servicio que está teniendo problemas, y es el de DNS (por eso en el paso anterior te dio algunos avisos y/o errores). ¿Recuerdas qué hacía este servicio? Pues eso es el causante de no funcionen las URLs para acceder a equipos remotos, pero sí las IPs.
 
-- Bueno, vamos a solucionar el problema de los DNS, para ello sólo tienes que indicar qué servidores DNS quieres usar (normalmente se indica un servidor DNS primario y alguno secundario, por si falla el principal). Puedes utilizar los que tenía tu máquina real, o poner unos genéricos (por ejemplo es muy común usar los servidores DNS públicos ofrecidos por google https://developers.google.com/speed/public-dns/, que tienen IP: 8.8.8.8 y 8.8.4.4).
+- Bueno, vamos a solucionar el problema de los DNS, para ello sólo tienes que indicar qué servidores DNS quieres usar (normalmente se indica un servidor DNS primario y alguno secundario, por si falla el principal). Puedes utilizar los que tenía tu máquina real, o poner unos genéricos.
 
+- Por ejemplo es muy común usar los servidores DNS públicos ofrecidos por google, que tienen IP: 8.8.8.8 y 8.8.4.4:
+
+      https://developers.google.com/speed/public-dns/
+   
 - Para indicar los servidores DNS, se utiliza el fichero de configuración /etc/resolv.conf
 Edita este fichero, ten cuidado, es un fichero del sistema, así que NO toques nada de lo que está escrito, simplemente añade al final:
    ```
