@@ -220,7 +220,6 @@ ping www.google.com
 nslookup www.google.com
 ```
 
-
 - Por ahora parece que todo va bien, pero la solución realizada en el apartado anterior es temporal, porque el fichero /etc/resolv.conf es un fichero dinámico que se crea cada vez que se inicializan las interfaces, por lo que cuando reinicies el equipo, o simplemente cuando bajes y subas la interfaz (ifdown e ifup), el fichero /etc/resolv.conf volverá a generarse con la configuración original y otra vez estarás "sin internet". Prueba para que veas que sucede así.
 
 - Por este motivo, y para evitar tener que poner a mano los servidores DNS cada vez que reiniciemos la máquina o la interfaz, necesitamos que los cambios sean permanentes. Para ello, necesitarás instalar un paquete llamado: resolvconf
@@ -237,7 +236,6 @@ nameserver 8.8.4.4
 
 - Para finalizar, reinicia la máquina y comprueba que todo es correcto, que sólo tienes una IP y es la que asignaste estáticamente, que la máscara, broadcast y pasarela son los correctos, que puedes navegar por internet sin problemas, etc. También puedes pedirle a algún compañero que haga ping a tu nueva IP estática, para ver si está funcionando correctamente. Envía un mensaje a través del aula virtual al profe indicando tu IP estática, para poder darla de alta en el sistema de corrección... ¡Eso es todo! ;)
 
-
 ### Práctica A2. Configuración IP (Windows)
 
 - Usando PowerShell, cambia la IP de la máquina virtual de Windows con la misma configuración que la vista en la práctica A1 (misma IP estática, máscara, gateway, etc). Puedes seguir este tutorial o algún otro similar: https://techexpert.tips/es/powershell-es/powershell-configurar-una-direccion-ip-estatica/
@@ -245,8 +243,6 @@ nameserver 8.8.4.4
 Nota: Ten en cuenta que el parámetro PrefixLength es el equivalente al CIDR. Por ejemplo, -PrefixLength 24 equivale a CIDR /24 o máscara 255.255.255.0. Elige el valor de PrefixLength correcto cuando vayas a indicar la configuración de la IP estática.
 
 - Una vez cambiada la IP, comprueba que todo es correcto (IP estática permanente, máscara, pasarela y DNS correctos, etc.). Avisa al profe cuando hayas acabado para revisar y marcar esta tarea como realizada.
-
-
 
 ### Práctica A3. Conexión TCP/IP
 - Instala la aplicación WireShark en tu máquina GNU/Linux y luego ejecútala como superusuario para mostrar cómo se inicia y finaliza una conexión TCP.
