@@ -3,7 +3,6 @@
 ## Práctica A: Configuración Red - Curso 2022/23
 ### Práctica A1. Configuración IP estática (GNU/Linux)
 
-
 Vamos a preparar la máquina virtual con Linux Mint para convertirla en un pequeño servidor web de testeo (IMPORTANTE!! Recuerda que hemos instalado la versión Desktop de Linux Mint, por lo que NO es nada recomendable utilizarla para un servidor en producción).
 
 La primera parte de la práctica es la configuración básica de la máquina virtual, donde de forma guiada iremos viendo los diferentes pasos para convertir nuestro sistema en un servidor. Ten en cuenta que las explicaciones estarán basadas en un equipo que tenga instalado GNU/Linux con Linux Mint. En otras distribuciones GNU/Linux, aunque el proceso en general será bastante similar, puede que los comandos requeridos sean diferentes.
@@ -11,8 +10,6 @@ La primera parte de la práctica es la configuración básica de la máquina vir
 También ten en cuenta que ya tienes unos considerables conocimientos sobre administración de sistemas operativos, así que, aunque esto es una guía "paso por paso", hay operaciones obvias que no se indican porque se supone que sabrás resolverlas sin problemas, como acceder a directorios, crear y modificar ficheros, cuándo se debe o no usar sudo, cómo instalar y gestionar paquetes, servicios, etc.
 
 Por último, pero no menos importante, para poder configurar la máquina virtual, vas a tener que modificar ficheros de configuración del sistema. Ten mucho cuidado, porque cualquier error puede hacer que la máquina virtual no funcione correctamente. Es una buena práctica hacer copias de los ficheros de configuración que vas a modificar antes de cambiarlos, verificar varias veces que los cambios introducidos son los correctos antes de guardar el fichero, COMENTAR qué es lo que hemos cambiado (y dejar comentado el estado original), tener copias de respaldo de la máquina virtual, etc. Una ventaja añadida de hacer copias de los ficheros de configuración antes de modificarlos, es que usando comandos como diff, podrás ver luego las diferencias entre ambos y saber qué cosas has cambiado. Sin embargo, ten cuidado dónde realizas la copia de estos ficheros, ya que los directorios de configuración suelen tener usos especiales, por lo que si almacenas copias de seguridad allí, se pueden producir errores.
-
-
 
 ### EMPECEMOS...
 
