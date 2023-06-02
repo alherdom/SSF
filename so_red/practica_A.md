@@ -102,19 +102,23 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
 
 - ¿Qué tipo de IP tienes en la máquina virtual: pública o privada, estática o dinámica? ¿Cómo lo sabes?
 
+   - Se trata de una IP privada
+
 - Si tienes una IP dinámica, puedes probar a liberar la IP asignada y volver a solicitar otra IP, con los siguientes comandos (usaremos dhclient, que nos permite realizar algunas operaciones relacionadas con DHCP):
 
-#### Liberamos nuestra IP dinámica (-r: release, liberar)
-```
-dhclient -r
-```
+   - Liberamos nuestra IP dinámica (-r: release, liberar)
+      ```
+      dhclient -r
+      ```
 
-#### Volvemos a solicitar una nueva IP dinámica
-```
-dhclient
-```
+   - Volvemos a solicitar una nueva IP dinámica
+      ```
+      dhclient
+      ```
 
 - Después de cada comando, utiliza ifconfig o ip a  para comprobar qué IP tienes. La IP asignada antes y después de usar estos comandos, ¿es distinta o la misma que tenías antes? ¿Por qué? ¿Quién está asignando estas IPs?
+
+   - Distinta?
  
 
 - Si tienes una IP estática, lo más probable es que la IP se haya asignado mediante alguna interfaz gráfica, como la de NetworkManager que usamos cuando empezamos a usar la máquina. Puedes comprobar la configuración accediendo a esta interfaz y viendo las propiedades o detalles de la conexión, o también puedes ver los datos que se han guardado en el fichero de configuración (por ejemplo, busca el nombre de tu conexión en el directorio: /etc/NetworkManager/system-connections/
@@ -129,10 +133,10 @@ dhclient
 
 - Para asignar una IP estática por comandos, podemos usar lo siguiente, donde debes sustituir <...> por los valores (obviamente, SIN los símbolos < y > ;):
 
-```
-ifconfig <interfaz> <IP> netmask <máscara>
-route add default gw <pasarela>
-```
+   ```
+   ifconfig <interfaz> <IP> netmask <máscara>
+   route add default gw <pasarela>
+   ```
 
 - Por ejemplo, en tu casa probablemente te funcione una configuración similar a:
 ifconfig eth0 192.168.0.150 netmask 255.255.255.0
@@ -182,10 +186,10 @@ auto <interfaz>
 
 - Una vez que hayas cambiado el fichero de interfaces. Cierra y comprueba si ya el sistema tiene la nueva IP que las indicado de forma estática... ¿Sigues viendo la antigua y no ha cambiado nada?? ¿Cómo puede ser eso?? Ahhhhh, espera, quizá tenga algo que ver el .d en el nombre del directorio de configuración... ¿Qué puede estar pasando? Ahora recuerdas cuando vimos que, en general, al cambiar la configuración de un demonio está no se cargaba directamente. ¿Qué es lo que había que hacer? Puedes realizar estas operación con los comandos que ya sabes si conoces el nombre del demonio, o también usar los siguientes comandos:
 
-```
-    ifdown <interfaz>
-    ifup <interfaz>
-```
+   ```
+   ifdown <interfaz>
+   ifup <interfaz>
+   ```
 
 - Ahora comprueba la nueva IP, ¿es la que habías indicado en la configuración? ¿Qué es lo que ha sucedido?
 
@@ -197,9 +201,9 @@ auto <interfaz>
 
 - Aunque va a depender de cada configuración, es muy probable que "no tengas Internet" (comentario típico de los usuarios ;). Sin embargo, prueba el siguiente comando:
 
-```
-ping 142.250.200.132
-```
+   ```
+   ping 142.250.200.132
+   ```
 
 - Esa IP corresponde a uno de los servidores de Google, pero... ¿cómo es posible que el ping esté funcionando y los servidores de Google me envíen respuestas si "no tienes internet"? Pues la realidad es que sí que "tienes Internet", estás conectado a la red y hay tráfico, pero hay un servicio que está teniendo problemas, y es el de DNS (por eso en el paso anterior te dio algunos avisos y/o errores). ¿Recuerdas qué hacía este servicio? Pues eso es el causante de no funcionen las URLs para acceder a equipos remotos, pero sí las IPs.
 
@@ -207,15 +211,15 @@ ping 142.250.200.132
 
 - Para indicar los servidores DNS, se utiliza el fichero de configuración /etc/resolv.conf
 Edita este fichero, ten cuidado, es un fichero del sistema, así que NO toques nada de lo que está escrito, simplemente añade al final:
-```
-nameserver 8.8.8.8
-nameserver 8.8.4.4
-```
+   ```
+   nameserver 8.8.8.8
+   nameserver 8.8.4.4
+   ```
 - Guarda los cambios y... voilà !! Ya "vuelves a tener Internet" ;) Comprueba que ya sí puedes navegar por la red, y que tanto comandos como ping o nslookup te funcionan (por cierto, ¿para qué sirve nslookup?):
-```
-ping www.google.com
-nslookup www.google.com
-```
+   ```
+   ping www.google.com
+   nslookup www.google.com
+   ```
 
 - Por ahora parece que todo va bien, pero la solución realizada en el apartado anterior es temporal, porque el fichero /etc/resolv.conf es un fichero dinámico que se crea cada vez que se inicializan las interfaces, por lo que cuando reinicies el equipo, o simplemente cuando bajes y subas la interfaz (ifdown e ifup), el fichero /etc/resolv.conf volverá a generarse con la configuración original y otra vez estarás "sin internet". Prueba para que veas que sucede así.
 
@@ -225,10 +229,10 @@ IMPORTANTE: antes de proceder a instalar el software, sincroniza tu lista local 
 - Este paquete corresponde a un demonio con ese mismo nombre (resolvconf). Una vez instalado el demonio, comprueba que está iniciado y habilitado.
 
 - Después de realizar los pasos anteriores, sólo tienes que añadir los servidores DNS en el directorio de configuración del demonio (/etc/resolvconf/resolv.conf.d). Allí verás varios ficheros, uno llamado head (donde va la cabecera del fichero /etc/resolv.conf, todo lo que indiques ahí se colocará AL PRINCIPIO de /etc/resolv.conf), y otro fichero llamado tail (donde va la "cola" o parte final del fichero, lo que escribas ahí se pondrá AL FINAL de /etc/resolv.conf). Edita este último fichero tail y añade los servidores DNS de Google:
-```
-nameserver 8.8.8.8
-nameserver 8.8.4.4
-```
+   ```
+   nameserver 8.8.8.8
+   nameserver 8.8.4.4
+   ```
 - Ahora reinicia la interfaz (ifdown e ifup), o bien reinicia la máquina, y verás que el fichero /etc/resolv.conf ya incluye los servidores DNS de forma permanente, por lo que deberías poder trabajar sin problemas.
 
 - Para finalizar, reinicia la máquina y comprueba que todo es correcto, que sólo tienes una IP y es la que asignaste estáticamente, que la máscara, broadcast y pasarela son los correctos, que puedes navegar por internet sin problemas, etc. También puedes pedirle a algún compañero que haga ping a tu nueva IP estática, para ver si está funcionando correctamente. Envía un mensaje a través del aula virtual al profe indicando tu IP estática, para poder darla de alta en el sistema de corrección... ¡Eso es todo! ;)
