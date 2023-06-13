@@ -284,7 +284,7 @@ __6. ¿Los cambios hechos en el apartado anterior son temporales o permanentes? 
 __En un dispositivo que tengas conectado por WiFi (puede ser un equipo de sobremesa, portátil, tablet, móvil, etc.), consulta los detalles de la conexión WiFi y busca qué tipo de MAC se está enviando, si es la real o una aleatoria. Captura la pantalla donde se muestre esta información sobre la MAC, así como el tipo de WiFi, IP, etc.__
 
 <p align="center">
-<img width=300 src="img\iphone.jpeg">
+<img width=300 src="">
 </p>
 
 __¿Por qué crees que algunos dispositivos por defecto crean MAC aleatorias al conectarse? ¿Qué ventajas y desventajas tiene esta opción?__
